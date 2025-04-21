@@ -92,3 +92,22 @@ export const getRandomStation = (avoidStations = []) => {
     const availableStations = stations.filter(station => !avoidStations.includes(station.name));
     return availableStations[Math.floor(Math.random() * availableStations.length)].name;
 };
+
+export const getStationLines = (stationName) => {
+    if (!stations.length || !lines.length) {
+        console.warn("getStationLines called before data loaded.");
+        return [];
+    }
+    const station = stations.find(s => s.name === stationName);
+    if (!station || !station.services) {
+        return [];
+    }
+
+    const stationLineNames = Array.from(new Set(station.services.map(lineName => lineName.split("|")[0])));
+
+    const lineObjects = stationLineNames.map(lineName =>
+        lines.find(line => line.name === lineName)
+    ).filter(line => line);
+
+    return lineObjects;
+};
