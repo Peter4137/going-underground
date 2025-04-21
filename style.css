@@ -74,8 +74,12 @@ h1 {
 }
 
 .line-segment.has-inner {
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    /* Define border style/width but use transparent color initially */
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: none; /* Explicitly remove top/bottom borders */
+    border-bottom: none;
+    background-clip: padding-box; /* Background color applies to padding area */
 }
 
 .station-display {
@@ -157,6 +161,56 @@ h1 {
     font-size: 1.1em;
     color: #333;
     font-weight: bold;
+}
+
+/* Popup Styles */
+#popup-overlay {
+    position: fixed; /* Sit on top of the page content */
+    inset: 0; /* Cover the entire viewport */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    display: flex; /* Use flexbox to center the popup box */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#popup-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 250px;
+    max-width: 80%;
+}
+
+#popup-message {
+    font-size: 1.4em;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+#popup-close-button {
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#popup-close-button:hover {
+    background-color: #0056b3;
+}
+
+/* Class to hide the popup - Increased Specificity */
+#popup-overlay.popup-hidden {
+    display: none;
+    opacity: 0;
 }
 
 @media (min-width: 768px) {

@@ -1,16 +1,35 @@
-import { checkLink, getMatchingStationName, getConnectingLines } from "./network.js";
+import { checkLink, getMatchingStationName, getConnectingLines, getRandomStation, dataLoadedPromise, stations } from "./network.js";
 
 let lives = 3;
 const livesContainer = document.querySelector('.lives-container');
-const visitedStations = ["Bank"];
-const goalStation = "Oval";
+let visitedStations = [];
+let goalStation = "";
 
 let visitedStationsContainer;
 let goalStationContainer;
+// Popup element references
+let popupOverlay;
+let popupMessageElement;
+let popupCloseButton;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     visitedStationsContainer = document.querySelector('.visited-stations-container');
     goalStationContainer = document.getElementById('goal-station-container');
+    // Assign popup elements
+    popupOverlay = document.getElementById('popup-overlay');
+    popupMessageElement = document.getElementById('popup-message');
+    popupCloseButton = document.getElementById('popup-close-button');
+
+    const dataReady = await dataLoadedPromise;
+
+    
+    if (!dataReady || stations.length === 0) {
+        goalStationContainer.textContent = "Error loading station data!";
+        return;
+    }
+
+    visitedStations = [getRandomStation()];
+    goalStation = getRandomStation(visitedStations);
 
     updateLivesDisplay();
     updateVisitedStationsDisplay();
@@ -27,6 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.key === 'Enter') {
                 event.preventDefault();
                 handleGuess(event);
+            }
+        });
+    }
+
+    if (popupCloseButton) {
+        popupCloseButton.addEventListener('click', () => {
+            popupOverlay.classList.add('popup-hidden');
+        });
+    }
+
+    if (popupOverlay) {
+        popupOverlay.addEventListener('click', (event) => {
+            if (event.target === popupOverlay) {
+                popupOverlay.classList.add('popup-hidden');
             }
         });
     }
@@ -54,15 +87,16 @@ const updateVisitedStationsDisplay = () => {
             connectingLines.forEach((line, lineIndex) => {
                 const lineSegment = document.createElement('div');
                 lineSegment.classList.add('line-segment');
-                lineSegment.classList.add('line-segment-endless');
-                lineSegment.style.backgroundColor = line.outerColor;
                 lineSegment.style.width = `${segmentWidth}%`;
                 lineSegment.style.transitionDelay = `${index * 0.1}s`;
 
                 if (line.innerColor) {
                     lineSegment.classList.add('has-inner');
-                    lineSegment.style.borderColor = line.innerColor;
+                    lineSegment.style.backgroundColor = line.innerColor;
+                    lineSegment.style.borderLeftColor = line.outerColor;
+                    lineSegment.style.borderRightColor = line.outerColor;
                 } else {
+                     lineSegment.style.backgroundColor = line.outerColor;
                      lineSegment.style.border = 'none';
                 }
 
@@ -115,6 +149,13 @@ const updateLivesDisplay = () => {
     }
 };
 
+const showPopup = (message) => {
+    if (!popupOverlay || !popupMessageElement) return;
+
+    popupMessageElement.textContent = message;
+    popupOverlay.classList.remove('popup-hidden');
+}
+
 const handleGuess = (event) => {
     event.preventDefault();
     const guessInput = document.getElementById("user-input");
@@ -140,14 +181,13 @@ const handleGuess = (event) => {
         visitedStations.push(guessStationName);
         updateVisitedStationsDisplay();
 
-        // Check for win *after* updating display
         if (guessStationName === goalStation) {
+            // WIN CONDITION
             console.log("You win!");
             document.getElementById('user-input').disabled = true;
             document.getElementById('submit-button').disabled = true;
-            // Optional: Add a win message display
+            showPopup("Congratulations! You reached the goal station!"); // Show win popup
         } else {
-             // Clear input only if not winning guess (to see final station)
              guessInput.value = '';
         }
 
@@ -156,15 +196,15 @@ const handleGuess = (event) => {
         lives--;
         updateLivesDisplay();
         console.log("Incorrect guess, stations not linked.");
-        // TODO handle incorrect guess feedback
 
         if (lives === 0) {
+            // LOSS CONDITION
             console.log("Game Over!");
             document.getElementById('user-input').disabled = true;
             document.getElementById('submit-button').disabled = true;
-            // TODO handle game over feedback
+            showPopup("Game Over! You ran out of lives."); // Show loss popup
         }
-         guessInput.value = ''; // Clear input on incorrect guess
+        guessInput.value = '';
     }
 };
 
