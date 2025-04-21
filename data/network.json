@@ -307,7 +307,7 @@
                 "Circle|clockwise",
                 "Circle|anticlockwise",
                 "Metropolitan|chesham-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Elizabeth|heathrow-terminal-4-abbey-wood",
                 "Elizabeth|heathrow-terminal-5-shenfield",
                 "Metropolitan|amersham-aldgate-slow"
@@ -332,7 +332,7 @@
         {
             "name": "Mile End",
             "services": [
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster",
                 "Central|epping-west-ruislip",
                 "District|wimbledon-upminster",
@@ -559,7 +559,7 @@
             "services": [
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Metropolitan|watford-aldgate-slow",
                 "Bakerloo",
                 "Metropolitan|amersham-aldgate-slow",
@@ -576,7 +576,7 @@
             "services": [
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Metropolitan|watford-aldgate-slow",
                 "Metropolitan|amersham-aldgate-fast",
                 "Metropolitan|uxbridge-aldgate-slow",
@@ -648,7 +648,7 @@
             "services": [
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Metropolitan|watford-aldgate-slow",
                 "Metropolitan|amersham-aldgate-fast",
                 "Metropolitan|uxbridge-aldgate-slow",
@@ -664,7 +664,7 @@
                 "Elizabeth|heathrow-terminal-4-shenfield",
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Elizabeth|heathrow-terminal-4-abbey-wood",
                 "Elizabeth|heathrow-terminal-5-abbey-wood",
                 "Elizabeth|reading-abbey-wood",
@@ -697,7 +697,7 @@
             "services": [
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Metropolitan|watford-aldgate-slow",
                 "Metropolitan|amersham-aldgate-fast",
                 "Metropolitan|uxbridge-aldgate-slow",
@@ -743,7 +743,7 @@
                 "Northern|morden-bank-edgware",
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Northern|morden-bank-high-barnet",
                 "Metropolitan|watford-aldgate-slow",
                 "Metropolitan|amersham-aldgate-slow",
@@ -760,7 +760,7 @@
             "services": [
                 "Elizabeth|heathrow-terminal-4-shenfield",
                 "District|ealing-broadway-edgware-road",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|wimbledon-edgware-road",
                 "Elizabeth|heathrow-terminal-4-abbey-wood",
                 "Elizabeth|heathrow-terminal-5-abbey-wood",
@@ -853,7 +853,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -862,7 +862,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -891,7 +891,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -900,7 +900,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -946,7 +946,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -1018,7 +1018,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -1066,7 +1066,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -1111,7 +1111,7 @@
             "services": [
                 "District|richmond-upminster",
                 "District|wimbledon-upminster",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster"
             ]
         },
@@ -1126,7 +1126,7 @@
             "name": "West Ham",
             "services": [
                 "DLR|stratford-international-woolwich",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster",
                 "DLR|stratford-international-beckton",
                 "District|wimbledon-upminster",
@@ -1147,7 +1147,7 @@
             "name": "Whitechapel",
             "services": [
                 "Elizabeth|heathrow-terminal-4-shenfield",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "District|ealing-broadway-upminster",
                 "District|wimbledon-upminster",
                 "Elizabeth|heathrow-terminal-4-abbey-wood",
@@ -1780,55 +1780,55 @@
         {
             "name": "Edgware Road (Circle/District/Hammersmith & City)",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Goldhawk Road",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Hammersmith (Met.)",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Ladbroke Grove",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Latimer Road",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Royal Oak",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Shepherds Bush Market",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Westbourne Park",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
             "name": "Wood Lane",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ]
         },
         {
@@ -2337,7 +2337,7 @@
                 "Piccadilly|cockfosters-cockfosters",
                 "Metropolitan|chesham-aldgate-slow",
                 "Metropolitan|watford-aldgate-fast",
-                "Hammersmith and City",
+                "Hammersmith & City",
                 "Metropolitan|watford-aldgate-slow",
                 "Metropolitan|amersham-aldgate-slow",
                 "Metropolitan|amersham-aldgate-fast",
@@ -5200,7 +5200,7 @@
             "from": "Aldgate East",
             "to": "Whitechapel",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5208,7 +5208,7 @@
             "from": "Baker Street",
             "to": "Great Portland Street",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5216,7 +5216,7 @@
             "from": "Barbican",
             "to": "Moorgate",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5224,7 +5224,7 @@
             "from": "Bow Road",
             "to": "Bromley-by-Bow",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5232,7 +5232,7 @@
             "from": "Bromley-by-Bow",
             "to": "West Ham",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5240,7 +5240,7 @@
             "from": "Barking",
             "to": "East Ham",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5248,7 +5248,7 @@
             "from": "Baker Street",
             "to": "Edgware Road (Circle/District/Hammersmith & City)",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5256,7 +5256,7 @@
             "from": "Euston Square",
             "to": "King's Cross St. Pancras",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5264,7 +5264,7 @@
             "from": "Barbican",
             "to": "Farringdon",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5272,7 +5272,7 @@
             "from": "Goldhawk Road",
             "to": "Shepherds Bush Market",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5280,7 +5280,7 @@
             "from": "Euston Square",
             "to": "Great Portland Street",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5288,7 +5288,7 @@
             "from": "Goldhawk Road",
             "to": "Hammersmith (Met.)",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5296,7 +5296,7 @@
             "from": "Farringdon",
             "to": "King's Cross St. Pancras",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5304,7 +5304,7 @@
             "from": "Ladbroke Grove",
             "to": "Westbourne Park",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5312,7 +5312,7 @@
             "from": "Ladbroke Grove",
             "to": "Latimer Road",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5320,7 +5320,7 @@
             "from": "Aldgate East",
             "to": "Liverpool Street",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5328,7 +5328,7 @@
             "from": "Bow Road",
             "to": "Mile End",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5336,7 +5336,7 @@
             "from": "Liverpool Street",
             "to": "Moorgate",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5344,7 +5344,7 @@
             "from": "Edgware Road (Circle/District/Hammersmith & City)",
             "to": "Paddington",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5352,7 +5352,7 @@
             "from": "Plaistow",
             "to": "Upton Park",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5360,7 +5360,7 @@
             "from": "Paddington",
             "to": "Royal Oak",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5368,7 +5368,7 @@
             "from": "Shepherds Bush Market",
             "to": "Wood Lane",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5376,7 +5376,7 @@
             "from": "Mile End",
             "to": "Stepney Green",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5384,7 +5384,7 @@
             "from": "East Ham",
             "to": "Upton Park",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5392,7 +5392,7 @@
             "from": "Plaistow",
             "to": "West Ham",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5400,7 +5400,7 @@
             "from": "Royal Oak",
             "to": "Westbourne Park",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5408,7 +5408,7 @@
             "from": "Stepney Green",
             "to": "Whitechapel",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },
@@ -5416,7 +5416,7 @@
             "from": "Latimer Road",
             "to": "Wood Lane",
             "services": [
-                "Hammersmith and City"
+                "Hammersmith & City"
             ],
             "time": 2
         },

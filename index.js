@@ -1,4 +1,4 @@
-import { checkLink, getMatchingStationName, getConnectingLines, getRandomStation, dataLoadedPromise, stations } from "./network.js";
+import { checkLink, getMatchingStationName, getConnectingLines, getRandomStation, dataLoadedPromise, stations, getStationLines } from "./network.js";
 
 let lives = 3;
 const livesContainer = document.querySelector('.lives-container');
@@ -15,6 +15,9 @@ let popupCloseButton;
 let toastElement;
 let toastMessageElement;
 let toastTimeoutId = null; // To manage the hide timeout
+// Hint elements
+let hintButton;
+let hintLinesContainer;
 
 document.addEventListener('DOMContentLoaded', async () => {
     visitedStationsContainer = document.querySelector('.visited-stations-container');
@@ -26,6 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Assign toast elements
     toastElement = document.getElementById('toast-notification');
     toastMessageElement = document.getElementById('toast-message');
+    // Assign hint elements
+    hintButton = document.getElementById('hint-button');
+    hintLinesContainer = document.getElementById('hint-lines-container');
 
     const dataReady = await dataLoadedPromise;
 
@@ -69,6 +75,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 popupOverlay.classList.add('popup-hidden');
             }
         });
+    }
+
+    // Add listener for the hint button
+    if (hintButton) {
+        hintButton.addEventListener('click', handleHintClick);
     }
 });
 
@@ -180,6 +191,44 @@ const showToast = (message, duration = 3000) => {
     }, duration);
 }
 
+// Handler for the hint button click
+const handleHintClick = () => {
+    if (!hintButton || !hintLinesContainer || !goalStation) return;
+
+    const linesForGoal = getStationLines(goalStation);
+
+    hintLinesContainer.innerHTML = '';
+
+    if (linesForGoal.length > 0) {
+        linesForGoal.forEach(line => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('hint-line-indicator');
+            indicator.title = line.name;
+
+            // Apply final colors immediately
+            if (line.innerColor) {
+                indicator.style.backgroundColor = line.innerColor;
+                indicator.style.borderTopColor = line.outerColor;
+                indicator.style.borderBottomColor = line.outerColor;
+            } else {
+                indicator.style.backgroundColor = line.outerColor;
+                indicator.style.borderTopColor = 'transparent';
+                indicator.style.borderBottomColor = 'transparent';
+            }
+
+            hintLinesContainer.appendChild(indicator);
+
+            setTimeout(() => {
+                indicator.classList.add('visible');
+            }, 10);
+        });
+    } else {
+        hintLinesContainer.textContent = "(No line info available for goal)";
+    }
+
+    hintButton.disabled = true;
+};
+
 const handleGuess = (event) => {
     event.preventDefault();
     const guessInput = document.getElementById("user-input");
@@ -206,7 +255,6 @@ const handleGuess = (event) => {
 
         if (guessStationName === goalStation) {
             // WIN CONDITION
-            console.log("You win!");
             document.getElementById('user-input').disabled = true;
             document.getElementById('submit-button').disabled = true;
             showPopup("Congratulations! You reached the goal station!"); // Show win popup
@@ -215,17 +263,14 @@ const handleGuess = (event) => {
         }
 
     } else {
-        // Incorrect guess (not linked)
         lives--;
         updateLivesDisplay();
-        console.log("Incorrect guess, stations not linked.");
+        showToast("No connection between stations!");
 
         if (lives === 0) {
-            // LOSS CONDITION
-            console.log("Game Over!");
             document.getElementById('user-input').disabled = true;
             document.getElementById('submit-button').disabled = true;
-            showPopup("Game Over! You ran out of lives."); // Show loss popup
+            showPopup("Game Over! You ran out of lives.");
         }
         guessInput.value = '';
     }

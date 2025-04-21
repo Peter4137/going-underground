@@ -36,7 +36,7 @@ h1 {
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     justify-content: space-between;
 }
 
@@ -133,6 +133,21 @@ h1 {
     background-color: #0056b3;
 }
 
+.input-area button#hint-button {
+    background-color: #ffc107; /* Yellow hint button */
+    color: #333;
+    margin-left: 0.5rem; /* Space between buttons */
+}
+
+.input-area button#hint-button:hover {
+    background-color: #e0a800;
+}
+
+.input-area button#hint-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .lives-container {
     padding: 0.5rem 1rem;
     text-align: center;
@@ -161,6 +176,43 @@ h1 {
     font-size: 1.1em;
     color: #333;
     font-weight: bold;
+}
+
+#hint-lines-container {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0; 
+    min-height: 36px; /* Adjusted height (12px + 2*3px border + 2*5px padding) */
+}
+
+.hint-line-indicator {
+    display: inline-block;
+    width: 50px;
+    height: 12px;
+    margin: 0 2px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    opacity: 0;
+    background-color: transparent;
+    /* Define border structure transparently */
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: none;
+    border-right: none;
+    background-clip: content-box; /* Important for border display */
+    transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+/* Remove separate rule, border structure is on base now */
+/*
+.hint-line-indicator.has-inner {
+   ...
+}
+*/
+
+/* Class to make indicators visible */
+.hint-line-indicator.visible {
+    opacity: 1;
 }
 
 /* Popup Styles */
