@@ -1,72 +1,70 @@
 {
     "lines": [
-        [
-            {
-                "name": "Bakerloo",
-                "innerColor": "#B36305",
-                "outerColor": "#B36305"
-            },
-            {
-                "name": "Central",
-                "innerColor": "#E32017",
-                "outerColor": "#E32017"
-            },
-            {
-                "name": "Circle",
-                "innerColor": "#FFD300",
-                "outerColor": "#FFD300"
-            },
-            {
-                "name": "District",
-                "innerColor": "#00782A",
-                "outerColor": "#00782A"
-            },
-            {
-                "name": "Hammersmith & City",
-                "innerColor": "#F3A9BB",
-                "outerColor": "#F3A9BB"
-            },
-            {
-                "name": "Jubilee",
-                "innerColor": "#A0A5A9",
-                "outerColor": "#A0A5A9"
-            },
-            {
-                "name": "Metropolitan",
-                "innerColor": "#9B0056",
-                "outerColor": "#9B0056"
-            },
-            {
-                "name": "Northern",
-                "innerColor": "#000000",
-                "outerColor": "#000000"
-            },
-            {
-                "name": "Piccadilly",
-                "innerColor": "#003688",
-                "outerColor": "#003688"
-            },
-            {
-                "name": "Victoria",
-                "innerColor": "#0098D4",
-                "outerColor": "#0098D4"
-            },
-            {
-                "name": "Waterloo & City",
-                "innerColor": "#76D0BD",
-                "outerColor": "#76D0BD"
-            },
-            {
-                "name": "DLR",
-                "innerColor": "#FFFFFF",
-                "outerColor": "#00A4A7"
-            },
-            {
-                "name": "Elizabeth",
-                "innerColor": "#FFFFFF",
-                "outerColor": "#6950A1"
-            }
-        ]
+        {
+            "name": "Bakerloo",
+            "innerColor": "#B36305",
+            "outerColor": "#B36305"
+        },
+        {
+            "name": "Central",
+            "innerColor": "#E32017",
+            "outerColor": "#E32017"
+        },
+        {
+            "name": "Circle",
+            "innerColor": "#FFD300",
+            "outerColor": "#FFD300"
+        },
+        {
+            "name": "District",
+            "innerColor": "#00782A",
+            "outerColor": "#00782A"
+        },
+        {
+            "name": "Hammersmith & City",
+            "innerColor": "#F3A9BB",
+            "outerColor": "#F3A9BB"
+        },
+        {
+            "name": "Jubilee",
+            "innerColor": "#A0A5A9",
+            "outerColor": "#A0A5A9"
+        },
+        {
+            "name": "Metropolitan",
+            "innerColor": "#9B0056",
+            "outerColor": "#9B0056"
+        },
+        {
+            "name": "Northern",
+            "innerColor": "#000000",
+            "outerColor": "#000000"
+        },
+        {
+            "name": "Piccadilly",
+            "innerColor": "#003688",
+            "outerColor": "#003688"
+        },
+        {
+            "name": "Victoria",
+            "innerColor": "#0098D4",
+            "outerColor": "#0098D4"
+        },
+        {
+            "name": "Waterloo & City",
+            "innerColor": "#76D0BD",
+            "outerColor": "#76D0BD"
+        },
+        {
+            "name": "DLR",
+            "innerColor": "#FFFFFF",
+            "outerColor": "#00A4A7"
+        },
+        {
+            "name": "Elizabeth",
+            "innerColor": "#FFFFFF",
+            "outerColor": "#6950A1"
+        }
     ],
     "stations": [
         {
