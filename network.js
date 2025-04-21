@@ -1,7 +1,6 @@
 let lines = [];
 let stations = [];
 
-// Create a promise that resolves when data is loaded
 const dataLoadedPromise = fetch("./data/network.json")
     .then(response => {
         if (!response.ok) {
@@ -12,14 +11,13 @@ const dataLoadedPromise = fetch("./data/network.json")
     .then(data => {
         lines = data.lines;
         stations = data.stations;
-        return true; // Indicate success
+        return true;
     })
     .catch(error => {
         console.error("Could not load network data:", error);
-        return false; // Indicate failure
+        return false;
     });
 
-// Export the promise
 export { dataLoadedPromise, stations, lines };
 
 export const checkLink = (fromName, toName) => {
@@ -50,6 +48,7 @@ const cleanName = (name) => {
         .replace(/&/g, 'and')
         .replace(/['’]/g, '') // Handle different apostrophes
         .replace(/ /g, "-")
+        .replace(/\./g, '')
         .toLowerCase();
 };
 
@@ -60,10 +59,14 @@ export const getMatchingStationName = (input) => {
     }
     const cleanInput = cleanName(input);
     const matchingStation = stations.find(station => cleanName(station.name) === cleanInput);
-    return matchingStation?.name
+    if (matchingStation) {
+        return matchingStation.name;
+    }
+
+    const supersetMatchingStation = stations.find(station => cleanName(station.name).includes(cleanInput));
+    return supersetMatchingStation?.name
 };
 
-// Function to find lines connecting two stations
 export const getConnectingLines = (fromName, toName) => {
     if (!stations.length || !lines.length) {
         console.warn("getConnectingLines called before data loaded.");

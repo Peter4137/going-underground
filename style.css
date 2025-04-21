@@ -213,6 +213,34 @@ h1 {
     opacity: 0;
 }
 
+/* Toast Notification Styles */
+#toast-notification {
+    position: fixed;
+    bottom: 20px; /* Position near bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust horizontal centering */
+    background-color: #d9534f; /* Reddish background for error */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    z-index: 1100; /* Above popup overlay */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease; /* Smooth transition */
+}
+
+#toast-notification.toast-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 20px); /* Move down slightly when hidden */
+}
+
+#toast-message {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     body {
        max-width: 960px;

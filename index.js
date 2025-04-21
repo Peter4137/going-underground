@@ -11,6 +11,10 @@ let goalStationContainer;
 let popupOverlay;
 let popupMessageElement;
 let popupCloseButton;
+// Toast element references
+let toastElement;
+let toastMessageElement;
+let toastTimeoutId = null; // To manage the hide timeout
 
 document.addEventListener('DOMContentLoaded', async () => {
     visitedStationsContainer = document.querySelector('.visited-stations-container');
@@ -19,6 +23,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     popupOverlay = document.getElementById('popup-overlay');
     popupMessageElement = document.getElementById('popup-message');
     popupCloseButton = document.getElementById('popup-close-button');
+    // Assign toast elements
+    toastElement = document.getElementById('toast-notification');
+    toastMessageElement = document.getElementById('toast-message');
 
     const dataReady = await dataLoadedPromise;
 
@@ -156,6 +163,23 @@ const showPopup = (message) => {
     popupOverlay.classList.remove('popup-hidden');
 }
 
+// Function to show the toast notification
+const showToast = (message, duration = 3000) => {
+    if (!toastElement || !toastMessageElement) return;
+
+    if (toastTimeoutId) {
+        clearTimeout(toastTimeoutId);
+    }
+
+    toastMessageElement.textContent = message;
+    toastElement.classList.remove('toast-hidden');
+
+    toastTimeoutId = setTimeout(() => {
+        toastElement.classList.add('toast-hidden');
+        toastTimeoutId = null;
+    }, duration);
+}
+
 const handleGuess = (event) => {
     event.preventDefault();
     const guessInput = document.getElementById("user-input");
@@ -163,8 +187,7 @@ const handleGuess = (event) => {
     const guessStationName = getMatchingStationName(guess);
 
     if (!guessStationName) {
-        console.log("Invalid guess");
-        // TODO handle invalid guess feedback
+        showToast("Invalid station name!");
         guessInput.value = '';
         return;
     }
