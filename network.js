@@ -1,7 +1,7 @@
 let lines = [];
 let stations = [];
 
-fetch("./data/network.json")
+const dataLoadedPromise = fetch("./data/network.json")
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -11,11 +11,14 @@ fetch("./data/network.json")
     .then(data => {
         lines = data.lines;
         stations = data.stations;
+        return true;
     })
     .catch(error => {
         console.error("Could not load network data:", error);
+        return false;
     });
 
+export { dataLoadedPromise, stations, lines };
 
 export const checkLink = (fromName, toName) => {
     if (!stations || stations.length === 0) {
@@ -45,6 +48,7 @@ const cleanName = (name) => {
         .replace(/&/g, 'and')
         .replace(/['’]/g, '') // Handle different apostrophes
         .replace(/ /g, "-")
+        .replace(/\./g, '')
         .toLowerCase();
 };
 
@@ -55,10 +59,14 @@ export const getMatchingStationName = (input) => {
     }
     const cleanInput = cleanName(input);
     const matchingStation = stations.find(station => cleanName(station.name) === cleanInput);
-    return matchingStation?.name
+    if (matchingStation) {
+        return matchingStation.name;
+    }
+
+    const supersetMatchingStation = stations.find(station => cleanName(station.name).includes(cleanInput));
+    return supersetMatchingStation?.name
 };
 
-// Function to find lines connecting two stations
 export const getConnectingLines = (fromName, toName) => {
     if (!stations.length || !lines.length) {
         console.warn("getConnectingLines called before data loaded.");
@@ -80,6 +88,7 @@ export const getConnectingLines = (fromName, toName) => {
     return Array.from(new Set(connectingLines)).map(lineName => lines.find(line => line.name === lineName));
 };
 
-// Optional: Export lines if needed, but ensure code using it handles the async loading
-// export { lines };
-
+export const getRandomStation = (avoidStations = []) => {
+    const availableStations = stations.filter(station => !avoidStations.includes(station.name));
+    return availableStations[Math.floor(Math.random() * availableStations.length)].name;
+};
