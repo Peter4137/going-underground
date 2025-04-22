@@ -18,6 +18,10 @@ let toastTimeoutId = null; // To manage the hide timeout
 // Hint elements
 let hintButton;
 let hintLinesContainer;
+// Help Popup elements
+let helpButtonElement;
+let helpPopupOverlay;
+let helpPopupCloseButton;
 
 document.addEventListener('DOMContentLoaded', async () => {
     visitedStationsContainer = document.querySelector('.visited-stations-container');
@@ -32,6 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Assign hint elements
     hintButton = document.getElementById('hint-button');
     hintLinesContainer = document.getElementById('hint-lines-container');
+    // Assign Help Popup elements
+    helpButtonElement = document.getElementById('help-button');
+    helpPopupOverlay = document.getElementById('help-popup-overlay');
+    helpPopupCloseButton = document.getElementById('help-popup-close-button');
 
     const dataReady = await dataLoadedPromise;
 
@@ -80,6 +88,34 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Add listener for the hint button
     if (hintButton) {
         hintButton.addEventListener('click', handleHintClick);
+    }
+
+    // Add listener for the main help button
+    if (helpButtonElement) {
+        helpButtonElement.addEventListener('click', () => {
+            if (helpPopupOverlay) {
+                 helpPopupOverlay.classList.remove('popup-hidden');
+            }
+        });
+    }
+
+    // Add listener for the help popup close button
+    if (helpPopupCloseButton) {
+        helpPopupCloseButton.addEventListener('click', () => {
+            if (helpPopupOverlay) {
+                helpPopupOverlay.classList.add('popup-hidden');
+            }
+        });
+    }
+
+    // Close help popup if user clicks outside the box
+     if (helpPopupOverlay) {
+        helpPopupOverlay.addEventListener('click', (event) => {
+            // Check if the click was directly on the overlay
+            if (event.target === helpPopupOverlay) {
+                helpPopupOverlay.classList.add('popup-hidden');
+            }
+        });
     }
 });
 

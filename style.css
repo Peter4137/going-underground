@@ -25,10 +25,39 @@ body {
 
 h1 {
     text-align: center;
-    padding: 1rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
     width: 100%;
     background-color: #333;
     color: white;
+    position: relative;
+}
+
+#help-button {
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    font-size: 1em;
+    line-height: 2em;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+#help-button:hover {
+    background: #777;
 }
 
 #main-content {
@@ -183,8 +212,6 @@ h1 {
 #hint-lines-container {
     width: 100%;
     text-align: center;
-    padding: 0.5rem 0; 
-    min-height: 36px; /* Adjusted height (12px + 2*3px border + 2*5px padding) */
 }
 
 .hint-line-indicator {
@@ -311,4 +338,65 @@ h1 {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
      }
+}
+
+/* Help Popup Styles (mostly copied from game end popup) */
+#help-popup-overlay {
+    position: fixed; 
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#help-popup-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Align text left for instructions */
+    min-width: 300px;
+    max-width: 90%;
+    max-height: 80vh; /* Prevent very long popups */
+    overflow-y: auto; /* Allow scrolling if needed */
+}
+
+#help-popup-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+#help-popup-box p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+#help-popup-close-button {
+    display: block; /* Make it a block element */
+    margin: 1.5rem auto 0 auto; /* Center the button */
+    padding: 0.6rem 1.2rem;
+    background-color: #6c757d; /* Grey close button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#help-popup-close-button:hover {
+    background-color: #5a6268;
+}
+
+/* Reuse .popup-hidden for the help popup */
+#help-popup-overlay.popup-hidden {
+    display: none;
+    opacity: 0;
 } 
