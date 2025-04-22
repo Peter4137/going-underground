@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tube Game</title>
+    <title>Going Underground</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>Tube Game</h1>
+    <header class="main-header">
+        <h1>Going Underground</h1>
+        <button id="help-button" aria-label="Help">?</button>
+    </header>
     <main id="main-content">
         <div class="visited-stations-container">
             <!-- Visited stations will be dynamically added here -->
         </div>
-        <div id="goal-station-container">
-            <!-- Goal station text will go here -->
-        </div>
         <div id="hint-lines-container" class="hint-lines-hidden">
              <!-- Hint lines will appear here -->
+        </div>
+        <div id="goal-station-container">
+            <!-- Goal station text will go here -->
         </div>
     </main>
     <div class="lives-container">
@@ -41,6 +45,18 @@
     <!-- Toast Notification -->
     <div id="toast-notification" class="toast-hidden">
         <p id="toast-message"></p>
+    </div>
+
+    <!-- Help Popup Structure -->
+    <div id="help-popup-overlay" class="popup-hidden">
+        <div id="help-popup-box">
+            <h2>How to Play</h2>
+            <p><strong>Aim:</strong> Try and find your way to the goal station from the start station!</p>
+            <p>Enter the name of the <em>next</em> station on your route. You can only travel between directly connected stations on the same line.</p>
+            <p>If your guess isn't directly connected to your current station, you'll lose a life.</p>
+            <p>Try to reach the goal station using the fewest guesses.</p>
+            <button id="help-popup-close-button">Close</button>
+        </div>
     </div>
 </body>
 </html>

@@ -33,7 +33,6 @@ export const checkLink = (fromName, toName) => {
     }
 
     // Assuming fromStation.services is an array of arrays of connected station names
-    console.log(fromStation, toStation);
     for (const service of fromStation.services) {
         if (toStation.services.includes(service)) {
             return true;
