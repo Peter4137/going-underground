@@ -273,6 +273,29 @@ h1 {
     color: #333;
 }
 
+.popup-buttons {
+    margin-top: 1.5rem; /* Space above buttons */
+    display: flex; /* Arrange buttons */
+    justify-content: center; /* Center buttons */
+    gap: 1rem; /* Space between buttons */
+}
+
+/* Style the new Play Again button */
+#popup-play-again-button {
+    padding: 0.6rem 1.2rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#popup-play-again-button:hover {
+    background-color: #218838;
+}
+
 #popup-close-button {
     padding: 0.6rem 1.2rem;
     background-color: #007bff;
