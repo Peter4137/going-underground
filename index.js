@@ -1,4 +1,14 @@
-import { checkLink, getMatchingStationName, getConnectingLines, getRandomStation, dataLoadedPromise, stations, getStationLines } from "./network.js";
+import { 
+    checkLink, 
+    getMatchingStationName, 
+    getConnectingLines, 
+    getRandomStation, 
+    dataLoadedPromise, 
+    stations, 
+    getStationLines,
+    calculateOptimalPath,
+    calculateChosenPathTime
+} from "./network.js";
 
 let lives = 3;
 const livesContainer = document.querySelector('.lives-container');
@@ -22,6 +32,11 @@ let hintLinesContainer;
 let helpButtonElement;
 let helpPopupOverlay;
 let helpPopupCloseButton;
+// Game End Popup elements
+let playAgainButton;
+
+// Game state variables
+const INITIAL_LIVES = 3;
 
 document.addEventListener('DOMContentLoaded', async () => {
     visitedStationsContainer = document.querySelector('.visited-stations-container');
@@ -30,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     popupOverlay = document.getElementById('popup-overlay');
     popupMessageElement = document.getElementById('popup-message');
     popupCloseButton = document.getElementById('popup-close-button');
+    playAgainButton = document.getElementById('popup-play-again-button');
     // Assign toast elements
     toastElement = document.getElementById('toast-notification');
     toastMessageElement = document.getElementById('toast-message');
@@ -49,75 +65,65 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    initializeGame();
+    setupEventListeners();
+});
+
+function setupEventListeners() {
+    const submitButton = document.getElementById('submit-button');
+    if (submitButton) submitButton.addEventListener('click', handleGuess);
+
+    const userInput = document.getElementById('user-input');
+    if (userInput) userInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            handleGuess(event);
+        }
+    });
+
+    if (popupCloseButton) popupCloseButton.addEventListener('click', () => popupOverlay.classList.add('popup-hidden'));
+    if (playAgainButton) playAgainButton.addEventListener('click', resetGame);
+    if (popupOverlay) popupOverlay.addEventListener('click', (event) => {
+        if (event.target === popupOverlay) popupOverlay.classList.add('popup-hidden');
+    });
+
+    if (hintButton) hintButton.addEventListener('click', handleHintClick);
+    if (helpButtonElement) helpButtonElement.addEventListener('click', () => {
+        if (helpPopupOverlay) helpPopupOverlay.classList.remove('popup-hidden');
+    });
+    if (helpPopupCloseButton) helpPopupCloseButton.addEventListener('click', () => {
+        if (helpPopupOverlay) helpPopupOverlay.classList.add('popup-hidden');
+    });
+    if (helpPopupOverlay) helpPopupOverlay.addEventListener('click', (event) => {
+        if (event.target === helpPopupOverlay) helpPopupOverlay.classList.add('popup-hidden');
+    });
+}
+
+function initializeGame() {
+    lives = INITIAL_LIVES;
     visitedStations = [getRandomStation()];
     goalStation = getRandomStation(visitedStations);
+    
+    // Reset UI elements
+    document.getElementById('user-input').disabled = false;
+    document.getElementById('submit-button').disabled = false;
+    document.getElementById('user-input').value = ''; // Clear input
+    if (hintButton) hintButton.disabled = false;
+    if (hintLinesContainer) hintLinesContainer.innerHTML = ''; // Clear hints
+    if (popupOverlay) popupOverlay.classList.add('popup-hidden'); // Ensure popup is hidden
+    if (visitedStationsContainer) visitedStationsContainer.innerHTML = ''; // Clear previous path display
 
+    // Initial display updates
     updateLivesDisplay();
     updateVisitedStationsDisplay();
     updateGoalStationDisplay();
+    console.log(`New Game Started! Start: ${visitedStations[0]}, Goal: ${goalStation}`);
+}
 
-    const submitButton = document.getElementById('submit-button');
-    if (submitButton) {
-        submitButton.addEventListener('click', handleGuess);
-    }
-
-    const userInput = document.getElementById('user-input');
-    if (userInput) {
-        userInput.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                handleGuess(event);
-            }
-        });
-    }
-
-    if (popupCloseButton) {
-        popupCloseButton.addEventListener('click', () => {
-            popupOverlay.classList.add('popup-hidden');
-        });
-    }
-
-    if (popupOverlay) {
-        popupOverlay.addEventListener('click', (event) => {
-            if (event.target === popupOverlay) {
-                popupOverlay.classList.add('popup-hidden');
-            }
-        });
-    }
-
-    // Add listener for the hint button
-    if (hintButton) {
-        hintButton.addEventListener('click', handleHintClick);
-    }
-
-    // Add listener for the main help button
-    if (helpButtonElement) {
-        helpButtonElement.addEventListener('click', () => {
-            if (helpPopupOverlay) {
-                 helpPopupOverlay.classList.remove('popup-hidden');
-            }
-        });
-    }
-
-    // Add listener for the help popup close button
-    if (helpPopupCloseButton) {
-        helpPopupCloseButton.addEventListener('click', () => {
-            if (helpPopupOverlay) {
-                helpPopupOverlay.classList.add('popup-hidden');
-            }
-        });
-    }
-
-    // Close help popup if user clicks outside the box
-     if (helpPopupOverlay) {
-        helpPopupOverlay.addEventListener('click', (event) => {
-            // Check if the click was directly on the overlay
-            if (event.target === helpPopupOverlay) {
-                helpPopupOverlay.classList.add('popup-hidden');
-            }
-        });
-    }
-});
+function resetGame() {
+    console.log("Resetting game...");
+    initializeGame(); // Re-run the initialization logic
+}
 
 const getCurrentStation = () => {
     return visitedStations[visitedStations.length - 1];
@@ -203,10 +209,14 @@ const updateLivesDisplay = () => {
     }
 };
 
-const showPopup = (message) => {
+const showPopup = (message, score = null) => {
     if (!popupOverlay || !popupMessageElement) return;
 
-    popupMessageElement.textContent = message;
+    let fullMessage = message;
+    if (score !== null) {
+        fullMessage += `\nYou scored: ${score}`;
+    }
+    popupMessageElement.innerText = fullMessage;
     popupOverlay.classList.remove('popup-hidden');
 }
 
@@ -269,6 +279,10 @@ const handleGuess = (event) => {
     event.preventDefault();
     const guessInput = document.getElementById("user-input");
     const guess = guessInput.value;
+    if (!guess) {
+        showToast("Please enter a station name!");
+        return;
+    }
     const guessStationName = getMatchingStationName(guess);
 
     if (!guessStationName) {
@@ -279,21 +293,45 @@ const handleGuess = (event) => {
 
     const currentStation = getCurrentStation();
     if (guessStationName === currentStation) {
-        console.log("Already at station");
+        showToast("You're already at that station!");
         guessInput.value = '';
         return;
     }
 
     if (checkLink(currentStation, guessStationName)) {
-        // Correct guess
         visitedStations.push(guessStationName);
         updateVisitedStationsDisplay();
 
         if (guessStationName === goalStation) {
             // WIN CONDITION
-            document.getElementById('user-input').disabled = true;
-            document.getElementById('submit-button').disabled = true;
-            showPopup("Congratulations! You reached the goal station!"); // Show win popup
+            const playerPath = [...visitedStations];
+            const startStation = playerPath[0];
+            const endStation = playerPath[playerPath.length - 1];
+
+            // Delay the win popup and input disabling until animation finishes
+            const animationDuration = 1000; // Match CSS transition duration (1.0s)
+            
+            setTimeout(() => {
+                // Calculate times *after* the delay to ensure network data is likely ready
+                const playerTime = calculateChosenPathTime(playerPath);
+                const optimalResult = calculateOptimalPath(startStation, endStation);
+                const optimalTime = optimalResult ? optimalResult.time : Infinity;
+
+                let scoreText = "(Optimal path calculation failed)";
+                if (playerTime !== Infinity && optimalTime !== Infinity && playerTime > 0) {
+                    const score = Math.round((optimalTime / playerTime) * 100);
+                    scoreText = `${score}%`;
+                } else if (playerTime === Infinity) {
+                     scoreText = "(Your path seems impossible?)";
+                }
+
+                document.getElementById('user-input').disabled = true;
+                document.getElementById('submit-button').disabled = true;
+                hintButton.disabled = true;
+                // Pass the score string to the popup
+                showPopup(`Congratulations! You reached ${endStation}!`, scoreText); 
+            }, animationDuration);
+
         } else {
              guessInput.value = '';
         }
