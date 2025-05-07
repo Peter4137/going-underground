@@ -64,6 +64,11 @@
             "name": "Elizabeth",
             "innerColor": "#FFFFFF",
             "outerColor": "#6950A1"
+        },
+        {
+            "name": "Walking",
+            "innerColor": "#FFFFFF",
+            "outerColor": "#000000"
         }
     ],
     "stations": [
@@ -92,7 +97,8 @@
                 "Central|epping-ealing-broadway",
                 "Waterloo & City",
                 "Northern|morden-bank-mill-hill-east",
-                "Central|woodford-west-ruislip"
+                "Central|woodford-west-ruislip",
+                "Walking|bank-monument"
             ]
         },
         {
@@ -655,7 +661,8 @@
                 "Circle|clockwise",
                 "Metropolitan|amersham-aldgate-slow",
                 "Circle|anticlockwise",
-                "Metropolitan|chesham-aldgate-fast"
+                "Metropolitan|chesham-aldgate-fast",
+                "Walking|euston-euston-square"
             ]
         },
         {
@@ -734,7 +741,8 @@
                 "District|wimbledon-upminster",
                 "Circle|clockwise",
                 "District|richmond-upminster",
-                "Circle|anticlockwise"
+                "Circle|anticlockwise",
+                "Walking|bank-monument"
             ]
         },
         {
@@ -2233,7 +2241,8 @@
                 "Victoria",
                 "Northern|morden-bank-mill-hill-east",
                 "Northern|battersea-power-station-charing-cross-high-barnet",
-                "Northern|morden-charing-cross-edgware"
+                "Northern|morden-charing-cross-edgware",
+                "Walking|euston-euston-square"
             ]
         },
         {
@@ -7418,6 +7427,22 @@
                 "Waterloo & City"
             ],
             "time": 2
-        }
+        },
+        {
+            "from": "Bank",
+            "to": "Monument",
+            "services": [
+                "Walking|bank-monument"
+            ],
+            "time": 2
+        },
+        {
+            "from": "Euston",
+            "to": "Euston Square",
+            "services": [
+                "Walking|euston-euston-square"
+            ],
+            "time": 2
+        },
     ]
 }

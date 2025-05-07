@@ -1,6 +1,24 @@
-let lines = [];
-let stations = [];
-let edges = {};
+type Line = {
+    name: string;
+    innerColor: string;
+    outerColor: string;
+}
+
+type Station = {
+    name: string;
+    services: string[];
+}
+
+type Connection = {
+    from: string;
+    to: string;
+    services: string[];
+    time: number;
+}
+
+let lines: Line[] = [];
+let stations: Station[] = [];
+let edges: Connection[] = [];
 
 const dataLoadedPromise = fetch("./data/network.json")
     .then(response => {
@@ -13,10 +31,6 @@ const dataLoadedPromise = fetch("./data/network.json")
         lines = data.lines;
         stations = data.stations;
         edges = data.edges;
-        if (!edges) {
-            console.warn("'edges' object not found in network.json. Path calculation might fail.");
-            edges = {};
-        }
         return true;
     })
     .catch(error => {
@@ -26,7 +40,7 @@ const dataLoadedPromise = fetch("./data/network.json")
 
 export { dataLoadedPromise, stations, lines };
 
-export const checkLink = (fromName, toName) => {
+export const checkLink = (fromName: string, toName: string) => {
     if (!stations || stations.length === 0) {
         console.warn("checkLink called before stations data loaded.");
         return false;
@@ -47,7 +61,7 @@ export const checkLink = (fromName, toName) => {
     return false;
 };
 
-const cleanName = (name) => {
+const cleanName = (name: string) => {
     if (typeof name !== 'string') return ''; // Handle non-string input
     return name
         .replace(/&/g, 'and')
@@ -57,7 +71,7 @@ const cleanName = (name) => {
         .toLowerCase();
 };
 
-export const getMatchingStationName = (input) => {
+export const getMatchingStationName = (input: string) => {
     if (!stations || stations.length === 0) {
         console.warn("getMatchingStation called before stations data loaded.");
         return undefined;
@@ -72,7 +86,7 @@ export const getMatchingStationName = (input) => {
     return supersetMatchingStation?.name
 };
 
-export const getConnectingLines = (fromName, toName) => {
+export const getConnectingLines = (fromName: string, toName: string): Line[] => {
     if (!stations.length || !lines.length) {
         console.warn("getConnectingLines called before data loaded.");
         return [];
@@ -90,15 +104,17 @@ export const getConnectingLines = (fromName, toName) => {
     );
 
     const connectingLines = commonLineNames.map(lineName => lineName.split("|")[0]);
-    return Array.from(new Set(connectingLines)).map(lineName => lines.find(line => line.name === lineName));
+    return Array.from(new Set(connectingLines))
+        .map(lineName => lines.find(line => line.name === lineName))
+        .filter((line) => !!line);
 };
 
-export const getRandomStation = (avoidStations = []) => {
+export const getRandomStation = (avoidStations: string[] = []) => {
     const availableStations = stations.filter(station => !avoidStations.includes(station.name));
     return availableStations[Math.floor(Math.random() * availableStations.length)].name;
 };
 
-export const getStationLines = (stationName) => {
+export const getStationLines = (stationName: string): Line[] => {
     if (!stations.length || !lines.length) {
         console.warn("getStationLines called before data loaded.");
         return [];
@@ -112,22 +128,28 @@ export const getStationLines = (stationName) => {
 
     const lineObjects = stationLineNames.map(lineName =>
         lines.find(line => line.name === lineName)
-    ).filter(line => line);
+    ).filter(line => !!line);
 
     return lineObjects;
 };
 
 // Finds shortest time between two stations WITHOUT change penalties
-const findShortestSegmentTime = (startName, endName) => {
+const findShortestSegmentTime = (startName: string, endName: string) => {
     if (!stations.length || !Array.isArray(edges) || edges.length === 0) {
         console.error("Segment calculation requires station data and edges array.");
         return null; 
     }
 
-    const times = {};
-    const previousNodes = {};
-    const previousLines = {}; // Lines used for incoming edge
-    const pq = []; // [(time, station)] - Don't need incoming lines here
+    const times: {
+        [key: string]: number
+    } = {};
+    const previousNodes: {
+        [key: string]: string | null
+    } = {};
+    const previousLines: {
+        [key: string]: string[] | null
+    } = {}; // Lines used for incoming edge
+    const pq: [number, string][] = []; // [(time, station)] - Don't need incoming lines here
     const visited = new Set();
 
     stations.forEach(station => {
@@ -141,8 +163,11 @@ const findShortestSegmentTime = (startName, endName) => {
 
     while (pq.length > 0) {
         pq.sort((a, b) => a[0] - b[0]);
-        const [currentTime, currentNode] = pq.shift();
-
+        const nextVal = pq.shift();
+        if (!nextVal) {
+            break;
+        }
+        const [currentTime, currentNode] = nextVal;
         if (visited.has(currentNode)) continue;
         visited.add(currentNode);
 
@@ -181,17 +206,23 @@ const findShortestSegmentTime = (startName, endName) => {
     };
 };
 
-export const calculateOptimalPath = (fromName, toName) => {
+export const calculateOptimalPath = (fromName: string, toName: string) => {
     // 1. Initialization
     if (!stations.length || !Array.isArray(edges) || edges.length === 0) { 
         console.error("Path calculation requires station data and edges array.");
         return null; 
     }
 
-    const times = {};
-    const previousNodes = {};
-    const previousLines = {};
-    const pq = [];
+    const times: {
+        [key: string]: number
+    } = {};
+    const previousNodes: {
+        [key: string]: string | null
+    } = {};
+    const previousLines: {
+        [key: string]: string[] | null
+    } = {}
+    const pq: [number, string, string[]][] = [];
     const visited = new Set();
 
     stations.forEach(station => {
@@ -206,7 +237,11 @@ export const calculateOptimalPath = (fromName, toName) => {
     // 2. Main Loop (Dijkstra-like)
     while (pq.length > 0) {
         pq.sort((a, b) => a[0] - b[0]);
-        const [currentTime, currentNode, incomingLines] = pq.shift();
+        const nextValue = pq.shift();
+        if (!nextValue) {
+            break
+        }
+        const [currentTime, currentNode, incomingLines] = nextValue
 
         if (visited.has(currentNode)) {
             continue;
@@ -259,7 +294,7 @@ export const calculateOptimalPath = (fromName, toName) => {
     }
 
     const path = [];
-    let current = toName;
+    let current: string | null = toName;
     while (current !== null) {
         path.push(current);
         current = previousNodes[current];
@@ -289,14 +324,14 @@ export const calculateOptimalPath = (fromName, toName) => {
     };
 };
 
-export const calculateChosenPathTime = (path) => {
+export const calculateChosenPathTime = (path: string[]) => {
     if (!path || path.length < 2) {
         console.error("Chosen path must have at least two stations.");
-        return Infinity; // Or null, or throw error
+        return Infinity;
     }
 
     let totalTime = 0;
-    let previousSegmentLines = null;
+    let previousSegmentLines: string[] | null = null;
     const CHANGE_PENALTY = 3;
 
     for (let i = 0; i < path.length - 1; i++) {
@@ -313,11 +348,12 @@ export const calculateChosenPathTime = (path) => {
         totalTime += segmentResult.time;
 
         // Check for change penalty (after the first segment)
-        if (i > 0 && previousSegmentLines) {
+        if (i > 0 && !!previousSegmentLines) {
+            const prevSegmentLines = previousSegmentLines
             const currentSegmentLines = segmentResult.linesUsed;
-            const hasCommonLine = currentSegmentLines.some(line => previousSegmentLines.includes(line));
+            const hasCommonLine = currentSegmentLines.some(line => prevSegmentLines.includes(line));
             
-            if (!hasCommonLine && currentSegmentLines.length > 0 && previousSegmentLines.length > 0) {
+            if (!hasCommonLine && currentSegmentLines.length > 0 && prevSegmentLines.length > 0) {
                 totalTime += CHANGE_PENALTY;
             }
         }
