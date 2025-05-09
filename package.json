@@ -1,9 +1,12 @@
 {
   "type": "module",
   "devDependencies": {
+    "concurrently": "^9.1.2",
+    "http-server": "^14.1.1",
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "concurrently \"yarn tsc --watch\" \"yarn http-server . -o /src/index.html -c-1\""
   }
 }
