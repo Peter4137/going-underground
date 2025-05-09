@@ -36,7 +36,7 @@ let helpPopupOverlay: HTMLElement;
 let helpPopupCloseButton: HTMLElement;
 // Game End Popup elements
 let playAgainButton: HTMLElement;
-
+let popupOptimalPath: HTMLElement;
 // Game state variables
 const INITIAL_LIVES = 3;
 
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     helpButtonElement = document.getElementById('help-button') as HTMLElement;
     helpPopupOverlay = document.getElementById('help-popup-overlay') as HTMLElement;
     helpPopupCloseButton = document.getElementById('help-popup-close-button') as HTMLInputElement;
+    popupOptimalPath = document.getElementById('popup-optimal-path') as HTMLElement;
     
     if (stations.length === 0) {
         goalStationContainer.textContent = "Error loading station data!";
@@ -210,7 +211,7 @@ const updateLivesDisplay = () => {
     }
 };
 
-const showPopup = (message: string, score: string | null = null) => {
+const showPopup = (message: string, score: string | null = null, optimalPath: string | null = null) => {
     if (!popupOverlay || !popupMessageElement) return;
 
     let fullMessage = message;
@@ -219,6 +220,9 @@ const showPopup = (message: string, score: string | null = null) => {
     }
     popupMessageElement.innerText = fullMessage;
     popupOverlay.classList.remove('popup-hidden');
+    if (optimalPath) {
+        popupOptimalPath.innerText = "Optimal Path: " + optimalPath;
+    }
 }
 
 // Function to show the toast notification
@@ -310,8 +314,8 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
         if (guessStationName === goalStation) {
             // WIN CONDITION
             const playerPath = [...visitedStations];
-            const startStation = playerPath[0];
-            const endStation = playerPath[playerPath.length - 1];
+            const startStation = playerPath[0] as string;
+            const endStation = playerPath[playerPath.length - 1] as string;
 
             // Delay the win popup and input disabling until animation finishes
             const animationDuration = 1000; // Match CSS transition duration (1.0s)
@@ -319,17 +323,15 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
             setTimeout(() => {
                 // Calculate times *after* the delay to ensure network data is likely ready
                 const playerTime = calculateChosenPathTime(playerPath);
-                if (!startStation || !endStation) {
-                    showPopup("Congratulations! You reached the goal!", "(Optimal path calculation failed - start or end station missing)");
-                    return;
-                }
                 const optimalResult = calculateOptimalPath(startStation, endStation);
                 const optimalTime = optimalResult ? optimalResult.time : Infinity;
 
                 let scoreText = "(Optimal path calculation failed)";
+                let optimalPath = null;
                 if (playerTime !== Infinity && optimalTime !== undefined && optimalTime !== Infinity && playerTime > 0 && optimalResult) {
                     const score = Math.round((optimalTime / playerTime) * 100);
                     scoreText = `${score}%`;
+                    optimalPath = optimalResult.changes.join(", ");
                 } else if (playerTime === Infinity) {
                     scoreText = "(Your path seems impossible?)";
                 }
@@ -338,7 +340,7 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
                 submitButton.disabled = true;
                 hintButton.disabled = true;
                 // Pass the score string to the popup
-                showPopup(`Congratulations! You reached ${endStation}!`, scoreText); 
+                showPopup(`Congratulations! You reached ${endStation}!`, scoreText, optimalPath); 
             }, animationDuration);
 
         } else {
@@ -353,7 +355,11 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
         if (lives === 0) {
             userInput.disabled = true;
             submitButton.disabled = true;
-            showPopup("Game Over! You ran out of lives.");
+
+            const optimalResult = calculateOptimalPath(visitedStations[0] as string, goalStation);
+            const optimalPath = optimalResult ? optimalResult.changes.join(", ") : null;
+
+            showPopup("Game Over! You ran out of lives.", null, optimalPath);
         }
         guessInput.value = '';
     }
