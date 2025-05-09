@@ -1,14 +1,14 @@
-import { 
-    checkLink, 
-    getMatchingStationName, 
-    getConnectingLines, 
-    getRandomStation, 
-    dataLoadedPromise, 
-    stations, 
+import {
+    checkLink,
+    getMatchingStationName,
+    getConnectingLines,
+    getRandomStation,
     getStationLines,
     calculateOptimalPath,
     calculateChosenPathTime
-} from "./network";
+} from "./network.js";
+
+import { stations } from "./data.js";
 
 let lives = 3;
 const livesContainer: HTMLElement = document.querySelector('.lives-container') as HTMLElement;
@@ -60,11 +60,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     helpButtonElement = document.getElementById('help-button') as HTMLElement;
     helpPopupOverlay = document.getElementById('help-popup-overlay') as HTMLElement;
     helpPopupCloseButton = document.getElementById('help-popup-close-button') as HTMLInputElement;
-
-    const dataReady = await dataLoadedPromise;
-
     
-    if ((!dataReady || stations.length === 0) && goalStationContainer) {
+    if (stations.length === 0) {
         goalStationContainer.textContent = "Error loading station data!";
         return;
     }
@@ -104,8 +101,8 @@ function setupEventListeners() {
 
 function initializeGame() {
     lives = INITIAL_LIVES;
-    visitedStations = [getRandomStation()];
-    goalStation = getRandomStation(visitedStations);
+    visitedStations = [getRandomStation().name];
+    goalStation = getRandomStation(visitedStations).name;
     
     // Reset UI elements
     (document.getElementById('user-input') as HTMLInputElement).disabled = false;
@@ -140,6 +137,7 @@ const updateVisitedStationsDisplay = () => {
     visitedStations.forEach((stationName, index) => {
         if (index > 0) {
             const prevStationName = visitedStations[index - 1];
+            if (!prevStationName) return;
             const connectingLines = getConnectingLines(prevStationName, stationName);
 
             const lineContainer = document.createElement('div');
@@ -295,6 +293,10 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
     }
 
     const currentStation = getCurrentStation();
+    if (!currentStation) {
+        showToast("Error: Current station is not defined.");
+        return;
+    }
     if (guessStationName === currentStation) {
         showToast("You're already at that station!");
         guessInput.value = '';
@@ -317,15 +319,19 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
             setTimeout(() => {
                 // Calculate times *after* the delay to ensure network data is likely ready
                 const playerTime = calculateChosenPathTime(playerPath);
+                if (!startStation || !endStation) {
+                    showPopup("Congratulations! You reached the goal!", "(Optimal path calculation failed - start or end station missing)");
+                    return;
+                }
                 const optimalResult = calculateOptimalPath(startStation, endStation);
                 const optimalTime = optimalResult ? optimalResult.time : Infinity;
 
                 let scoreText = "(Optimal path calculation failed)";
-                if (playerTime !== Infinity && optimalTime !== Infinity && playerTime > 0) {
+                if (playerTime !== Infinity && optimalTime !== undefined && optimalTime !== Infinity && playerTime > 0 && optimalResult) {
                     const score = Math.round((optimalTime / playerTime) * 100);
                     scoreText = `${score}%`;
                 } else if (playerTime === Infinity) {
-                     scoreText = "(Your path seems impossible?)";
+                    scoreText = "(Your path seems impossible?)";
                 }
 
                 userInput.disabled = true;

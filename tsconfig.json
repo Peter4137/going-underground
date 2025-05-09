@@ -8,13 +8,14 @@
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "isolatedModules": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     /* Module Resolution */
-    "module": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "rootDir": "src",
     "outDir": "dist",
     "lib": ["es2022", "dom", "dom.iterable"],

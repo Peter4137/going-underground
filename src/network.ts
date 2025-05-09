@@ -1,44 +1,5 @@
-type Line = {
-    name: string;
-    innerColor: string;
-    outerColor: string;
-}
-
-type Station = {
-    name: string;
-    services: string[];
-}
-
-type Connection = {
-    from: string;
-    to: string;
-    services: string[];
-    time: number;
-}
-
-let lines: Line[] = [];
-let stations: Station[] = [];
-let edges: Connection[] = [];
-
-export const dataLoadedPromise = fetch("./data/network.json")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        lines = data.lines;
-        stations = data.stations;
-        edges = data.edges;
-        return true;
-    })
-    .catch(error => {
-        console.error("Could not load network data:", error);
-        return false;
-    });
-
-export { stations, lines };
+import { lines, stations, connections } from "./data.js";
+import { Station, Line } from "./types";
 
 export const checkLink = (fromName: string, toName: string) => {
     if (!stations || stations.length === 0) {
@@ -111,7 +72,7 @@ export const getConnectingLines = (fromName: string, toName: string): Line[] => 
 
 export const getRandomStation = (avoidStations: string[] = []) => {
     const availableStations = stations.filter(station => !avoidStations.includes(station.name));
-    return availableStations[Math.floor(Math.random() * availableStations.length)].name;
+    return availableStations[Math.floor(Math.random() * availableStations.length)] as Station;
 };
 
 export const getStationLines = (stationName: string): Line[] => {
@@ -134,9 +95,9 @@ export const getStationLines = (stationName: string): Line[] => {
 };
 
 // Finds shortest time between two stations WITHOUT change penalties
-const findShortestSegmentTime = (startName: string, endName: string) => {
-    if (!stations.length || !Array.isArray(edges) || edges.length === 0) {
-        console.error("Segment calculation requires station data and edges array.");
+const findShortestSegmentTime = (startName: string, endName: string): {time: number, linesUsed: string[]} | null => {
+    if (!stations.length || !Array.isArray(connections) || connections.length === 0) {
+        console.error("Segment calculation requires station data and connections array.");
         return null; 
     }
 
@@ -148,7 +109,7 @@ const findShortestSegmentTime = (startName: string, endName: string) => {
     } = {};
     const previousLines: {
         [key: string]: string[] | null
-    } = {}; // Lines used for incoming edge
+    } = {}; // Lines used for incoming connection
     const pq: [number, string][] = []; // [(time, station)] - Don't need incoming lines here
     const visited = new Set();
 
@@ -173,23 +134,23 @@ const findShortestSegmentTime = (startName: string, endName: string) => {
 
         if (currentNode === endName) break; // Found shortest path
 
-        const relevantEdges = edges.filter(edge => edge.from === currentNode || edge.to === currentNode);
+        const relevantConnections = connections.filter(connection => connection.from === currentNode || connection.to === currentNode);
 
-        for (const edge of relevantEdges) {
-            const neighborName = (edge.from === currentNode) ? edge.to : edge.from;
+        for (const connection of relevantConnections) {
+            const neighborName = (connection.from === currentNode) ? connection.to : connection.from;
             if (visited.has(neighborName)) continue;
 
-            const edgeTime = edge.time;
-            const edgeLines = Array.from(new Set((edge.services || []).map(s => s.split('|')[0]))); 
+            const connectionTime = connection.time;
+            const connectionLines = Array.from(new Set((connection.services || []).map(s => s.split('|')[0]))) as string[]; 
 
-            if (typeof edgeTime !== 'number') continue; // Skip invalid edges
+            if (typeof connectionTime !== 'number') continue; // Skip invalid connections
 
-            const newTime = currentTime + edgeTime; // NO penalty here
+            const newTime = currentTime + connectionTime; // NO penalty here
 
-            if (newTime < times[neighborName]) {
+            if (newTime < (times[neighborName] as number)) {
                 times[neighborName] = newTime;
                 previousNodes[neighborName] = currentNode;
-                previousLines[neighborName] = edgeLines; // Store lines for edge leading here
+                previousLines[neighborName] = connectionLines; // Store lines for connection leading here
                 pq.push([newTime, neighborName]);
             }
         }
@@ -199,17 +160,17 @@ const findShortestSegmentTime = (startName: string, endName: string) => {
         return null; // No path found for segment
     }
 
-    // Return time and the lines used for the *last* edge of this segment
+    // Return time and the lines used for the *last* connection of this segment
     return {
-        time: times[endName],
+        time: times[endName] as number,
         linesUsed: previousLines[endName] || [] 
     };
 };
 
 export const calculateOptimalPath = (fromName: string, toName: string) => {
     // 1. Initialization
-    if (!stations.length || !Array.isArray(edges) || edges.length === 0) { 
-        console.error("Path calculation requires station data and edges array.");
+    if (!stations.length || !Array.isArray(connections) || connections.length === 0) { 
+        console.error("Path calculation requires station data and connections array.");
         return null; 
     }
 
@@ -252,37 +213,37 @@ export const calculateOptimalPath = (fromName: string, toName: string) => {
             break; 
         }
 
-        const relevantEdges = edges.filter(edge => edge.from === currentNode || edge.to === currentNode);
+        const relevantConnections = connections.filter(connection => connection.from === currentNode || connection.to === currentNode);
 
-        for (const edge of relevantEdges) { 
-            const neighborName = (edge.from === currentNode) ? edge.to : edge.from;
+        for (const connection of relevantConnections) { 
+            const neighborName = (connection.from === currentNode) ? connection.to : connection.from;
 
             if (visited.has(neighborName)) continue;
 
 
-            const edgeTime = edge.time;
-            const edgeLines = Array.from(new Set((edge.services || []).map(s => s.split('|')[0]))); 
+            const connectionTime = connection.time;
+            const connectionLines = Array.from(new Set((connection.services || []).map(s => s.split('|')[0]))) as string[]; 
             
-            if (typeof edgeTime !== 'number') {
+            if (typeof connectionTime !== 'number') {
                  continue;
             }
 
             // Calculate change penalty
             let changePenalty = 0;
             if (incomingLines && incomingLines.length > 0) { 
-                const hasCommonLine = edgeLines.some(line => incomingLines.includes(line));
+                const hasCommonLine = connectionLines.some(line => incomingLines.includes(line));
                 if (!hasCommonLine) {
                     changePenalty = 3; 
                 }
             }
 
-            const newTime = currentTime + edgeTime + changePenalty;
+            const newTime = currentTime + connectionTime + changePenalty;
 
-            if (newTime < times[neighborName]) {
+            if (newTime < (times[neighborName] as number)) {
                 times[neighborName] = newTime;
                 previousNodes[neighborName] = currentNode;
-                previousLines[neighborName] = edgeLines; 
-                pq.push([newTime, neighborName, edgeLines]);
+                previousLines[neighborName] = connectionLines; 
+                pq.push([newTime, neighborName, connectionLines]);
             }
         }
     }
@@ -297,14 +258,14 @@ export const calculateOptimalPath = (fromName: string, toName: string) => {
     let current: string | null = toName;
     while (current !== null) {
         path.push(current);
-        current = previousNodes[current];
+        current = previousNodes[current] as string | null;
     }
     path.reverse();
 
     const changeStations = new Set([fromName]);
     for (let i = 0; i < path.length - 1; i++) {
-        const stationA = path[i];
-        const stationB = path[i+1];
+        const stationA = path[i] as string;
+        const stationB = path[i+1] as string;
 
         const linesToA = previousLines[stationA] || [];
         const linesToB = previousLines[stationB] || [];
@@ -335,8 +296,8 @@ export const calculateChosenPathTime = (path: string[]) => {
     const CHANGE_PENALTY = 3;
 
     for (let i = 0; i < path.length - 1; i++) {
-        const segmentStart = path[i];
-        const segmentEnd = path[i + 1];
+        const segmentStart = path[i] as string;
+        const segmentEnd = path[i + 1] as string;
 
         const segmentResult = findShortestSegmentTime(segmentStart, segmentEnd);
 
