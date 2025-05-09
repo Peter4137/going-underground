@@ -1,66 +1,68 @@
-import { 
-    checkLink, 
-    getMatchingStationName, 
-    getConnectingLines, 
-    getRandomStation, 
-    dataLoadedPromise, 
-    stations, 
+import {
+    checkLink,
+    getMatchingStationName,
+    getConnectingLines,
+    getRandomStation,
     getStationLines,
     calculateOptimalPath,
     calculateChosenPathTime
 } from "./network.js";
 
+import { stations } from "./data.js";
+
 let lives = 3;
-const livesContainer = document.querySelector('.lives-container');
-let visitedStations = [];
+const livesContainer: HTMLElement = document.querySelector('.lives-container') as HTMLElement;
+let visitedStations: string[] = [];
 let goalStation = "";
 
-let visitedStationsContainer;
-let goalStationContainer;
+let visitedStationsContainer: HTMLElement;
+let goalStationContainer: HTMLElement;
+let userInput: HTMLInputElement;
+let submitButton: HTMLInputElement;
 // Popup element references
-let popupOverlay;
-let popupMessageElement;
-let popupCloseButton;
+let popupOverlay: HTMLElement;
+let popupMessageElement: HTMLElement;
+let popupCloseButton: HTMLElement;
 // Toast element references
-let toastElement;
-let toastMessageElement;
-let toastTimeoutId = null; // To manage the hide timeout
+let toastElement: HTMLElement;
+let toastMessageElement: HTMLElement;
+let toastTimeoutId: number | null = null; // To manage the hide timeout
 // Hint elements
-let hintButton;
-let hintLinesContainer;
+let hintButton: HTMLInputElement;
+let hintLinesContainer: HTMLElement;
 // Help Popup elements
-let helpButtonElement;
-let helpPopupOverlay;
-let helpPopupCloseButton;
+let helpButtonElement: HTMLElement;
+let helpPopupOverlay: HTMLElement;
+let helpPopupCloseButton: HTMLElement;
 // Game End Popup elements
-let playAgainButton;
-
+let playAgainButton: HTMLElement;
+let popupOptimalPath: HTMLElement;
 // Game state variables
 const INITIAL_LIVES = 3;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    visitedStationsContainer = document.querySelector('.visited-stations-container');
-    goalStationContainer = document.getElementById('goal-station-container');
+    visitedStationsContainer = document.querySelector('.visited-stations-container') as HTMLElement;
+    goalStationContainer = document.getElementById('goal-station-container') as HTMLElement;
+    userInput = document.getElementById('user-input') as HTMLInputElement;
+    submitButton = document.getElementById('submit-button') as HTMLInputElement;
     // Assign popup elements
-    popupOverlay = document.getElementById('popup-overlay');
-    popupMessageElement = document.getElementById('popup-message');
-    popupCloseButton = document.getElementById('popup-close-button');
-    playAgainButton = document.getElementById('popup-play-again-button');
+    popupOverlay = document.getElementById('popup-overlay') as HTMLElement;
+    popupMessageElement = document.getElementById('popup-message') as HTMLElement;
+    popupCloseButton = document.getElementById('popup-close-button') as HTMLElement;
+    playAgainButton = document.getElementById('popup-play-again-button') as HTMLElement;
     // Assign toast elements
-    toastElement = document.getElementById('toast-notification');
-    toastMessageElement = document.getElementById('toast-message');
+    toastElement = document.getElementById('toast-notification') as HTMLElement;
+    toastMessageElement = document.getElementById('toast-message') as HTMLElement;
     // Assign hint elements
-    hintButton = document.getElementById('hint-button');
-    hintLinesContainer = document.getElementById('hint-lines-container');
+    hintButton = document.getElementById('hint-button') as HTMLInputElement;
+    hintLinesContainer = document.getElementById('hint-lines-container') as HTMLElement;
     // Assign Help Popup elements
-    helpButtonElement = document.getElementById('help-button');
-    helpPopupOverlay = document.getElementById('help-popup-overlay');
-    helpPopupCloseButton = document.getElementById('help-popup-close-button');
-
-    const dataReady = await dataLoadedPromise;
-
+    helpButtonElement = document.getElementById('help-button') as HTMLElement;
+    helpPopupOverlay = document.getElementById('help-popup-overlay') as HTMLElement;
+    helpPopupCloseButton = document.getElementById('help-popup-close-button') as HTMLInputElement;
+    popupOptimalPath = document.getElementById('popup-optimal-path') as HTMLElement;
     
-    if (!dataReady || stations.length === 0) {
+    if (stations.length === 0) {
         goalStationContainer.textContent = "Error loading station data!";
         return;
     }
@@ -73,7 +75,6 @@ function setupEventListeners() {
     const submitButton = document.getElementById('submit-button');
     if (submitButton) submitButton.addEventListener('click', handleGuess);
 
-    const userInput = document.getElementById('user-input');
     if (userInput) userInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -101,13 +102,13 @@ function setupEventListeners() {
 
 function initializeGame() {
     lives = INITIAL_LIVES;
-    visitedStations = [getRandomStation()];
-    goalStation = getRandomStation(visitedStations);
+    visitedStations = [getRandomStation().name];
+    goalStation = getRandomStation(visitedStations).name;
     
     // Reset UI elements
-    document.getElementById('user-input').disabled = false;
-    document.getElementById('submit-button').disabled = false;
-    document.getElementById('user-input').value = ''; // Clear input
+    (document.getElementById('user-input') as HTMLInputElement).disabled = false;
+    (document.getElementById('submit-button') as HTMLInputElement).disabled = false;
+    (document.getElementById('user-input') as HTMLInputElement).value = ''; // Clear input
     if (hintButton) hintButton.disabled = false;
     if (hintLinesContainer) hintLinesContainer.innerHTML = ''; // Clear hints
     if (popupOverlay) popupOverlay.classList.add('popup-hidden'); // Ensure popup is hidden
@@ -137,6 +138,7 @@ const updateVisitedStationsDisplay = () => {
     visitedStations.forEach((stationName, index) => {
         if (index > 0) {
             const prevStationName = visitedStations[index - 1];
+            if (!prevStationName) return;
             const connectingLines = getConnectingLines(prevStationName, stationName);
 
             const lineContainer = document.createElement('div');
@@ -144,7 +146,7 @@ const updateVisitedStationsDisplay = () => {
 
             const segmentWidth = 100 / Math.max(1, connectingLines.length);
 
-            connectingLines.forEach((line, lineIndex) => {
+            connectingLines.forEach((line, _) => {
                 const lineSegment = document.createElement('div');
                 lineSegment.classList.add('line-segment');
                 lineSegment.style.width = `${segmentWidth}%`;
@@ -209,7 +211,7 @@ const updateLivesDisplay = () => {
     }
 };
 
-const showPopup = (message, score = null) => {
+const showPopup = (message: string, score: string | null = null, optimalPath: string | null = null) => {
     if (!popupOverlay || !popupMessageElement) return;
 
     let fullMessage = message;
@@ -218,10 +220,13 @@ const showPopup = (message, score = null) => {
     }
     popupMessageElement.innerText = fullMessage;
     popupOverlay.classList.remove('popup-hidden');
+    if (optimalPath) {
+        popupOptimalPath.innerText = "Optimal Path: " + optimalPath;
+    }
 }
 
 // Function to show the toast notification
-const showToast = (message, duration = 3000) => {
+const showToast = (message: string, duration = 3000) => {
     if (!toastElement || !toastMessageElement) return;
 
     if (toastTimeoutId) {
@@ -275,9 +280,9 @@ const handleHintClick = () => {
     hintButton.disabled = true;
 };
 
-const handleGuess = (event) => {
+const handleGuess = (event: MouseEvent | KeyboardEvent) => {
     event.preventDefault();
-    const guessInput = document.getElementById("user-input");
+    const guessInput = document.getElementById("user-input") as HTMLInputElement;
     const guess = guessInput.value;
     if (!guess) {
         showToast("Please enter a station name!");
@@ -292,6 +297,10 @@ const handleGuess = (event) => {
     }
 
     const currentStation = getCurrentStation();
+    if (!currentStation) {
+        showToast("Error: Current station is not defined.");
+        return;
+    }
     if (guessStationName === currentStation) {
         showToast("You're already at that station!");
         guessInput.value = '';
@@ -305,8 +314,8 @@ const handleGuess = (event) => {
         if (guessStationName === goalStation) {
             // WIN CONDITION
             const playerPath = [...visitedStations];
-            const startStation = playerPath[0];
-            const endStation = playerPath[playerPath.length - 1];
+            const startStation = playerPath[0] as string;
+            const endStation = playerPath[playerPath.length - 1] as string;
 
             // Delay the win popup and input disabling until animation finishes
             const animationDuration = 1000; // Match CSS transition duration (1.0s)
@@ -318,18 +327,20 @@ const handleGuess = (event) => {
                 const optimalTime = optimalResult ? optimalResult.time : Infinity;
 
                 let scoreText = "(Optimal path calculation failed)";
-                if (playerTime !== Infinity && optimalTime !== Infinity && playerTime > 0) {
+                let optimalPath = null;
+                if (playerTime !== Infinity && optimalTime !== undefined && optimalTime !== Infinity && playerTime > 0 && optimalResult) {
                     const score = Math.round((optimalTime / playerTime) * 100);
                     scoreText = `${score}%`;
+                    optimalPath = optimalResult.changes.join(", ");
                 } else if (playerTime === Infinity) {
-                     scoreText = "(Your path seems impossible?)";
+                    scoreText = "(Your path seems impossible?)";
                 }
 
-                document.getElementById('user-input').disabled = true;
-                document.getElementById('submit-button').disabled = true;
+                userInput.disabled = true;
+                submitButton.disabled = true;
                 hintButton.disabled = true;
                 // Pass the score string to the popup
-                showPopup(`Congratulations! You reached ${endStation}!`, scoreText); 
+                showPopup(`Congratulations! You reached ${endStation}!`, scoreText, optimalPath); 
             }, animationDuration);
 
         } else {
@@ -342,9 +353,13 @@ const handleGuess = (event) => {
         showToast("No connection between stations!");
 
         if (lives === 0) {
-            document.getElementById('user-input').disabled = true;
-            document.getElementById('submit-button').disabled = true;
-            showPopup("Game Over! You ran out of lives.");
+            userInput.disabled = true;
+            submitButton.disabled = true;
+
+            const optimalResult = calculateOptimalPath(visitedStations[0] as string, goalStation);
+            const optimalPath = optimalResult ? optimalResult.changes.join(", ") : null;
+
+            showPopup("Game Over! You ran out of lives.", null, optimalPath);
         }
         guessInput.value = '';
     }
