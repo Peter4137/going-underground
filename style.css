@@ -1,0 +1,425 @@
+@font-face {
+    font-family: 'CustomJohnston';
+    src: url('../data/font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: "CustomJohnston", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    position: relative;
+}
+
+#help-button {
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    font-size: 1em;
+    line-height: 2em;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+#help-button:hover {
+    background: #777;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
+    justify-content: space-between;
+}
+
+.visited-stations-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.line-connector-container {
+    height: 5rem;
+    width: calc(1em - 8px);
+    margin-left: 5.4px;
+    margin-top: -1.5rem;
+    margin-bottom: -0.75rem;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; 
+    z-index: -1;
+}
+
+.line-segment {
+    width: 0; 
+    height: 0;
+    background-color: #ccc;
+    border: none;
+    transition: height 1.0s ease-in-out, width 0s;
+    flex-shrink: 0; 
+}
+
+.line-segment.animate {
+    height: 100%;
+}
+
+.line-segment.has-inner {
+    /* Define border style/width but use transparent color initially */
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: none; /* Explicitly remove top/bottom borders */
+    border-bottom: none;
+    background-clip: padding-box; /* Background color applies to padding area */
+}
+
+.station-display {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+}
+
+.station-marker-dot {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    flex-shrink: 0;
+}
+
+.station-marker-name {
+    font-weight: bold;
+}
+
+.input-area {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+}
+
+.input-area input[type="text"] {
+    flex-grow: 1;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-area button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.input-area button:hover {
+    background-color: #0056b3;
+}
+
+.input-area button#hint-button {
+    background-color: #ffc107; /* Yellow hint button */
+    color: #333;
+    margin-left: 0.5rem; /* Space between buttons */
+}
+
+.input-area button#hint-button:hover {
+    background-color: #e0a800;
+}
+
+.input-area button#hint-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.lives-container {
+    padding: 0.5rem 1rem;
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #eee;
+}
+
+.life-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #6c757d;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+#goal-station-container {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px dashed #aaa;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+}
+
+#hint-lines-container {
+    width: 100%;
+    text-align: center;
+}
+
+.hint-line-indicator {
+    display: inline-block;
+    width: 50px;
+    height: 12px;
+    margin: 0 2px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    opacity: 0;
+    background-color: transparent;
+    /* Define border structure transparently */
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: none;
+    border-right: none;
+    background-clip: content-box; /* Important for border display */
+    transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+/* Remove separate rule, border structure is on base now */
+/*
+.hint-line-indicator.has-inner {
+   ...
+}
+*/
+
+/* Class to make indicators visible */
+.hint-line-indicator.visible {
+    opacity: 1;
+}
+
+/* Popup Styles */
+#popup-overlay {
+    position: fixed; /* Sit on top of the page content */
+    inset: 0; /* Cover the entire viewport */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    display: flex; /* Use flexbox to center the popup box */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#popup-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 250px;
+    max-width: 80%;
+}
+
+#popup-message {
+    font-size: 1.4em;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.popup-buttons {
+    margin-top: 1.5rem; /* Space above buttons */
+    display: flex; /* Arrange buttons */
+    justify-content: center; /* Center buttons */
+    gap: 1rem; /* Space between buttons */
+}
+
+/* Style the new Play Again button */
+#popup-play-again-button {
+    padding: 0.6rem 1.2rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#popup-play-again-button:hover {
+    background-color: #218838;
+}
+
+#popup-close-button {
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#popup-close-button:hover {
+    background-color: #0056b3;
+}
+
+/* Class to hide the popup - Increased Specificity */
+#popup-overlay.popup-hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Toast Notification Styles */
+#toast-notification {
+    position: fixed;
+    bottom: 20px; /* Position near bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust horizontal centering */
+    background-color: #d9534f; /* Reddish background for error */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    z-index: 1100; /* Above popup overlay */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease; /* Smooth transition */
+}
+
+#toast-notification.toast-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 20px); /* Move down slightly when hidden */
+}
+
+#toast-message {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    body {
+       max-width: 960px;
+       margin: 0 auto;
+       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+       border-top-left-radius: 8px;
+       border-top-right-radius: 8px;
+    }
+
+     .input-area {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+     }
+}
+
+/* Help Popup Styles (mostly copied from game end popup) */
+#help-popup-overlay {
+    position: fixed; 
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#help-popup-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Align text left for instructions */
+    min-width: 300px;
+    max-width: 90%;
+    max-height: 80vh; /* Prevent very long popups */
+    overflow-y: auto; /* Allow scrolling if needed */
+}
+
+#help-popup-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+#help-popup-box p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+#help-popup-close-button {
+    display: block; /* Make it a block element */
+    margin: 1.5rem auto 0 auto; /* Center the button */
+    padding: 0.6rem 1.2rem;
+    background-color: #6c757d; /* Grey close button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#help-popup-close-button:hover {
+    background-color: #5a6268;
+}
+
+/* Reuse .popup-hidden for the help popup */
+#help-popup-overlay.popup-hidden {
+    display: none;
+    opacity: 0;
+} 
