@@ -20,7 +20,7 @@ let lines: Line[] = [];
 let stations: Station[] = [];
 let edges: Connection[] = [];
 
-const dataLoadedPromise = fetch("./data/network.json")
+export const dataLoadedPromise = fetch("./data/network.json")
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -38,7 +38,7 @@ const dataLoadedPromise = fetch("./data/network.json")
         return false;
     });
 
-export { dataLoadedPromise, stations, lines };
+export { stations, lines };
 
 export const checkLink = (fromName: string, toName: string) => {
     if (!stations || stations.length === 0) {
