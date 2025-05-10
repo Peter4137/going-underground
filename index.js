@@ -1,9 +1,8 @@
-import { checkLink, getMatchingStationName, getConnectingLines, getRandomStation, getStationLines, calculateOptimalPath, calculateChosenPathTime } from "./network.js";
-import { stations } from "./data.js";
+import { calculateChosenPathTime, calculateOptimalPath, checkLink, connectingLineColors, getMatchingStationNames, randomStation, stationLineColors, } from "./network.js";
 let lives = 3;
 const livesContainer = document.querySelector('.lives-container');
-let visitedStations = [];
-let goalStation = "";
+let visitedStations;
+let goalStation;
 let visitedStationsContainer;
 let goalStationContainer;
 let userInput;
@@ -49,10 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     helpPopupOverlay = document.getElementById('help-popup-overlay');
     helpPopupCloseButton = document.getElementById('help-popup-close-button');
     popupOptimalPath = document.getElementById('popup-optimal-path');
-    if (stations.length === 0) {
-        goalStationContainer.textContent = "Error loading station data!";
-        return;
-    }
     initializeGame();
     setupEventListeners();
 });
@@ -96,8 +91,8 @@ function setupEventListeners() {
 }
 function initializeGame() {
     lives = INITIAL_LIVES;
-    visitedStations = [getRandomStation().name];
-    goalStation = getRandomStation(visitedStations).name;
+    visitedStations = [randomStation()];
+    goalStation = randomStation(visitedStations);
     // Reset UI elements
     document.getElementById('user-input').disabled = false;
     document.getElementById('submit-button').disabled = false;
@@ -127,30 +122,25 @@ const updateVisitedStationsDisplay = () => {
     if (!visitedStationsContainer)
         return;
     visitedStationsContainer.innerHTML = '';
-    visitedStations.forEach((stationName, index) => {
+    visitedStations.forEach((station, index) => {
         if (index > 0) {
             const prevStationName = visitedStations[index - 1];
             if (!prevStationName)
                 return;
-            const connectingLines = getConnectingLines(prevStationName, stationName);
+            const lineColors = connectingLineColors(prevStationName, station);
             const lineContainer = document.createElement('div');
             lineContainer.classList.add('line-connector-container');
-            const segmentWidth = 100 / Math.max(1, connectingLines.length);
-            connectingLines.forEach((line, _) => {
+            const segmentWidth = 100 / Math.max(1, lineColors.length);
+            const borderWidth = 3 / Math.max(1, lineColors.length);
+            lineColors.forEach((line, idx) => {
                 const lineSegment = document.createElement('div');
                 lineSegment.classList.add('line-segment');
                 lineSegment.style.width = `${segmentWidth}%`;
-                lineSegment.style.transitionDelay = `${index * 0.1}s`;
-                if (line.innerColor) {
-                    lineSegment.classList.add('has-inner');
-                    lineSegment.style.backgroundColor = line.innerColor;
-                    lineSegment.style.borderLeftColor = line.outerColor;
-                    lineSegment.style.borderRightColor = line.outerColor;
-                }
-                else {
-                    lineSegment.style.backgroundColor = line.outerColor;
-                    lineSegment.style.border = 'none';
-                }
+                lineSegment.style.transitionDelay = `${idx * 0.2}s`;
+                lineSegment.classList.add('has-inner');
+                lineSegment.style.borderRight = `${borderWidth}px solid ${line.outerColor}`;
+                lineSegment.style.borderLeft = `${borderWidth}px solid ${line.outerColor}`;
+                lineSegment.style.backgroundColor = line.innerColor;
                 if (index === visitedStations.length - 1) {
                     setTimeout(() => {
                         lineSegment.classList.add('animate');
@@ -171,7 +161,7 @@ const updateVisitedStationsDisplay = () => {
         dotSpan.classList.add('station-marker-dot');
         const nameSpan = document.createElement('span');
         nameSpan.classList.add('station-marker-name');
-        nameSpan.textContent = stationName;
+        nameSpan.textContent = station;
         stationDiv.appendChild(dotSpan);
         stationDiv.appendChild(nameSpan);
         visitedStationsContainer.appendChild(stationDiv);
@@ -222,24 +212,16 @@ const showToast = (message, duration = 3000) => {
 const handleHintClick = () => {
     if (!hintButton || !hintLinesContainer || !goalStation)
         return;
-    const linesForGoal = getStationLines(goalStation);
+    const linesForGoal = stationLineColors(goalStation);
     hintLinesContainer.innerHTML = '';
     if (linesForGoal.length > 0) {
         linesForGoal.forEach(line => {
             const indicator = document.createElement('div');
             indicator.classList.add('hint-line-indicator');
-            indicator.title = line.name;
             // Apply final colors immediately
-            if (line.innerColor) {
-                indicator.style.backgroundColor = line.innerColor;
-                indicator.style.borderTopColor = line.outerColor;
-                indicator.style.borderBottomColor = line.outerColor;
-            }
-            else {
-                indicator.style.backgroundColor = line.outerColor;
-                indicator.style.borderTopColor = 'transparent';
-                indicator.style.borderBottomColor = 'transparent';
-            }
+            indicator.style.backgroundColor = line.innerColor;
+            indicator.style.borderTopColor = line.outerColor;
+            indicator.style.borderBottomColor = line.outerColor;
             hintLinesContainer.appendChild(indicator);
             setTimeout(() => {
                 indicator.classList.add('visible');
@@ -259,17 +241,18 @@ const handleGuess = (event) => {
         showToast("Please enter a station name!");
         return;
     }
-    const guessStationName = getMatchingStationName(guess);
-    if (!guessStationName) {
+    const guessStationNames = getMatchingStationNames(guess);
+    if (guessStationNames.length === 0) {
         showToast("Invalid station name!");
         guessInput.value = '';
         return;
     }
-    const currentStation = getCurrentStation();
-    if (!currentStation) {
-        showToast("Error: Current station is not defined.");
+    if (guessStationNames.length > 1) {
+        showToast("Multiple matching stations found, please be more specific!");
         return;
     }
+    const guessStationName = guessStationNames[0];
+    const currentStation = getCurrentStation();
     if (guessStationName === currentStation) {
         showToast("You're already at that station!");
         guessInput.value = '';

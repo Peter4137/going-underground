@@ -1,3027 +1,6488 @@
-export const lines = [
-    {
-        "name": "Bakerloo",
+export const LINES = {
+    "Bakerloo": {
         "innerColor": "#B36305",
         "outerColor": "#B36305"
     },
-    {
-        "name": "Central",
+    "Central": {
         "innerColor": "#E32017",
         "outerColor": "#E32017"
     },
-    {
-        "name": "Circle",
+    "Circle": {
         "innerColor": "#FFD300",
         "outerColor": "#FFD300"
     },
-    {
-        "name": "District",
+    "District": {
         "innerColor": "#00782A",
         "outerColor": "#00782A"
     },
-    {
-        "name": "Hammersmith & City",
+    "Hammersmith & City": {
         "innerColor": "#F3A9BB",
         "outerColor": "#F3A9BB"
     },
-    {
-        "name": "Jubilee",
+    "Jubilee": {
         "innerColor": "#A0A5A9",
         "outerColor": "#A0A5A9"
     },
-    {
-        "name": "Metropolitan",
+    "Metropolitan": {
         "innerColor": "#9B0056",
         "outerColor": "#9B0056"
     },
-    {
-        "name": "Northern",
+    "Northern": {
         "innerColor": "#000000",
         "outerColor": "#000000"
     },
-    {
-        "name": "Piccadilly",
+    "Piccadilly": {
         "innerColor": "#003688",
         "outerColor": "#003688"
     },
-    {
-        "name": "Victoria",
+    "Victoria": {
         "innerColor": "#0098D4",
         "outerColor": "#0098D4"
     },
-    {
-        "name": "Waterloo & City",
+    "Waterloo & City": {
         "innerColor": "#76D0BD",
         "outerColor": "#76D0BD"
     },
-    {
-        "name": "DLR",
+    "DLR": {
         "innerColor": "#FFFFFF",
         "outerColor": "#00A4A7"
     },
-    {
-        "name": "Elizabeth",
+    "Elizabeth": {
         "innerColor": "#FFFFFF",
         "outerColor": "#6950A1"
     },
-    {
-        "name": "Walking",
+    "Walking": {
         "innerColor": "#FFFFFF",
         "outerColor": "#000000"
     }
-];
-export const stations = [
-    {
-        "name": "Acton Town",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Piccadilly|cockfosters-cockfosters"
-        ]
-    },
-    {
-        "name": "Bank",
-        "services": [
-            "DLR|bank-beckton",
-            "Northern|morden-bank-edgware",
-            "DLR|bank-woolwich",
-            "DLR|bank-lewisham",
-            "Central|epping-west-ruislip",
-            "Northern|morden-bank-high-barnet",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Waterloo & City",
-            "Northern|morden-bank-mill-hill-east",
-            "Central|woodford-west-ruislip",
-            "Walking|bank-monument"
-        ]
-    },
-    {
-        "name": "Barkingside",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Bethnal Green",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Bond Street",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Central|epping-west-ruislip",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Jubilee",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Buckhurst Hill",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "Chancery Lane",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Chigwell",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Debden",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "Ealing Broadway",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Elizabeth|heathrow-terminal-5-shenfield"
-        ]
-    },
-    {
-        "name": "Ealing Common",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway"
-        ]
-    },
-    {
-        "name": "East Acton",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Epping",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "Fairlop",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Gants Hill",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Grange Hill",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Greenford",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Hainault",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Hanger Lane",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Holborn",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Central|epping-west-ruislip",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Piccadilly|cockfosters-cockfosters",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Holland Park",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Lancaster Gate",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Leyton",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Leytonstone",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Liverpool Street",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Central|woodford-west-ruislip",
-            "Metropolitan|chesham-aldgate-slow",
-            "Elizabeth|reading-shenfield",
-            "Central|epping-ealing-broadway",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Metropolitan|watford-aldgate-fast",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Metropolitan|watford-aldgate-slow",
-            "Central|woodford-ealing-broadway",
-            "Circle|clockwise",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast",
-            "Hammersmith & City",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Metropolitan|amersham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Loughton",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "Marble Arch",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Mile End",
-        "services": [
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster",
-            "Central|epping-west-ruislip",
-            "District|wimbledon-upminster",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "District|richmond-upminster",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Newbury Park",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "North Acton",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Northolt",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Notting Hill Gate",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|wimbledon-edgware-road",
-            "Central|epping-west-ruislip",
-            "District|richmond-edgware-road",
-            "Central|woodford-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Circle|clockwise",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Oxford Circus",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Bakerloo",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Victoria",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Perivale",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Queensway",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Redbridge",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Roding Valley",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Ruislip Gardens",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Shepherds Bush",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Snaresbrook",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "South Ruislip",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "South Woodford",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "St. Pauls",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Stratford",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Central|epping-west-ruislip",
-            "Elizabeth|reading-shenfield",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "DLR|stratford-lewisham",
-            "Jubilee",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Theydon Bois",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
-        ]
-    },
-    {
-        "name": "Tottenham Court Road",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Central|epping-west-ruislip",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield",
-            "Central|woodford-ealing-broadway",
-            "Central|epping-ealing-broadway",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Central|woodford-west-ruislip",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Wanstead",
-        "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "West Ruislip",
-        "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "White City",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Woodford",
-        "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
-        ]
-    },
-    {
-        "name": "Aldgate",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Circle|clockwise",
-            "Metropolitan|amersham-aldgate-slow",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Baker Street",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Metropolitan|watford-aldgate-slow",
-            "Bakerloo",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Jubilee",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Circle|clockwise",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Barbican",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Circle|clockwise",
-            "Metropolitan|amersham-aldgate-slow",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Bayswater",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|wimbledon-edgware-road",
-            "District|richmond-edgware-road",
-            "Circle|clockwise",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Blackfriars",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Cannon Street",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Edgware Road (Circle)",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|wimbledon-edgware-road",
-            "District|richmond-edgware-road",
-            "Circle|clockwise",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Embankment",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "District|richmond-upminster",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Circle|anticlockwise",
-            "District|wimbledon-upminster",
-            "Bakerloo",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Circle|clockwise",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Euston Square",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Circle|clockwise",
-            "Metropolitan|amersham-aldgate-slow",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast",
-            "Walking|euston-euston-square"
-        ]
-    },
-    {
-        "name": "Farringdon",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield",
-            "Metropolitan|watford-aldgate-slow",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Circle|clockwise",
-            "Metropolitan|amersham-aldgate-slow",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Gloucester Road",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Piccadilly|cockfosters-cockfosters",
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Great Portland Street",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Circle|clockwise",
-            "Metropolitan|amersham-aldgate-slow",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "High Street Kensington",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|wimbledon-edgware-road",
-            "District|richmond-edgware-road",
-            "Circle|clockwise",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Mansion House",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Monument",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise",
-            "Walking|bank-monument"
-        ]
-    },
-    {
-        "name": "Moorgate",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Northern|morden-bank-high-barnet",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Northern|morden-bank-mill-hill-east",
-            "Circle|clockwise",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Paddington",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "District|ealing-broadway-edgware-road",
-            "Hammersmith & City",
-            "District|wimbledon-edgware-road",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "District|richmond-edgware-road",
-            "Elizabeth|reading-shenfield",
-            "Bakerloo",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Circle|clockwise",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Sloane Square",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "South Kensington",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Piccadilly|cockfosters-cockfosters",
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "St. James's Park",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Temple",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Tower Hill",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Victoria",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Circle|clockwise",
-            "Victoria",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Westminster",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Jubilee",
-            "Circle|clockwise",
-            "District|richmond-upminster",
-            "Circle|anticlockwise"
-        ]
-    },
-    {
-        "name": "Aldgate East",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Barking",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Barons Court",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "District|ealing-broadway-edgware-road",
-            "Piccadilly|cockfosters-cockfosters",
-            "District|ealing-broadway-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Becontree",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Bow Road",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Bromley-by-Bow",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Chiswick Park",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Dagenham East",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Dagenham Heathway",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Earl's Court",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "District|ealing-broadway-edgware-road",
-            "Piccadilly|cockfosters-cockfosters",
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "East Ham",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "East Putney",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Elm Park",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Fulham Broadway",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Gunnersbury",
-        "services": [
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Hammersmith (District)",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "District|ealing-broadway-edgware-road",
-            "Piccadilly|cockfosters-cockfosters",
-            "District|ealing-broadway-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Hornchurch",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Kew Gardens",
-        "services": [
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Parsons Green",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Plaistow",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Putney Bridge",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Ravenscourt Park",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Richmond",
-        "services": [
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Southfields",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Stamford Brook",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Stepney Green",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "Turnham Green",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "District|ealing-broadway-edgware-road",
-            "Piccadilly|cockfosters-cockfosters",
-            "District|ealing-broadway-upminster",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Upminster",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Upminster Bridge",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Upney",
-        "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Upton Park",
-        "services": [
-            "District|richmond-upminster",
-            "District|wimbledon-upminster",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster"
-        ]
-    },
-    {
-        "name": "West Brompton",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "West Ham",
-        "services": [
-            "DLR|stratford-international-woolwich",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster",
-            "DLR|stratford-international-beckton",
-            "District|wimbledon-upminster",
-            "Jubilee",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "West Kensington",
-        "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Whitechapel",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Hammersmith & City",
-            "District|ealing-broadway-upminster",
-            "District|wimbledon-upminster",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "District|richmond-upminster"
-        ]
-    },
-    {
-        "name": "Wimbledon",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Wimbledon Park",
-        "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
-        ]
-    },
-    {
-        "name": "Abbey Road",
-        "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
-        ]
-    },
-    {
-        "name": "All Saints",
-        "services": [
-            "DLR|stratford-lewisham"
-        ]
-    },
-    {
-        "name": "Beckton",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Beckton Park",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Blackwall",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Bow Church",
-        "services": [
-            "DLR|stratford-lewisham"
-        ]
-    },
-    {
-        "name": "Canary Wharf",
-        "services": [
-            "DLR|tower-gateway-lewisham",
-            "DLR|bank-lewisham",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood",
-            "Jubilee",
-            "DLR|stratford-lewisham"
-        ]
-    },
-    {
-        "name": "Canning Town",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|tower-gateway-beckton",
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich",
-            "DLR|stratford-international-beckton",
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Crossharbour & London Arena",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Custom House",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|tower-gateway-beckton",
-            "DLR|stratford-international-beckton",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
-        ]
-    },
-    {
-        "name": "Cutty Sark for Maritime Greenwich",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Cyprus",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Deptford Bridge",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Devons Road",
-        "services": [
-            "DLR|stratford-lewisham"
-        ]
-    },
-    {
-        "name": "East India",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Elverson Road",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Gallions Reach",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Greenwich",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Heron Quays",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Island Gardens",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "King George V",
-        "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Langdon Park",
-        "services": [
-            "DLR|stratford-lewisham"
-        ]
-    },
-    {
-        "name": "Lewisham",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Limehouse",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "London City Airport",
-        "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Mudchute",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Pontoon Dock",
-        "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Poplar",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Prince Regent",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Pudding Mill Lane",
-        "services": [
-            "DLR|stratford-lewisham"
-        ]
-    },
-    {
-        "name": "Royal Albert",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Royal Victoria",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
-        ]
-    },
-    {
-        "name": "Shadwell",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "South Quay",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "Star Lane",
-        "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
-        ]
-    },
-    {
-        "name": "Stratford High Street",
-        "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
-        ]
-    },
-    {
-        "name": "Stratford International",
-        "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
-        ]
-    },
-    {
-        "name": "Tower Gateway",
-        "services": [
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "West India Quay",
-        "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
-        ]
-    },
-    {
-        "name": "West Silvertown",
-        "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Westferry",
-        "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Woolwich Arsenal",
-        "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
-        ]
-    },
-    {
-        "name": "Abbey Wood",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
-        ]
-    },
-    {
-        "name": "Acton Main Line",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Brentwood",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Burnham",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Chadwell Heath",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Forest Gate",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Gidea Park",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Goodmayes",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Hanwell",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Harold Wood",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Hayes & Harlington",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Heathrow Terminal 4",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Piccadilly|cockfosters-cockfosters",
-            "Elizabeth|heathrow-terminal-4-abbey-wood"
-        ]
-    },
-    {
-        "name": "Heathrow Terminal 5",
-        "services": [
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood"
-        ]
-    },
-    {
-        "name": "Heathrow Terminals 1 2 3",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Piccadilly|cockfosters-cockfosters"
-        ]
-    },
-    {
-        "name": "Ilford",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Iver",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Langley",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Maidenhead",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Manor Park",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Maryland",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Reading",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Romford",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Seven Kings",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Shenfield",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Slough",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Southall",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Taplow",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Twyford",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "West Drayton",
-        "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "West Ealing",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
-        ]
-    },
-    {
-        "name": "Woolwich",
-        "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
-        ]
-    },
-    {
-        "name": "Edgware Road (Circle/District/Hammersmith & City)",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Goldhawk Road",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Hammersmith (Met.)",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Ladbroke Grove",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Latimer Road",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Royal Oak",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Shepherds Bush Market",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Westbourne Park",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Wood Lane",
-        "services": [
-            "Hammersmith & City"
-        ]
-    },
-    {
-        "name": "Amersham",
-        "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Chalfont & Latimer",
-        "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Chesham",
-        "services": [
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Chorleywood",
-        "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Croxley",
-        "services": [
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Eastcote",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Finchley Road",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Jubilee",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Harrow-on-the-Hill",
-        "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Hillingdon",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Ickenham",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Moor Park",
-        "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "North Harrow",
-        "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Northwick Park",
-        "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Northwood",
-        "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Northwood Hills",
-        "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Pinner",
-        "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Preston Road",
-        "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Rayners Lane",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Rickmansworth",
-        "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Ruislip",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Ruislip Manor",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Uxbridge",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Watford",
-        "services": [
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Wembley Park",
-        "services": [
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow",
-            "Jubilee",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|amersham-aldgate-slow"
-        ]
-    },
-    {
-        "name": "West Harrow",
-        "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
-        ]
-    },
-    {
-        "name": "Angel",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Archway",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Balham",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Battersea Power Station",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Belsize Park",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Borough",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Brent Cross",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Burnt Oak",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Camden Town",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Chalk Farm",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Charing Cross",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Bakerloo",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Clapham Common",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Clapham North",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Clapham South",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Colindale",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Colliers Wood",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "East Finchley",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Edgware",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Elephant & Castle",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Bakerloo",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-bank-high-barnet"
-        ]
-    },
-    {
-        "name": "Euston",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Victoria",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-edgware",
-            "Walking|euston-euston-square"
-        ]
-    },
-    {
-        "name": "Finchley Central",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Golders Green",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Goodge Street",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Hampstead",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Hendon Central",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "High Barnet",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
-        ]
-    },
-    {
-        "name": "Highgate",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Kennington",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Kentish Town",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "King's Cross St. Pancras",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Piccadilly|cockfosters-uxbridge",
-            "Northern|morden-bank-high-barnet",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Northern|morden-bank-mill-hill-east",
-            "Piccadilly|cockfosters-cockfosters",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Hammersmith & City",
-            "Metropolitan|watford-aldgate-slow",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Victoria",
-            "Circle|clockwise",
-            "Circle|anticlockwise",
-            "Metropolitan|chesham-aldgate-fast"
-        ]
-    },
-    {
-        "name": "Leicester Square",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Piccadilly|cockfosters-cockfosters",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "London Bridge",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Mill Hill East",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Morden",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Mornington Crescent",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Nine Elms",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Old Street",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Oval",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "South Wimbledon",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Stockwell",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Victoria",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Tooting Bec",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Tooting Broadway",
-        "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Totteridge & Whetstone",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
-        ]
-    },
-    {
-        "name": "Tufnell Park",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
-        ]
-    },
-    {
-        "name": "Warren Street",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Victoria",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "Waterloo",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Bakerloo",
-            "Jubilee",
-            "Waterloo & City",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-edgware"
-        ]
-    },
-    {
-        "name": "West Finchley",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
-        ]
-    },
-    {
-        "name": "Woodside Park",
-        "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
-        ]
-    },
-    {
-        "name": "Alperton",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Arnos Grove",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Boston Manor",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Bounds Green",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Caledonian Road",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Cockfosters",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Covent Garden",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Finsbury Park",
-        "services": [
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Victoria",
-            "Piccadilly|cockfosters-uxbridge",
-            "Piccadilly|cockfosters-cockfosters"
-        ]
-    },
-    {
-        "name": "Green Park",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Jubilee",
-            "Victoria",
-            "Piccadilly|cockfosters-cockfosters"
-        ]
-    },
-    {
-        "name": "Hatton Cross",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Holloway Road",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Hounslow Central",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Hounslow East",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Hounslow West",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Hyde Park Corner",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Knightsbridge",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Manor House",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "North Ealing",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Northfields",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Oakwood",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Osterley",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "Park Royal",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Piccadilly Circus",
-        "services": [
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Bakerloo",
-            "Piccadilly|cockfosters-uxbridge",
-            "Piccadilly|cockfosters-cockfosters"
-        ]
-    },
-    {
-        "name": "Russell Square",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "South Ealing",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
-        ]
-    },
-    {
-        "name": "South Harrow",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Southgate",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Sudbury Hill",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Sudbury Town",
-        "services": [
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Turnpike Lane",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Wood Green",
-        "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
-        ]
-    },
-    {
-        "name": "Bermondsey",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Blackhorse Road",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Brixton",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Canada Water",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Canons Park",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Dollis Hill",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Edgware Road (Bakerloo)",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Harlesden",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Harrow & Wealdstone",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Highbury & Islington",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Kensal Green",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Kenton",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Kilburn",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Kilburn Park",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Kingsbury",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Lambeth North",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Maida Vale",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Marylebone",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Neasden",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "North Greenwich",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "North Wembley",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Pimlico",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Queens Park",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Queensbury",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Regents Park",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Seven Sisters",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "South Kenton",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Southwark",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "St. Johns Wood",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Stanmore",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Stonebridge Park",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Swiss Cottage",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Tottenham Hale",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Vauxhall",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Walthamstow Central",
-        "services": [
-            "Victoria"
-        ]
-    },
-    {
-        "name": "Warwick Avenue",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "Wembley Central",
-        "services": [
-            "Bakerloo"
-        ]
-    },
-    {
-        "name": "West Hampstead",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Willesden Green",
-        "services": [
-            "Jubilee"
-        ]
-    },
-    {
-        "name": "Willesden Junction",
-        "services": [
-            "Bakerloo"
+};
+export const STATIONS = {
+    "Acton Town": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
+        ]
+    },
+    "Bank": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Waterloo & City",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            },
+            {
+                "line": "Walking",
+                "variant": "bank-monument"
+            }
+        ]
+    },
+    "Barkingside": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Bethnal Green": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Bond Street": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Buckhurst Hill": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "Chancery Lane": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Chigwell": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Debden": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "Ealing Broadway": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            }
+        ]
+    },
+    "Ealing Common": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            }
+        ]
+    },
+    "East Acton": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Epping": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "Fairlop": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Gants Hill": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Grange Hill": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Greenford": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Hainault": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Hanger Lane": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            },
+            {
+                "line": "Walking",
+                "variant": "hanger-lane-park-royal"
+            }
+        ]
+    },
+    "Holborn": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Holland Park": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Lancaster Gate": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Leyton": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Leytonstone": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Liverpool Street": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            }
+        ]
+    },
+    "Loughton": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "Marble Arch": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Mile End": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Newbury Park": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "North Acton": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Northolt": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Notting Hill Gate": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Oxford Circus": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Perivale": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Queensway": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Redbridge": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Roding Valley": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Ruislip Gardens": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Shepherds Bush": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Snaresbrook": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "South Ruislip": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "South Woodford": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "St. Pauls": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Stratford": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Theydon Bois": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
+        ]
+    },
+    "Tottenham Court Road": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Wanstead": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "West Ruislip": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "White City": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Woodford": {
+        "services": [
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
+        ]
+    },
+    "Aldgate": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Baker Street": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Barbican": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Bayswater": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Blackfriars": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Cannon Street": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Edgware Road": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Embankment": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Euston Square": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Walking",
+                "variant": "euston-euston-square"
+            }
+        ]
+    },
+    "Farringdon": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Gloucester Road": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Great Portland Street": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "High Street Kensington": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Mansion House": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Monument": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Walking",
+                "variant": "bank-monument"
+            }
+        ]
+    },
+    "Moorgate": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Paddington": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Sloane Square": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "South Kensington": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "St. James's Park": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Temple": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Tower Hill": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Walking",
+                "variant": "tower-hill-tower-gateway"
+            }
+        ]
+    },
+    "Victoria": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Westminster": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            }
+        ]
+    },
+    "Aldgate East": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "Barking": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "Barons Court": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Becontree": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Bow Road": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Walking",
+                "variant": "bow-road-bow-church"
+            }
+        ]
+    },
+    "Bromley-by-Bow": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "Chiswick Park": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "Dagenham East": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Dagenham Heathway": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Earl's Court": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "East Ham": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "East Putney": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Elm Park": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Fulham Broadway": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Gunnersbury": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Hammersmith (District)": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Hornchurch": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Kew Gardens": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Parsons Green": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Plaistow": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "Putney Bridge": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Ravenscourt Park": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Richmond": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Southfields": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Stamford Brook": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Stepney Green": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "Turnham Green": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Upminster": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Upminster Bridge": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Upney": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Upton Park": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
+        ]
+    },
+    "West Brompton": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "West Ham": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "West Kensington": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Whitechapel": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
+        ]
+    },
+    "Wimbledon": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Wimbledon Park": {
+        "services": [
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
+        ]
+    },
+    "Abbey Road": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
+        ]
+    },
+    "All Saints": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
+        ]
+    },
+    "Beckton": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Beckton Park": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Blackwall": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Bow Church": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "Walking",
+                "variant": "bow-road-bow-church"
+            }
+        ]
+    },
+    "Canary Wharf": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
+        ]
+    },
+    "Canning Town": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Crossharbour & London Arena": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Custom House": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            }
+        ]
+    },
+    "Cutty Sark for Maritime Greenwich": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Cyprus": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Deptford Bridge": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Devons Road": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
+        ]
+    },
+    "East India": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Elverson Road": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Gallions Reach": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Greenwich": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Heron Quays": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Island Gardens": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "King George V": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Langdon Park": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
+        ]
+    },
+    "Lewisham": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Limehouse": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "London City Airport": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Mudchute": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Pontoon Dock": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Poplar": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Prince Regent": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Pudding Mill Lane": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
+        ]
+    },
+    "Royal Albert": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Royal Victoria": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
+        ]
+    },
+    "Shadwell": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "South Quay": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "Star Lane": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
+        ]
+    },
+    "Stratford High Street": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
+        ]
+    },
+    "Stratford International": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
+        ]
+    },
+    "Tower Gateway": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            },
+            {
+                "line": "Walking",
+                "variant": "tower-hill-tower-gateway"
+            }
+        ]
+    },
+    "West India Quay": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
+        ]
+    },
+    "West Silvertown": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Westferry": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
+        ]
+    },
+    "Woolwich Arsenal": {
+        "services": [
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            },
+            {
+                "line": "Walking",
+                "variant": "woolwich-arsenal-woolwich"
+            }
+        ]
+    },
+    "Abbey Wood": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            }
+        ]
+    },
+    "Acton Main Line": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Brentwood": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Burnham": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Chadwell Heath": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Forest Gate": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Gidea Park": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Goodmayes": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Hanwell": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Harold Wood": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Hayes & Harlington": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Heathrow Terminal 4": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            }
+        ]
+    },
+    "Heathrow Terminal 5": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            }
+        ]
+    },
+    "Heathrow Terminals 1 2 3": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
+        ]
+    },
+    "Ilford": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Iver": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Langley": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Maidenhead": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Manor Park": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Maryland": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Reading": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Romford": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Seven Kings": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Shenfield": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Slough": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Southall": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Taplow": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Twyford": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "West Drayton": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "West Ealing": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
+        ]
+    },
+    "Woolwich": {
+        "services": [
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Walking",
+                "variant": "woolwich-arsenal-woolwich"
+            }
+        ]
+    },
+    "Goldhawk Road": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Hammersmith (Met.)": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Ladbroke Grove": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Latimer Road": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Royal Oak": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Shepherds Bush Market": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Westbourne Park": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Wood Lane": {
+        "services": [
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
+        ]
+    },
+    "Amersham": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            }
+        ]
+    },
+    "Chalfont & Latimer": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
+        ]
+    },
+    "Chesham": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
+        ]
+    },
+    "Chorleywood": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
+        ]
+    },
+    "Croxley": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Eastcote": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Finchley Road": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Harrow-on-the-Hill": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Hillingdon": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Ickenham": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Moor Park": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "North Harrow": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Northwick Park": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Walking",
+                "variant": "kenton-northwick-park"
+            }
+        ]
+    },
+    "Northwood": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Northwood Hills": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Pinner": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Preston Road": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Rayners Lane": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Rickmansworth": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
+        ]
+    },
+    "Ruislip": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Ruislip Manor": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Uxbridge": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Watford": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
+        ]
+    },
+    "Wembley Park": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            }
+        ]
+    },
+    "West Harrow": {
+        "services": [
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
+        ]
+    },
+    "Angel": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
+        ]
+    },
+    "Archway": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Balham": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Battersea Power Station": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Belsize Park": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Borough": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
+        ]
+    },
+    "Brent Cross": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Burnt Oak": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Camden Town": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Chalk Farm": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Charing Cross": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Clapham Common": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Clapham North": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Clapham South": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Colindale": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Colliers Wood": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "East Finchley": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Edgware": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Elephant & Castle": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            }
+        ]
+    },
+    "Euston": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Walking",
+                "variant": "euston-euston-square"
+            }
+        ]
+    },
+    "Finchley Central": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Golders Green": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Goodge Street": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Hampstead": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Hendon Central": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "High Barnet": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
+        ]
+    },
+    "Highgate": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Kennington": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Kentish Town": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "King's Cross St. Pancras": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            }
+        ]
+    },
+    "Leicester Square": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "London Bridge": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Mill Hill East": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Morden": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Mornington Crescent": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Nine Elms": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Old Street": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
+        ]
+    },
+    "Oval": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "South Wimbledon": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Stockwell": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Tooting Bec": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Tooting Broadway": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Totteridge & Whetstone": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
+        ]
+    },
+    "Tufnell Park": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
+        ]
+    },
+    "Warren Street": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "Waterloo": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Waterloo & City",
+                "variant": null
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
+        ]
+    },
+    "West Finchley": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
+        ]
+    },
+    "Woodside Park": {
+        "services": [
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
+        ]
+    },
+    "Alperton": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Arnos Grove": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Boston Manor": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Bounds Green": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Caledonian Road": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Cockfosters": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Covent Garden": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Finsbury Park": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
+        ]
+    },
+    "Green Park": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Jubilee",
+                "variant": null
+            },
+            {
+                "line": "Victoria",
+                "variant": null
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
+        ]
+    },
+    "Hatton Cross": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Holloway Road": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Hounslow Central": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Hounslow East": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Hounslow West": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Hyde Park Corner": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Knightsbridge": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Manor House": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "North Ealing": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Northfields": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Oakwood": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Osterley": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "Park Royal": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Walking",
+                "variant": "hanger-lane-park-royal"
+            }
+        ]
+    },
+    "Piccadilly Circus": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
+        ]
+    },
+    "Russell Square": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "South Ealing": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
+        ]
+    },
+    "South Harrow": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Southgate": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Sudbury Hill": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Sudbury Town": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Turnpike Lane": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Wood Green": {
+        "services": [
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
+        ]
+    },
+    "Bermondsey": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Blackhorse Road": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Brixton": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Canada Water": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Canons Park": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Dollis Hill": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Harlesden": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Harrow & Wealdstone": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Highbury & Islington": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Kensal Green": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Kenton": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            },
+            {
+                "line": "Walking",
+                "variant": "kenton-northwick-park"
+            }
+        ]
+    },
+    "Kilburn": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Kilburn Park": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Kingsbury": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Lambeth North": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Maida Vale": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Marylebone": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Neasden": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "North Greenwich": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "North Wembley": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Pimlico": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Queens Park": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Queensbury": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Regents Park": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Seven Sisters": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "South Kenton": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Southwark": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "St. Johns Wood": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Stanmore": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Stonebridge Park": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Swiss Cottage": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Tottenham Hale": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Vauxhall": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Walthamstow Central": {
+        "services": [
+            {
+                "line": "Victoria",
+                "variant": null
+            }
+        ]
+    },
+    "Warwick Avenue": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "Wembley Central": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
+        ]
+    },
+    "West Hampstead": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Willesden Green": {
+        "services": [
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
+        ]
+    },
+    "Willesden Junction": {
+        "services": [
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ]
     }
-];
-export const connections = [
+};
+export const CONNECTIONS = [
     {
         "from": "Ruislip Gardens",
         "to": "West Ruislip",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3029,8 +6490,14 @@ export const connections = [
         "from": "Ruislip Gardens",
         "to": "South Ruislip",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3038,8 +6505,14 @@ export const connections = [
         "from": "Northolt",
         "to": "South Ruislip",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3047,8 +6520,14 @@ export const connections = [
         "from": "Greenford",
         "to": "Northolt",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3056,8 +6535,14 @@ export const connections = [
         "from": "Greenford",
         "to": "Perivale",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3065,17 +6550,40 @@ export const connections = [
         "from": "Hanger Lane",
         "to": "Perivale",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
     {
         "from": "Hanger Lane",
+        "to": "Park Royal",
+        "services": [
+            {
+                "line": "Walking",
+                "variant": "hanger-lane-park-royal"
+            },
+        ],
+        "time": 5
+    },
+    {
+        "from": "Hanger Lane",
         "to": "North Acton",
         "services": [
-            "Central|epping-west-ruislip",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3083,10 +6591,22 @@ export const connections = [
         "from": "North Acton",
         "to": "North Acton",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3094,10 +6614,22 @@ export const connections = [
         "from": "East Acton",
         "to": "North Acton",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3105,10 +6637,22 @@ export const connections = [
         "from": "East Acton",
         "to": "White City",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3116,10 +6660,22 @@ export const connections = [
         "from": "Shepherds Bush",
         "to": "White City",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3127,10 +6683,22 @@ export const connections = [
         "from": "Holland Park",
         "to": "Shepherds Bush",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3138,10 +6706,22 @@ export const connections = [
         "from": "Holland Park",
         "to": "Notting Hill Gate",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3149,10 +6729,22 @@ export const connections = [
         "from": "Notting Hill Gate",
         "to": "Queensway",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3160,10 +6752,22 @@ export const connections = [
         "from": "Lancaster Gate",
         "to": "Queensway",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3171,10 +6775,22 @@ export const connections = [
         "from": "Lancaster Gate",
         "to": "Marble Arch",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3182,10 +6798,22 @@ export const connections = [
         "from": "Bond Street",
         "to": "Marble Arch",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3193,10 +6821,22 @@ export const connections = [
         "from": "Bond Street",
         "to": "Oxford Circus",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3204,10 +6844,22 @@ export const connections = [
         "from": "Oxford Circus",
         "to": "Tottenham Court Road",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3215,10 +6867,22 @@ export const connections = [
         "from": "Holborn",
         "to": "Tottenham Court Road",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3226,10 +6890,22 @@ export const connections = [
         "from": "Chancery Lane",
         "to": "Holborn",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3237,10 +6913,22 @@ export const connections = [
         "from": "Chancery Lane",
         "to": "St. Pauls",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3248,10 +6936,22 @@ export const connections = [
         "from": "Bank",
         "to": "St. Pauls",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3259,10 +6959,22 @@ export const connections = [
         "from": "Bank",
         "to": "Liverpool Street",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3270,10 +6982,22 @@ export const connections = [
         "from": "Bethnal Green",
         "to": "Liverpool Street",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3281,10 +7005,22 @@ export const connections = [
         "from": "Bethnal Green",
         "to": "Mile End",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3292,10 +7028,22 @@ export const connections = [
         "from": "Mile End",
         "to": "Stratford",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3303,10 +7051,22 @@ export const connections = [
         "from": "Leyton",
         "to": "Stratford",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3314,10 +7074,22 @@ export const connections = [
         "from": "Leyton",
         "to": "Leytonstone",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip",
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3325,8 +7097,14 @@ export const connections = [
         "from": "Leytonstone",
         "to": "Snaresbrook",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3334,8 +7112,14 @@ export const connections = [
         "from": "Snaresbrook",
         "to": "South Woodford",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3343,8 +7127,14 @@ export const connections = [
         "from": "South Woodford",
         "to": "Woodford",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3352,8 +7142,14 @@ export const connections = [
         "from": "Buckhurst Hill",
         "to": "Woodford",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3361,8 +7157,14 @@ export const connections = [
         "from": "Buckhurst Hill",
         "to": "Loughton",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3370,8 +7172,14 @@ export const connections = [
         "from": "Debden",
         "to": "Loughton",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3379,8 +7187,14 @@ export const connections = [
         "from": "Debden",
         "to": "Theydon Bois",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3388,8 +7202,14 @@ export const connections = [
         "from": "Epping",
         "to": "Theydon Bois",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|epping-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "epping-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3397,8 +7217,14 @@ export const connections = [
         "from": "Ealing Broadway",
         "to": "Ealing Common",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|woodford-ealing-broadway"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            }
         ],
         "time": 2
     },
@@ -3406,8 +7232,14 @@ export const connections = [
         "from": "Acton Town",
         "to": "Ealing Common",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|woodford-ealing-broadway"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            }
         ],
         "time": 2
     },
@@ -3415,8 +7247,14 @@ export const connections = [
         "from": "Acton Town",
         "to": "North Acton",
         "services": [
-            "Central|epping-ealing-broadway",
-            "Central|woodford-ealing-broadway"
+            {
+                "line": "Central",
+                "variant": "epping-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            }
         ],
         "time": 2
     },
@@ -3424,8 +7262,14 @@ export const connections = [
         "from": "Leytonstone",
         "to": "Wanstead",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3433,8 +7277,14 @@ export const connections = [
         "from": "Redbridge",
         "to": "Wanstead",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3442,8 +7292,14 @@ export const connections = [
         "from": "Gants Hill",
         "to": "Redbridge",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3451,8 +7307,14 @@ export const connections = [
         "from": "Gants Hill",
         "to": "Newbury Park",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3460,8 +7322,14 @@ export const connections = [
         "from": "Barkingside",
         "to": "Newbury Park",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3469,8 +7337,14 @@ export const connections = [
         "from": "Barkingside",
         "to": "Fairlop",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3478,8 +7352,14 @@ export const connections = [
         "from": "Fairlop",
         "to": "Hainault",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3487,8 +7367,14 @@ export const connections = [
         "from": "Grange Hill",
         "to": "Hainault",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3496,8 +7382,14 @@ export const connections = [
         "from": "Chigwell",
         "to": "Grange Hill",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3505,8 +7397,14 @@ export const connections = [
         "from": "Chigwell",
         "to": "Roding Valley",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
@@ -3514,17 +7412,29 @@ export const connections = [
         "from": "Roding Valley",
         "to": "Woodford",
         "services": [
-            "Central|woodford-ealing-broadway",
-            "Central|woodford-west-ruislip"
+            {
+                "line": "Central",
+                "variant": "woodford-ealing-broadway"
+            },
+            {
+                "line": "Central",
+                "variant": "woodford-west-ruislip"
+            }
         ],
         "time": 2
     },
     {
-        "from": "Edgware Road (Circle)",
+        "from": "Edgware Road",
         "to": "Paddington",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3532,8 +7442,14 @@ export const connections = [
         "from": "Bayswater",
         "to": "Paddington",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3541,8 +7457,14 @@ export const connections = [
         "from": "Bayswater",
         "to": "Notting Hill Gate",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3550,8 +7472,14 @@ export const connections = [
         "from": "High Street Kensington",
         "to": "Notting Hill Gate",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3559,8 +7487,14 @@ export const connections = [
         "from": "Gloucester Road",
         "to": "High Street Kensington",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3568,8 +7502,14 @@ export const connections = [
         "from": "Gloucester Road",
         "to": "South Kensington",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3577,8 +7517,14 @@ export const connections = [
         "from": "Sloane Square",
         "to": "South Kensington",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3586,8 +7532,14 @@ export const connections = [
         "from": "Sloane Square",
         "to": "Victoria",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3595,8 +7547,14 @@ export const connections = [
         "from": "St. James's Park",
         "to": "Victoria",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3604,8 +7562,14 @@ export const connections = [
         "from": "St. James's Park",
         "to": "Westminster",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3613,8 +7577,14 @@ export const connections = [
         "from": "Embankment",
         "to": "Westminster",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3622,8 +7592,14 @@ export const connections = [
         "from": "Embankment",
         "to": "Temple",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3631,8 +7607,14 @@ export const connections = [
         "from": "Blackfriars",
         "to": "Temple",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3640,8 +7622,14 @@ export const connections = [
         "from": "Blackfriars",
         "to": "Mansion House",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3649,8 +7637,14 @@ export const connections = [
         "from": "Cannon Street",
         "to": "Mansion House",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3658,8 +7652,14 @@ export const connections = [
         "from": "Cannon Street",
         "to": "Monument",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3667,17 +7667,40 @@ export const connections = [
         "from": "Monument",
         "to": "Tower Hill",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
+    },
+    {
+        "from": "Tower Hill",
+        "to": "Tower Gateway",
+        "services": [
+            {
+                "line": "Walking",
+                "variant": "tower-hill-tower-gateway"
+            }
+        ],
+        "time": 5,
     },
     {
         "from": "Aldgate",
         "to": "Tower Hill",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3685,8 +7708,14 @@ export const connections = [
         "from": "Aldgate",
         "to": "Liverpool Street",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3694,8 +7723,14 @@ export const connections = [
         "from": "Liverpool Street",
         "to": "Moorgate",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3703,8 +7738,14 @@ export const connections = [
         "from": "Barbican",
         "to": "Moorgate",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3712,8 +7753,14 @@ export const connections = [
         "from": "Barbican",
         "to": "Farringdon",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3721,8 +7768,14 @@ export const connections = [
         "from": "Farringdon",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3730,8 +7783,14 @@ export const connections = [
         "from": "Euston Square",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3739,8 +7798,14 @@ export const connections = [
         "from": "Euston Square",
         "to": "Great Portland Street",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3748,17 +7813,29 @@ export const connections = [
         "from": "Baker Street",
         "to": "Great Portland Street",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
     {
         "from": "Baker Street",
-        "to": "Edgware Road (Circle)",
+        "to": "Edgware Road",
         "services": [
-            "Circle|anticlockwise",
-            "Circle|clockwise"
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            }
         ],
         "time": 2
     },
@@ -3766,8 +7843,14 @@ export const connections = [
         "from": "Ealing Broadway",
         "to": "Ealing Common",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
         ],
         "time": 2
     },
@@ -3775,8 +7858,14 @@ export const connections = [
         "from": "Acton Town",
         "to": "Ealing Common",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
         ],
         "time": 2
     },
@@ -3784,8 +7873,14 @@ export const connections = [
         "from": "Acton Town",
         "to": "Chiswick Park",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
         ],
         "time": 2
     },
@@ -3793,8 +7888,14 @@ export const connections = [
         "from": "Chiswick Park",
         "to": "Turnham Green",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            }
         ],
         "time": 2
     },
@@ -3802,10 +7903,22 @@ export const connections = [
         "from": "Stamford Brook",
         "to": "Turnham Green",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -3813,10 +7926,22 @@ export const connections = [
         "from": "Ravenscourt Park",
         "to": "Stamford Brook",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -3824,10 +7949,22 @@ export const connections = [
         "from": "Hammersmith (District)",
         "to": "Ravenscourt Park",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -3835,10 +7972,22 @@ export const connections = [
         "from": "Barons Court",
         "to": "Hammersmith (District)",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -3846,10 +7995,22 @@ export const connections = [
         "from": "Barons Court",
         "to": "West Kensington",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -3857,10 +8018,22 @@ export const connections = [
         "from": "Earl's Court",
         "to": "West Kensington",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|ealing-broadway-upminster",
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -3868,9 +8041,18 @@ export const connections = [
         "from": "Earl's Court",
         "to": "High Street Kensington",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|richmond-edgware-road",
-            "District|wimbledon-edgware-road"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            }
         ],
         "time": 2
     },
@@ -3878,9 +8060,18 @@ export const connections = [
         "from": "High Street Kensington",
         "to": "Notting Hill Gate",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|richmond-edgware-road",
-            "District|wimbledon-edgware-road"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            }
         ],
         "time": 2
     },
@@ -3888,9 +8079,18 @@ export const connections = [
         "from": "Bayswater",
         "to": "Notting Hill Gate",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|richmond-edgware-road",
-            "District|wimbledon-edgware-road"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            }
         ],
         "time": 2
     },
@@ -3898,19 +8098,37 @@ export const connections = [
         "from": "Bayswater",
         "to": "Paddington",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|richmond-edgware-road",
-            "District|wimbledon-edgware-road"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            }
         ],
         "time": 2
     },
     {
-        "from": "Edgware Road (Circle)",
+        "from": "Edgware Road",
         "to": "Paddington",
         "services": [
-            "District|ealing-broadway-edgware-road",
-            "District|richmond-edgware-road",
-            "District|wimbledon-edgware-road"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            }
         ],
         "time": 2
     },
@@ -3918,9 +8136,18 @@ export const connections = [
         "from": "Earl's Court",
         "to": "Gloucester Road",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3928,9 +8155,18 @@ export const connections = [
         "from": "Gloucester Road",
         "to": "South Kensington",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3938,9 +8174,18 @@ export const connections = [
         "from": "Sloane Square",
         "to": "South Kensington",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3948,9 +8193,18 @@ export const connections = [
         "from": "Sloane Square",
         "to": "Victoria",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3958,9 +8212,18 @@ export const connections = [
         "from": "St. James's Park",
         "to": "Victoria",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3968,9 +8231,18 @@ export const connections = [
         "from": "St. James's Park",
         "to": "Westminster",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3978,9 +8250,18 @@ export const connections = [
         "from": "Embankment",
         "to": "Westminster",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3988,9 +8269,18 @@ export const connections = [
         "from": "Embankment",
         "to": "Temple",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -3998,9 +8288,18 @@ export const connections = [
         "from": "Blackfriars",
         "to": "Temple",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4008,9 +8307,18 @@ export const connections = [
         "from": "Blackfriars",
         "to": "Mansion House",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4018,9 +8326,18 @@ export const connections = [
         "from": "Cannon Street",
         "to": "Mansion House",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4028,9 +8345,18 @@ export const connections = [
         "from": "Cannon Street",
         "to": "Monument",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4038,9 +8364,18 @@ export const connections = [
         "from": "Monument",
         "to": "Tower Hill",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4048,9 +8383,18 @@ export const connections = [
         "from": "Aldgate East",
         "to": "Tower Hill",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4058,9 +8402,18 @@ export const connections = [
         "from": "Aldgate East",
         "to": "Whitechapel",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4068,9 +8421,18 @@ export const connections = [
         "from": "Stepney Green",
         "to": "Whitechapel",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4078,9 +8440,18 @@ export const connections = [
         "from": "Mile End",
         "to": "Stepney Green",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4088,9 +8459,18 @@ export const connections = [
         "from": "Bow Road",
         "to": "Mile End",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4098,9 +8478,18 @@ export const connections = [
         "from": "Bow Road",
         "to": "Bromley-by-Bow",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4108,9 +8497,18 @@ export const connections = [
         "from": "Bromley-by-Bow",
         "to": "West Ham",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4118,9 +8516,18 @@ export const connections = [
         "from": "Plaistow",
         "to": "West Ham",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4128,9 +8535,18 @@ export const connections = [
         "from": "Plaistow",
         "to": "Upton Park",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4138,9 +8554,18 @@ export const connections = [
         "from": "East Ham",
         "to": "Upton Park",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4148,9 +8573,18 @@ export const connections = [
         "from": "Barking",
         "to": "East Ham",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4158,9 +8592,18 @@ export const connections = [
         "from": "Barking",
         "to": "Upney",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4168,9 +8611,18 @@ export const connections = [
         "from": "Becontree",
         "to": "Upney",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4178,9 +8630,18 @@ export const connections = [
         "from": "Becontree",
         "to": "Dagenham Heathway",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4188,9 +8649,18 @@ export const connections = [
         "from": "Dagenham East",
         "to": "Dagenham Heathway",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4198,9 +8668,18 @@ export const connections = [
         "from": "Dagenham East",
         "to": "Elm Park",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4208,9 +8687,18 @@ export const connections = [
         "from": "Elm Park",
         "to": "Hornchurch",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4218,9 +8706,18 @@ export const connections = [
         "from": "Hornchurch",
         "to": "Upminster Bridge",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4228,9 +8725,18 @@ export const connections = [
         "from": "Upminster",
         "to": "Upminster Bridge",
         "services": [
-            "District|ealing-broadway-upminster",
-            "District|richmond-upminster",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "ealing-broadway-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4238,8 +8744,14 @@ export const connections = [
         "from": "Kew Gardens",
         "to": "Richmond",
         "services": [
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -4247,8 +8759,14 @@ export const connections = [
         "from": "Gunnersbury",
         "to": "Kew Gardens",
         "services": [
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -4256,8 +8774,14 @@ export const connections = [
         "from": "Gunnersbury",
         "to": "Turnham Green",
         "services": [
-            "District|richmond-edgware-road",
-            "District|richmond-upminster"
+            {
+                "line": "District",
+                "variant": "richmond-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "richmond-upminster"
+            }
         ],
         "time": 2
     },
@@ -4265,8 +8789,14 @@ export const connections = [
         "from": "Wimbledon",
         "to": "Wimbledon Park",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4274,8 +8804,14 @@ export const connections = [
         "from": "Southfields",
         "to": "Wimbledon Park",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4283,8 +8819,14 @@ export const connections = [
         "from": "East Putney",
         "to": "Southfields",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4292,8 +8834,14 @@ export const connections = [
         "from": "East Putney",
         "to": "Putney Bridge",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4301,8 +8849,14 @@ export const connections = [
         "from": "Parsons Green",
         "to": "Putney Bridge",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4310,8 +8864,14 @@ export const connections = [
         "from": "Fulham Broadway",
         "to": "Parsons Green",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4319,8 +8879,14 @@ export const connections = [
         "from": "Fulham Broadway",
         "to": "West Brompton",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4328,8 +8894,14 @@ export const connections = [
         "from": "Earl's Court",
         "to": "West Brompton",
         "services": [
-            "District|wimbledon-edgware-road",
-            "District|wimbledon-upminster"
+            {
+                "line": "District",
+                "variant": "wimbledon-edgware-road"
+            },
+            {
+                "line": "District",
+                "variant": "wimbledon-upminster"
+            }
         ],
         "time": 2
     },
@@ -4337,8 +8909,14 @@ export const connections = [
         "from": "Stratford High Street",
         "to": "Stratford International",
         "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4346,8 +8924,14 @@ export const connections = [
         "from": "Abbey Road",
         "to": "Stratford High Street",
         "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4355,8 +8939,14 @@ export const connections = [
         "from": "Abbey Road",
         "to": "West Ham",
         "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4364,8 +8954,14 @@ export const connections = [
         "from": "Star Lane",
         "to": "West Ham",
         "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4373,8 +8969,14 @@ export const connections = [
         "from": "Canning Town",
         "to": "Star Lane",
         "services": [
-            "DLR|stratford-international-beckton",
-            "DLR|stratford-international-woolwich"
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4382,9 +8984,18 @@ export const connections = [
         "from": "Canning Town",
         "to": "West Silvertown",
         "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4392,9 +9003,18 @@ export const connections = [
         "from": "Pontoon Dock",
         "to": "West Silvertown",
         "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4402,9 +9022,18 @@ export const connections = [
         "from": "London City Airport",
         "to": "Pontoon Dock",
         "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4412,9 +9041,18 @@ export const connections = [
         "from": "King George V",
         "to": "London City Airport",
         "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4422,19 +9060,48 @@ export const connections = [
         "from": "King George V",
         "to": "Woolwich Arsenal",
         "services": [
-            "DLR|bank-woolwich",
-            "DLR|stratford-international-woolwich",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
+    },
+    {
+        "from": "Woolwich Arsenal",
+        "to": "Woolwich",
+        "services": [
+            {
+                "line": "Walking",
+                "variant": "woolwich-arsenal-woolwich"
+            }
+        ],
+        "time": 5
     },
     {
         "from": "Canning Town",
         "to": "Royal Victoria",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4442,9 +9109,18 @@ export const connections = [
         "from": "Custom House",
         "to": "Royal Victoria",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4452,9 +9128,18 @@ export const connections = [
         "from": "Custom House",
         "to": "Prince Regent",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4462,9 +9147,18 @@ export const connections = [
         "from": "Prince Regent",
         "to": "Royal Albert",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4472,9 +9166,18 @@ export const connections = [
         "from": "Beckton Park",
         "to": "Royal Albert",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4482,9 +9185,18 @@ export const connections = [
         "from": "Beckton Park",
         "to": "Cyprus",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4492,9 +9204,18 @@ export const connections = [
         "from": "Cyprus",
         "to": "Gallions Reach",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4502,9 +9223,18 @@ export const connections = [
         "from": "Beckton",
         "to": "Gallions Reach",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|stratford-international-beckton",
-            "DLR|tower-gateway-beckton"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-international-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            }
         ],
         "time": 2
     },
@@ -4512,9 +9242,18 @@ export const connections = [
         "from": "Shadwell",
         "to": "Tower Gateway",
         "services": [
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4522,12 +9261,30 @@ export const connections = [
         "from": "Limehouse",
         "to": "Shadwell",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4535,12 +9292,30 @@ export const connections = [
         "from": "Limehouse",
         "to": "Westferry",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4548,12 +9323,30 @@ export const connections = [
         "from": "Poplar",
         "to": "Westferry",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-lewisham",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4561,10 +9354,22 @@ export const connections = [
         "from": "Blackwall",
         "to": "Poplar",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4572,10 +9377,22 @@ export const connections = [
         "from": "Blackwall",
         "to": "East India",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4583,10 +9400,22 @@ export const connections = [
         "from": "Canning Town",
         "to": "East India",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-woolwich",
-            "DLR|tower-gateway-beckton",
-            "DLR|tower-gateway-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4594,9 +9423,18 @@ export const connections = [
         "from": "Poplar",
         "to": "West India Quay",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4604,9 +9442,18 @@ export const connections = [
         "from": "Canary Wharf",
         "to": "West India Quay",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4614,9 +9461,18 @@ export const connections = [
         "from": "Canary Wharf",
         "to": "Heron Quays",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4624,9 +9480,18 @@ export const connections = [
         "from": "Heron Quays",
         "to": "South Quay",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4634,9 +9499,18 @@ export const connections = [
         "from": "Crossharbour & London Arena",
         "to": "South Quay",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4644,9 +9518,18 @@ export const connections = [
         "from": "Crossharbour & London Arena",
         "to": "Mudchute",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4654,9 +9537,18 @@ export const connections = [
         "from": "Island Gardens",
         "to": "Mudchute",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4664,9 +9556,18 @@ export const connections = [
         "from": "Cutty Sark for Maritime Greenwich",
         "to": "Island Gardens",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4674,9 +9575,18 @@ export const connections = [
         "from": "Cutty Sark for Maritime Greenwich",
         "to": "Greenwich",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4684,9 +9594,18 @@ export const connections = [
         "from": "Deptford Bridge",
         "to": "Greenwich",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4694,9 +9613,18 @@ export const connections = [
         "from": "Deptford Bridge",
         "to": "Elverson Road",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4704,9 +9632,18 @@ export const connections = [
         "from": "Elverson Road",
         "to": "Lewisham",
         "services": [
-            "DLR|bank-lewisham",
-            "DLR|stratford-lewisham",
-            "DLR|tower-gateway-lewisham"
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "tower-gateway-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4714,9 +9651,18 @@ export const connections = [
         "from": "Bank",
         "to": "Shadwell",
         "services": [
-            "DLR|bank-beckton",
-            "DLR|bank-lewisham",
-            "DLR|bank-woolwich"
+            {
+                "line": "DLR",
+                "variant": "bank-beckton"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-lewisham"
+            },
+            {
+                "line": "DLR",
+                "variant": "bank-woolwich"
+            }
         ],
         "time": 2
     },
@@ -4724,7 +9670,10 @@ export const connections = [
         "from": "Pudding Mill Lane",
         "to": "Stratford",
         "services": [
-            "DLR|stratford-lewisham"
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4732,15 +9681,32 @@ export const connections = [
         "from": "Bow Church",
         "to": "Pudding Mill Lane",
         "services": [
-            "DLR|stratford-lewisham"
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
         ],
         "time": 2
     },
     {
         "from": "Bow Church",
+        "to": "Bow Road",
+        "services": [
+            {
+                "line": "Walking",
+                "variant": "bow-road-bow-church"
+            }
+        ],
+        "time": 5
+    },
+    {
+        "from": "Bow Church",
         "to": "Devons Road",
         "services": [
-            "DLR|stratford-lewisham"
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4748,7 +9714,10 @@ export const connections = [
         "from": "Devons Road",
         "to": "Langdon Park",
         "services": [
-            "DLR|stratford-lewisham"
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4756,7 +9725,10 @@ export const connections = [
         "from": "All Saints",
         "to": "Langdon Park",
         "services": [
-            "DLR|stratford-lewisham"
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4764,7 +9736,10 @@ export const connections = [
         "from": "All Saints",
         "to": "Poplar",
         "services": [
-            "DLR|stratford-lewisham"
+            {
+                "line": "DLR",
+                "variant": "stratford-lewisham"
+            }
         ],
         "time": 2
     },
@@ -4772,8 +9747,14 @@ export const connections = [
         "from": "Reading",
         "to": "Twyford",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4781,8 +9762,14 @@ export const connections = [
         "from": "Maidenhead",
         "to": "Twyford",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4790,8 +9777,14 @@ export const connections = [
         "from": "Maidenhead",
         "to": "Taplow",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4799,8 +9792,14 @@ export const connections = [
         "from": "Burnham",
         "to": "Taplow",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4808,8 +9807,14 @@ export const connections = [
         "from": "Burnham",
         "to": "Slough",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4817,8 +9822,14 @@ export const connections = [
         "from": "Langley",
         "to": "Slough",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4826,8 +9837,14 @@ export const connections = [
         "from": "Iver",
         "to": "Langley",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4835,8 +9852,14 @@ export const connections = [
         "from": "Iver",
         "to": "West Drayton",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4844,8 +9867,14 @@ export const connections = [
         "from": "Hayes & Harlington",
         "to": "West Drayton",
         "services": [
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4853,12 +9882,30 @@ export const connections = [
         "from": "Hayes & Harlington",
         "to": "Southall",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4866,12 +9913,30 @@ export const connections = [
         "from": "Hanwell",
         "to": "Southall",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4879,12 +9944,30 @@ export const connections = [
         "from": "Hanwell",
         "to": "West Ealing",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4892,12 +9975,30 @@ export const connections = [
         "from": "Ealing Broadway",
         "to": "West Ealing",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4905,12 +10006,30 @@ export const connections = [
         "from": "Acton Main Line",
         "to": "Ealing Broadway",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4918,12 +10037,30 @@ export const connections = [
         "from": "Acton Main Line",
         "to": "Paddington",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4931,12 +10068,30 @@ export const connections = [
         "from": "Paddington",
         "to": "Paddington",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4944,12 +10099,30 @@ export const connections = [
         "from": "Bond Street",
         "to": "Paddington",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4957,12 +10130,30 @@ export const connections = [
         "from": "Bond Street",
         "to": "Tottenham Court Road",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4970,12 +10161,30 @@ export const connections = [
         "from": "Farringdon",
         "to": "Tottenham Court Road",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4983,12 +10192,30 @@ export const connections = [
         "from": "Farringdon",
         "to": "Liverpool Street",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -4996,12 +10223,30 @@ export const connections = [
         "from": "Liverpool Street",
         "to": "Whitechapel",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-abbey-wood",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5009,9 +10254,18 @@ export const connections = [
         "from": "Stratford",
         "to": "Whitechapel",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5019,9 +10273,18 @@ export const connections = [
         "from": "Maryland",
         "to": "Stratford",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5029,9 +10292,18 @@ export const connections = [
         "from": "Forest Gate",
         "to": "Maryland",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5039,9 +10311,18 @@ export const connections = [
         "from": "Forest Gate",
         "to": "Manor Park",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5049,9 +10330,18 @@ export const connections = [
         "from": "Ilford",
         "to": "Manor Park",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5059,9 +10349,18 @@ export const connections = [
         "from": "Ilford",
         "to": "Seven Kings",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5069,9 +10368,18 @@ export const connections = [
         "from": "Goodmayes",
         "to": "Seven Kings",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5079,9 +10387,18 @@ export const connections = [
         "from": "Chadwell Heath",
         "to": "Goodmayes",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5089,9 +10406,18 @@ export const connections = [
         "from": "Chadwell Heath",
         "to": "Romford",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5099,9 +10425,18 @@ export const connections = [
         "from": "Gidea Park",
         "to": "Romford",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5109,9 +10444,18 @@ export const connections = [
         "from": "Gidea Park",
         "to": "Harold Wood",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5119,9 +10463,18 @@ export const connections = [
         "from": "Brentwood",
         "to": "Harold Wood",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5129,9 +10482,18 @@ export const connections = [
         "from": "Brentwood",
         "to": "Shenfield",
         "services": [
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-shenfield",
-            "Elizabeth|reading-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5139,9 +10501,18 @@ export const connections = [
         "from": "Canary Wharf",
         "to": "Whitechapel",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            }
         ],
         "time": 2
     },
@@ -5149,9 +10520,18 @@ export const connections = [
         "from": "Canary Wharf",
         "to": "Custom House",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            }
         ],
         "time": 2
     },
@@ -5159,9 +10539,18 @@ export const connections = [
         "from": "Custom House",
         "to": "Woolwich",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            }
         ],
         "time": 2
     },
@@ -5169,9 +10558,18 @@ export const connections = [
         "from": "Abbey Wood",
         "to": "Woolwich",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|reading-abbey-wood"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "reading-abbey-wood"
+            }
         ],
         "time": 2
     },
@@ -5179,8 +10577,14 @@ export const connections = [
         "from": "Heathrow Terminal 5",
         "to": "Heathrow Terminals 1 2 3",
         "services": [
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5188,10 +10592,22 @@ export const connections = [
         "from": "Hayes & Harlington",
         "to": "Heathrow Terminals 1 2 3",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield",
-            "Elizabeth|heathrow-terminal-5-abbey-wood",
-            "Elizabeth|heathrow-terminal-5-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-5-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5199,8 +10615,14 @@ export const connections = [
         "from": "Heathrow Terminal 4",
         "to": "Heathrow Terminals 1 2 3",
         "services": [
-            "Elizabeth|heathrow-terminal-4-abbey-wood",
-            "Elizabeth|heathrow-terminal-4-shenfield"
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-abbey-wood"
+            },
+            {
+                "line": "Elizabeth",
+                "variant": "heathrow-terminal-4-shenfield"
+            }
         ],
         "time": 2
     },
@@ -5208,7 +10630,10 @@ export const connections = [
         "from": "Aldgate East",
         "to": "Whitechapel",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5216,7 +10641,10 @@ export const connections = [
         "from": "Baker Street",
         "to": "Great Portland Street",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5224,7 +10652,10 @@ export const connections = [
         "from": "Barbican",
         "to": "Moorgate",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5232,7 +10663,10 @@ export const connections = [
         "from": "Bow Road",
         "to": "Bromley-by-Bow",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5240,7 +10674,10 @@ export const connections = [
         "from": "Bromley-by-Bow",
         "to": "West Ham",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5248,15 +10685,21 @@ export const connections = [
         "from": "Barking",
         "to": "East Ham",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
     {
         "from": "Baker Street",
-        "to": "Edgware Road (Circle/District/Hammersmith & City)",
+        "to": "Edgware Road",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5264,7 +10707,10 @@ export const connections = [
         "from": "Euston Square",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5272,7 +10718,10 @@ export const connections = [
         "from": "Barbican",
         "to": "Farringdon",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5280,7 +10729,10 @@ export const connections = [
         "from": "Goldhawk Road",
         "to": "Shepherds Bush Market",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5288,7 +10740,10 @@ export const connections = [
         "from": "Euston Square",
         "to": "Great Portland Street",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5296,7 +10751,10 @@ export const connections = [
         "from": "Goldhawk Road",
         "to": "Hammersmith (Met.)",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5304,7 +10762,10 @@ export const connections = [
         "from": "Farringdon",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5312,7 +10773,10 @@ export const connections = [
         "from": "Ladbroke Grove",
         "to": "Westbourne Park",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5320,7 +10784,10 @@ export const connections = [
         "from": "Ladbroke Grove",
         "to": "Latimer Road",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5328,7 +10795,10 @@ export const connections = [
         "from": "Aldgate East",
         "to": "Liverpool Street",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5336,7 +10806,10 @@ export const connections = [
         "from": "Bow Road",
         "to": "Mile End",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5344,15 +10817,21 @@ export const connections = [
         "from": "Liverpool Street",
         "to": "Moorgate",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
     {
-        "from": "Edgware Road (Circle/District/Hammersmith & City)",
+        "from": "Edgware Road",
         "to": "Paddington",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5360,7 +10839,10 @@ export const connections = [
         "from": "Plaistow",
         "to": "Upton Park",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5368,7 +10850,10 @@ export const connections = [
         "from": "Paddington",
         "to": "Royal Oak",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5376,7 +10861,10 @@ export const connections = [
         "from": "Shepherds Bush Market",
         "to": "Wood Lane",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5384,7 +10872,10 @@ export const connections = [
         "from": "Mile End",
         "to": "Stepney Green",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5392,7 +10883,10 @@ export const connections = [
         "from": "East Ham",
         "to": "Upton Park",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5400,7 +10894,10 @@ export const connections = [
         "from": "Plaistow",
         "to": "West Ham",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5408,7 +10905,10 @@ export const connections = [
         "from": "Royal Oak",
         "to": "Westbourne Park",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5416,7 +10916,10 @@ export const connections = [
         "from": "Stepney Green",
         "to": "Whitechapel",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5424,7 +10927,10 @@ export const connections = [
         "from": "Latimer Road",
         "to": "Wood Lane",
         "services": [
-            "Hammersmith & City"
+            {
+                "line": "Hammersmith & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -5432,8 +10938,14 @@ export const connections = [
         "from": "Croxley",
         "to": "Watford",
         "services": [
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5441,8 +10953,14 @@ export const connections = [
         "from": "Croxley",
         "to": "Moor Park",
         "services": [
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5450,9 +10968,18 @@ export const connections = [
         "from": "Moor Park",
         "to": "Northwood",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5460,9 +10987,18 @@ export const connections = [
         "from": "Northwood",
         "to": "Northwood Hills",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5470,9 +11006,18 @@ export const connections = [
         "from": "Northwood Hills",
         "to": "Pinner",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5480,9 +11025,18 @@ export const connections = [
         "from": "North Harrow",
         "to": "Pinner",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5490,9 +11044,18 @@ export const connections = [
         "from": "Harrow-on-the-Hill",
         "to": "North Harrow",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5500,10 +11063,22 @@ export const connections = [
         "from": "Harrow-on-the-Hill",
         "to": "Northwick Park",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5511,10 +11086,22 @@ export const connections = [
         "from": "Northwick Park",
         "to": "Preston Road",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5522,10 +11109,22 @@ export const connections = [
         "from": "Preston Road",
         "to": "Wembley Park",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5533,10 +11132,22 @@ export const connections = [
         "from": "Finchley Road",
         "to": "Wembley Park",
         "services": [
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5544,13 +11155,34 @@ export const connections = [
         "from": "Baker Street",
         "to": "Finchley Road",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5558,13 +11190,34 @@ export const connections = [
         "from": "Baker Street",
         "to": "Great Portland Street",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5572,13 +11225,34 @@ export const connections = [
         "from": "Euston Square",
         "to": "Great Portland Street",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5586,13 +11260,34 @@ export const connections = [
         "from": "Euston Square",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5600,13 +11295,34 @@ export const connections = [
         "from": "Farringdon",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5614,13 +11330,34 @@ export const connections = [
         "from": "Barbican",
         "to": "Farringdon",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5628,13 +11365,34 @@ export const connections = [
         "from": "Barbican",
         "to": "Moorgate",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5642,13 +11400,34 @@ export const connections = [
         "from": "Liverpool Street",
         "to": "Moorgate",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5656,13 +11435,34 @@ export const connections = [
         "from": "Aldgate",
         "to": "Liverpool Street",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow",
-            "Metropolitan|uxbridge-aldgate-slow",
-            "Metropolitan|watford-aldgate-fast",
-            "Metropolitan|watford-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5670,8 +11470,14 @@ export const connections = [
         "from": "Amersham",
         "to": "Chalfont & Latimer",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5679,10 +11485,22 @@ export const connections = [
         "from": "Chalfont & Latimer",
         "to": "Chorleywood",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5690,10 +11508,22 @@ export const connections = [
         "from": "Chorleywood",
         "to": "Rickmansworth",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5701,10 +11531,22 @@ export const connections = [
         "from": "Moor Park",
         "to": "Rickmansworth",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|amersham-aldgate-slow",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-slow"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5712,8 +11554,14 @@ export const connections = [
         "from": "Chalfont & Latimer",
         "to": "Chesham",
         "services": [
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5721,7 +11569,10 @@ export const connections = [
         "from": "Hillingdon",
         "to": "Uxbridge",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5729,7 +11580,10 @@ export const connections = [
         "from": "Hillingdon",
         "to": "Ickenham",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5737,7 +11591,10 @@ export const connections = [
         "from": "Ickenham",
         "to": "Ruislip",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5745,7 +11602,10 @@ export const connections = [
         "from": "Ruislip",
         "to": "Ruislip Manor",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5753,7 +11613,10 @@ export const connections = [
         "from": "Eastcote",
         "to": "Ruislip Manor",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5761,7 +11624,10 @@ export const connections = [
         "from": "Eastcote",
         "to": "Rayners Lane",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5769,7 +11635,10 @@ export const connections = [
         "from": "Rayners Lane",
         "to": "West Harrow",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5777,7 +11646,10 @@ export const connections = [
         "from": "Harrow-on-the-Hill",
         "to": "West Harrow",
         "services": [
-            "Metropolitan|uxbridge-aldgate-slow"
+            {
+                "line": "Metropolitan",
+                "variant": "uxbridge-aldgate-slow"
+            }
         ],
         "time": 2
     },
@@ -5785,9 +11657,18 @@ export const connections = [
         "from": "Harrow-on-the-Hill",
         "to": "Moor Park",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|watford-aldgate-fast"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            }
         ],
         "time": 1
     },
@@ -5795,9 +11676,18 @@ export const connections = [
         "from": "Finchley Road",
         "to": "Harrow-on-the-Hill",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|watford-aldgate-fast"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            }
         ],
         "time": 1
     },
@@ -5805,9 +11695,18 @@ export const connections = [
         "from": "Finchley Road",
         "to": "Finchley Road",
         "services": [
-            "Metropolitan|amersham-aldgate-fast",
-            "Metropolitan|chesham-aldgate-fast",
-            "Metropolitan|watford-aldgate-fast"
+            {
+                "line": "Metropolitan",
+                "variant": "amersham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "chesham-aldgate-fast"
+            },
+            {
+                "line": "Metropolitan",
+                "variant": "watford-aldgate-fast"
+            }
         ],
         "time": 2
     },
@@ -5815,12 +11714,30 @@ export const connections = [
         "from": "Morden",
         "to": "South Wimbledon",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5828,12 +11745,30 @@ export const connections = [
         "from": "Colliers Wood",
         "to": "South Wimbledon",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5841,12 +11776,30 @@ export const connections = [
         "from": "Colliers Wood",
         "to": "Tooting Broadway",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5854,12 +11807,30 @@ export const connections = [
         "from": "Tooting Bec",
         "to": "Tooting Broadway",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5867,12 +11838,30 @@ export const connections = [
         "from": "Balham",
         "to": "Tooting Bec",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5880,12 +11869,30 @@ export const connections = [
         "from": "Balham",
         "to": "Clapham South",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5893,12 +11900,30 @@ export const connections = [
         "from": "Clapham Common",
         "to": "Clapham South",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5906,12 +11931,30 @@ export const connections = [
         "from": "Clapham Common",
         "to": "Clapham North",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5919,12 +11962,30 @@ export const connections = [
         "from": "Clapham North",
         "to": "Stockwell",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5932,12 +11993,30 @@ export const connections = [
         "from": "Oval",
         "to": "Stockwell",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5945,12 +12024,30 @@ export const connections = [
         "from": "Kennington",
         "to": "Oval",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5958,9 +12055,18 @@ export const connections = [
         "from": "Elephant & Castle",
         "to": "Kennington",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5968,9 +12074,18 @@ export const connections = [
         "from": "Borough",
         "to": "Elephant & Castle",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5978,9 +12093,18 @@ export const connections = [
         "from": "Borough",
         "to": "London Bridge",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5988,9 +12112,18 @@ export const connections = [
         "from": "Bank",
         "to": "London Bridge",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -5998,9 +12131,18 @@ export const connections = [
         "from": "Bank",
         "to": "Moorgate",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6008,9 +12150,18 @@ export const connections = [
         "from": "Moorgate",
         "to": "Old Street",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6018,9 +12169,18 @@ export const connections = [
         "from": "Angel",
         "to": "Old Street",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6028,9 +12188,18 @@ export const connections = [
         "from": "Angel",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6038,9 +12207,18 @@ export const connections = [
         "from": "Euston",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6048,9 +12226,18 @@ export const connections = [
         "from": "Camden Town",
         "to": "Euston",
         "services": [
-            "Northern|morden-bank-edgware",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6058,9 +12245,18 @@ export const connections = [
         "from": "Camden Town",
         "to": "Chalk Farm",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6068,9 +12264,18 @@ export const connections = [
         "from": "Belsize Park",
         "to": "Chalk Farm",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6078,9 +12283,18 @@ export const connections = [
         "from": "Belsize Park",
         "to": "Hampstead",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6088,9 +12302,18 @@ export const connections = [
         "from": "Golders Green",
         "to": "Hampstead",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6098,9 +12321,18 @@ export const connections = [
         "from": "Brent Cross",
         "to": "Golders Green",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6108,9 +12340,18 @@ export const connections = [
         "from": "Brent Cross",
         "to": "Hendon Central",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6118,9 +12359,18 @@ export const connections = [
         "from": "Colindale",
         "to": "Hendon Central",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6128,9 +12378,18 @@ export const connections = [
         "from": "Burnt Oak",
         "to": "Colindale",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6138,9 +12397,18 @@ export const connections = [
         "from": "Burnt Oak",
         "to": "Edgware",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|morden-bank-edgware",
-            "Northern|morden-charing-cross-edgware"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            }
         ],
         "time": 2
     },
@@ -6148,12 +12416,30 @@ export const connections = [
         "from": "Kennington",
         "to": "Waterloo",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6161,12 +12447,30 @@ export const connections = [
         "from": "Embankment",
         "to": "Waterloo",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6174,12 +12478,30 @@ export const connections = [
         "from": "Charing Cross",
         "to": "Embankment",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6187,12 +12509,30 @@ export const connections = [
         "from": "Charing Cross",
         "to": "Leicester Square",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6200,12 +12540,30 @@ export const connections = [
         "from": "Leicester Square",
         "to": "Tottenham Court Road",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6213,12 +12571,30 @@ export const connections = [
         "from": "Goodge Street",
         "to": "Tottenham Court Road",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6226,12 +12602,30 @@ export const connections = [
         "from": "Goodge Street",
         "to": "Warren Street",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6239,12 +12633,30 @@ export const connections = [
         "from": "Euston",
         "to": "Warren Street",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6252,12 +12664,30 @@ export const connections = [
         "from": "Euston",
         "to": "Mornington Crescent",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6265,12 +12695,30 @@ export const connections = [
         "from": "Camden Town",
         "to": "Mornington Crescent",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-charing-cross-edgware",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6278,9 +12726,18 @@ export const connections = [
         "from": "Battersea Power Station",
         "to": "Nine Elms",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6288,9 +12745,18 @@ export const connections = [
         "from": "Kennington",
         "to": "Nine Elms",
         "services": [
-            "Northern|battersea-power-station-charing-cross-edgware",
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-edgware"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6298,12 +12764,30 @@ export const connections = [
         "from": "Camden Town",
         "to": "Kentish Town",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6311,12 +12795,30 @@ export const connections = [
         "from": "Kentish Town",
         "to": "Tufnell Park",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6324,12 +12826,30 @@ export const connections = [
         "from": "Archway",
         "to": "Tufnell Park",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6337,12 +12857,30 @@ export const connections = [
         "from": "Archway",
         "to": "Highgate",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6350,12 +12888,30 @@ export const connections = [
         "from": "East Finchley",
         "to": "Highgate",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6363,12 +12919,30 @@ export const connections = [
         "from": "East Finchley",
         "to": "Finchley Central",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-high-barnet",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6376,9 +12950,18 @@ export const connections = [
         "from": "Finchley Central",
         "to": "West Finchley",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
         ],
         "time": 2
     },
@@ -6386,9 +12969,18 @@ export const connections = [
         "from": "West Finchley",
         "to": "Woodside Park",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
         ],
         "time": 2
     },
@@ -6396,9 +12988,18 @@ export const connections = [
         "from": "Totteridge & Whetstone",
         "to": "Woodside Park",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
         ],
         "time": 2
     },
@@ -6406,9 +13007,18 @@ export const connections = [
         "from": "High Barnet",
         "to": "Totteridge & Whetstone",
         "services": [
-            "Northern|battersea-power-station-charing-cross-high-barnet",
-            "Northern|morden-bank-high-barnet",
-            "Northern|morden-charing-cross-high-barnet"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-high-barnet"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-high-barnet"
+            }
         ],
         "time": 2
     },
@@ -6416,9 +13026,18 @@ export const connections = [
         "from": "Finchley Central",
         "to": "Mill Hill East",
         "services": [
-            "Northern|battersea-power-station-charing-cross-mill-hill-east",
-            "Northern|morden-bank-mill-hill-east",
-            "Northern|morden-charing-cross-mill-hill-east"
+            {
+                "line": "Northern",
+                "variant": "battersea-power-station-charing-cross-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-bank-mill-hill-east"
+            },
+            {
+                "line": "Northern",
+                "variant": "morden-charing-cross-mill-hill-east"
+            }
         ],
         "time": 2
     },
@@ -6426,9 +13045,18 @@ export const connections = [
         "from": "Cockfosters",
         "to": "Oakwood",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6436,9 +13064,18 @@ export const connections = [
         "from": "Oakwood",
         "to": "Southgate",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6446,9 +13083,18 @@ export const connections = [
         "from": "Arnos Grove",
         "to": "Southgate",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6456,9 +13102,18 @@ export const connections = [
         "from": "Arnos Grove",
         "to": "Bounds Green",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6466,9 +13121,18 @@ export const connections = [
         "from": "Bounds Green",
         "to": "Wood Green",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6476,9 +13140,18 @@ export const connections = [
         "from": "Turnpike Lane",
         "to": "Wood Green",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6486,9 +13159,18 @@ export const connections = [
         "from": "Manor House",
         "to": "Turnpike Lane",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6496,9 +13178,18 @@ export const connections = [
         "from": "Finsbury Park",
         "to": "Manor House",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6506,9 +13197,18 @@ export const connections = [
         "from": "Finsbury Park",
         "to": "Holloway Road",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6516,9 +13216,18 @@ export const connections = [
         "from": "Caledonian Road",
         "to": "Holloway Road",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6526,9 +13235,18 @@ export const connections = [
         "from": "Caledonian Road",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6536,9 +13254,18 @@ export const connections = [
         "from": "King's Cross St. Pancras",
         "to": "Russell Square",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6546,9 +13273,18 @@ export const connections = [
         "from": "Holborn",
         "to": "Russell Square",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6556,9 +13292,18 @@ export const connections = [
         "from": "Covent Garden",
         "to": "Holborn",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6566,9 +13311,18 @@ export const connections = [
         "from": "Covent Garden",
         "to": "Leicester Square",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6576,9 +13330,18 @@ export const connections = [
         "from": "Leicester Square",
         "to": "Piccadilly Circus",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6586,9 +13349,18 @@ export const connections = [
         "from": "Green Park",
         "to": "Piccadilly Circus",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6596,9 +13368,18 @@ export const connections = [
         "from": "Green Park",
         "to": "Hyde Park Corner",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6606,9 +13387,18 @@ export const connections = [
         "from": "Hyde Park Corner",
         "to": "Knightsbridge",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6616,9 +13406,18 @@ export const connections = [
         "from": "Knightsbridge",
         "to": "South Kensington",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6626,9 +13425,18 @@ export const connections = [
         "from": "Gloucester Road",
         "to": "South Kensington",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6636,9 +13444,18 @@ export const connections = [
         "from": "Earl's Court",
         "to": "Gloucester Road",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6646,9 +13463,18 @@ export const connections = [
         "from": "Barons Court",
         "to": "Earl's Court",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6656,9 +13482,18 @@ export const connections = [
         "from": "Barons Court",
         "to": "Hammersmith (District)",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6666,9 +13501,18 @@ export const connections = [
         "from": "Hammersmith (District)",
         "to": "Turnham Green",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6676,9 +13520,18 @@ export const connections = [
         "from": "Acton Town",
         "to": "Turnham Green",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5",
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6686,7 +13539,10 @@ export const connections = [
         "from": "Acton Town",
         "to": "Ealing Common",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6694,7 +13550,10 @@ export const connections = [
         "from": "Ealing Common",
         "to": "North Ealing",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6702,7 +13561,10 @@ export const connections = [
         "from": "North Ealing",
         "to": "Park Royal",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6710,7 +13572,10 @@ export const connections = [
         "from": "Alperton",
         "to": "Park Royal",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6718,7 +13583,10 @@ export const connections = [
         "from": "Alperton",
         "to": "Sudbury Town",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6726,7 +13594,10 @@ export const connections = [
         "from": "Sudbury Hill",
         "to": "Sudbury Town",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6734,7 +13605,10 @@ export const connections = [
         "from": "South Harrow",
         "to": "Sudbury Hill",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6742,7 +13616,10 @@ export const connections = [
         "from": "Rayners Lane",
         "to": "South Harrow",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6750,7 +13627,10 @@ export const connections = [
         "from": "Eastcote",
         "to": "Rayners Lane",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6758,7 +13638,10 @@ export const connections = [
         "from": "Eastcote",
         "to": "Ruislip Manor",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6766,7 +13649,10 @@ export const connections = [
         "from": "Ruislip",
         "to": "Ruislip Manor",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6774,7 +13660,10 @@ export const connections = [
         "from": "Ickenham",
         "to": "Ruislip",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6782,7 +13671,10 @@ export const connections = [
         "from": "Hillingdon",
         "to": "Ickenham",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6790,7 +13682,10 @@ export const connections = [
         "from": "Hillingdon",
         "to": "Uxbridge",
         "services": [
-            "Piccadilly|cockfosters-uxbridge"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-uxbridge"
+            }
         ],
         "time": 2
     },
@@ -6798,8 +13693,14 @@ export const connections = [
         "from": "Acton Town",
         "to": "South Ealing",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6807,8 +13708,14 @@ export const connections = [
         "from": "Northfields",
         "to": "South Ealing",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6816,8 +13723,14 @@ export const connections = [
         "from": "Boston Manor",
         "to": "Northfields",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6825,8 +13738,14 @@ export const connections = [
         "from": "Boston Manor",
         "to": "Osterley",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6834,8 +13753,14 @@ export const connections = [
         "from": "Hounslow East",
         "to": "Osterley",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6843,8 +13768,14 @@ export const connections = [
         "from": "Hounslow Central",
         "to": "Hounslow East",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6852,8 +13783,14 @@ export const connections = [
         "from": "Hounslow Central",
         "to": "Hounslow West",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6861,8 +13798,14 @@ export const connections = [
         "from": "Hatton Cross",
         "to": "Hounslow West",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6870,8 +13813,14 @@ export const connections = [
         "from": "Hatton Cross",
         "to": "Heathrow Terminals 1 2 3",
         "services": [
-            "Piccadilly|cockfosters-cockfosters",
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            },
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6879,7 +13828,10 @@ export const connections = [
         "from": "Heathrow Terminal 5",
         "to": "Heathrow Terminals 1 2 3",
         "services": [
-            "Piccadilly|cockfosters-heathrow-terminal-5"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-heathrow-terminal-5"
+            }
         ],
         "time": 2
     },
@@ -6887,7 +13839,10 @@ export const connections = [
         "from": "Hatton Cross",
         "to": "Heathrow Terminal 4",
         "services": [
-            "Piccadilly|cockfosters-cockfosters"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
         ],
         "time": 2
     },
@@ -6895,7 +13850,10 @@ export const connections = [
         "from": "Heathrow Terminal 4",
         "to": "Heathrow Terminals 1 2 3",
         "services": [
-            "Piccadilly|cockfosters-cockfosters"
+            {
+                "line": "Piccadilly",
+                "variant": "cockfosters-cockfosters"
+            }
         ],
         "time": 2
     },
@@ -6903,7 +13861,10 @@ export const connections = [
         "from": "Baker Street",
         "to": "Regents Park",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6911,15 +13872,21 @@ export const connections = [
         "from": "Charing Cross",
         "to": "Embankment",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
     {
-        "from": "Edgware Road (Bakerloo)",
+        "from": "Edgware Road",
         "to": "Marylebone",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6927,7 +13894,10 @@ export const connections = [
         "from": "Embankment",
         "to": "Waterloo",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6935,7 +13905,10 @@ export const connections = [
         "from": "Harlesden",
         "to": "Willesden Junction",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6943,15 +13916,32 @@ export const connections = [
         "from": "Harrow & Wealdstone",
         "to": "Kenton",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
+    },
+    {
+        "from": "Kenton",
+        "to": "Northwick Park",
+        "services": [
+            {
+                "line": "Walking",
+                "variant": "kenton-northwick-park"
+            }
+        ],
+        "time": 5
     },
     {
         "from": "Kensal Green",
         "to": "Queens Park",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6959,7 +13949,10 @@ export const connections = [
         "from": "Kenton",
         "to": "South Kenton",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6967,7 +13960,10 @@ export const connections = [
         "from": "Kilburn Park",
         "to": "Maida Vale",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6975,7 +13971,10 @@ export const connections = [
         "from": "Elephant & Castle",
         "to": "Lambeth North",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6983,7 +13982,10 @@ export const connections = [
         "from": "Maida Vale",
         "to": "Warwick Avenue",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6991,7 +13993,10 @@ export const connections = [
         "from": "Baker Street",
         "to": "Marylebone",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -6999,7 +14004,10 @@ export const connections = [
         "from": "North Wembley",
         "to": "Wembley Central",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7007,15 +14015,21 @@ export const connections = [
         "from": "Oxford Circus",
         "to": "Piccadilly Circus",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
     {
-        "from": "Edgware Road (Bakerloo)",
+        "from": "Edgware Road",
         "to": "Paddington",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7023,7 +14037,10 @@ export const connections = [
         "from": "Charing Cross",
         "to": "Piccadilly Circus",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7031,7 +14048,10 @@ export const connections = [
         "from": "Kilburn Park",
         "to": "Queens Park",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7039,7 +14059,10 @@ export const connections = [
         "from": "Oxford Circus",
         "to": "Regents Park",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7047,7 +14070,10 @@ export const connections = [
         "from": "North Wembley",
         "to": "South Kenton",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7055,7 +14081,10 @@ export const connections = [
         "from": "Harlesden",
         "to": "Stonebridge Park",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7063,7 +14092,10 @@ export const connections = [
         "from": "Paddington",
         "to": "Warwick Avenue",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7071,7 +14103,10 @@ export const connections = [
         "from": "Lambeth North",
         "to": "Waterloo",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7079,7 +14114,10 @@ export const connections = [
         "from": "Stonebridge Park",
         "to": "Wembley Central",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7087,7 +14125,10 @@ export const connections = [
         "from": "Kensal Green",
         "to": "Willesden Junction",
         "services": [
-            "Bakerloo"
+            {
+                "line": "Bakerloo",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7095,7 +14136,10 @@ export const connections = [
         "from": "Baker Street",
         "to": "Bond Street",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7103,7 +14147,10 @@ export const connections = [
         "from": "Bermondsey",
         "to": "Canada Water",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7111,7 +14158,10 @@ export const connections = [
         "from": "Bond Street",
         "to": "Green Park",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7119,7 +14169,10 @@ export const connections = [
         "from": "Canada Water",
         "to": "Canary Wharf",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7127,7 +14180,10 @@ export const connections = [
         "from": "Canary Wharf",
         "to": "North Greenwich",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7135,7 +14191,10 @@ export const connections = [
         "from": "Canning Town",
         "to": "West Ham",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7143,7 +14202,10 @@ export const connections = [
         "from": "Canons Park",
         "to": "Queensbury",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7151,7 +14213,10 @@ export const connections = [
         "from": "Dollis Hill",
         "to": "Willesden Green",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7159,7 +14224,10 @@ export const connections = [
         "from": "Finchley Road",
         "to": "Swiss Cottage",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7167,7 +14235,10 @@ export const connections = [
         "from": "Green Park",
         "to": "Westminster",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7175,7 +14246,10 @@ export const connections = [
         "from": "Kilburn",
         "to": "West Hampstead",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7183,7 +14257,10 @@ export const connections = [
         "from": "Kingsbury",
         "to": "Wembley Park",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7191,7 +14268,10 @@ export const connections = [
         "from": "Bermondsey",
         "to": "London Bridge",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7199,7 +14279,10 @@ export const connections = [
         "from": "Dollis Hill",
         "to": "Neasden",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7207,7 +14290,10 @@ export const connections = [
         "from": "Canning Town",
         "to": "North Greenwich",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7215,7 +14301,10 @@ export const connections = [
         "from": "Kingsbury",
         "to": "Queensbury",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7223,7 +14312,10 @@ export const connections = [
         "from": "London Bridge",
         "to": "Southwark",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7231,7 +14323,10 @@ export const connections = [
         "from": "Baker Street",
         "to": "St. Johns Wood",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7239,7 +14334,10 @@ export const connections = [
         "from": "Canons Park",
         "to": "Stanmore",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7247,7 +14345,10 @@ export const connections = [
         "from": "St. Johns Wood",
         "to": "Swiss Cottage",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7255,7 +14356,10 @@ export const connections = [
         "from": "Southwark",
         "to": "Waterloo",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7263,7 +14367,10 @@ export const connections = [
         "from": "Neasden",
         "to": "Wembley Park",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7271,7 +14378,10 @@ export const connections = [
         "from": "Stratford",
         "to": "West Ham",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7279,7 +14389,10 @@ export const connections = [
         "from": "Finchley Road",
         "to": "West Hampstead",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7287,7 +14400,10 @@ export const connections = [
         "from": "Waterloo",
         "to": "Westminster",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7295,7 +14411,10 @@ export const connections = [
         "from": "Kilburn",
         "to": "Willesden Green",
         "services": [
-            "Jubilee"
+            {
+                "line": "Jubilee",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7303,7 +14422,10 @@ export const connections = [
         "from": "Blackhorse Road",
         "to": "Tottenham Hale",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7311,7 +14433,10 @@ export const connections = [
         "from": "Euston",
         "to": "Warren Street",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7319,7 +14444,10 @@ export const connections = [
         "from": "Finsbury Park",
         "to": "Highbury & Islington",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7327,7 +14455,10 @@ export const connections = [
         "from": "Green Park",
         "to": "Victoria",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7335,7 +14466,10 @@ export const connections = [
         "from": "Highbury & Islington",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7343,7 +14477,10 @@ export const connections = [
         "from": "Euston",
         "to": "King's Cross St. Pancras",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7351,7 +14488,10 @@ export const connections = [
         "from": "Green Park",
         "to": "Oxford Circus",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7359,7 +14499,10 @@ export const connections = [
         "from": "Pimlico",
         "to": "Vauxhall",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7367,7 +14510,10 @@ export const connections = [
         "from": "Finsbury Park",
         "to": "Seven Sisters",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7375,7 +14521,10 @@ export const connections = [
         "from": "Brixton",
         "to": "Stockwell",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7383,7 +14532,10 @@ export const connections = [
         "from": "Seven Sisters",
         "to": "Tottenham Hale",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7391,7 +14543,10 @@ export const connections = [
         "from": "Stockwell",
         "to": "Vauxhall",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7399,7 +14554,10 @@ export const connections = [
         "from": "Pimlico",
         "to": "Victoria",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7407,7 +14565,10 @@ export const connections = [
         "from": "Blackhorse Road",
         "to": "Walthamstow Central",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7415,7 +14576,10 @@ export const connections = [
         "from": "Oxford Circus",
         "to": "Warren Street",
         "services": [
-            "Victoria"
+            {
+                "line": "Victoria",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7423,7 +14587,10 @@ export const connections = [
         "from": "Bank",
         "to": "Waterloo",
         "services": [
-            "Waterloo & City"
+            {
+                "line": "Waterloo & City",
+                "variant": null
+            }
         ],
         "time": 2
     },
@@ -7431,7 +14598,10 @@ export const connections = [
         "from": "Bank",
         "to": "Monument",
         "services": [
-            "Walking|bank-monument"
+            {
+                "line": "Walking",
+                "variant": "bank-monument"
+            }
         ],
         "time": 2
     },
@@ -7439,8 +14609,11 @@ export const connections = [
         "from": "Euston",
         "to": "Euston Square",
         "services": [
-            "Walking|euston-euston-square"
+            {
+                "line": "Walking",
+                "variant": "euston-euston-square"
+            }
         ],
         "time": 2
-    },
+    }
 ];

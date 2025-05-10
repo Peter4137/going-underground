@@ -1,70 +1,6 @@
-import { lines, stations, connections } from "./data.js";
-// HELPER FUNCTIONS
-/**
- * Filters the global station, connection, and line data based on specified options.
- */
-export function filterNetworkData(options) {
-    let filteredStations = [...stations];
-    let filteredLines = [...lines];
-    let filteredConnections = [...connections];
-    if (!options) {
-        return { stations: filteredStations, connections: filteredConnections, lines: filteredLines };
-    }
-    // Filter Stations
-    if (options.includedStationNames) {
-        const includeSet = new Set(options.includedStationNames);
-        filteredStations = filteredStations.filter(s => includeSet.has(s.name));
-    }
-    if (options.excludedStationNames) {
-        const excludeSet = new Set(options.excludedStationNames);
-        filteredStations = filteredStations.filter(s => !excludeSet.has(s.name));
-    }
-    const validStationNames = new Set(filteredStations.map(s => s.name));
-    // Filter Lines
-    if (options.includedLineNames) {
-        const includeSet = new Set(options.includedLineNames);
-        filteredLines = filteredLines.filter(l => includeSet.has(l.name));
-    }
-    if (options.excludedLineNames) {
-        const excludeSet = new Set(options.excludedLineNames);
-        filteredLines = filteredLines.filter(l => !excludeSet.has(l.name));
-    }
-    const validLineNames = new Set(filteredLines.map(l => l.name));
-    // Filter Connections
-    filteredConnections = filteredConnections.filter(conn => validStationNames.has(conn.from) &&
-        validStationNames.has(conn.to) &&
-        (conn.services.some(serviceName => {
-            const mainLine = serviceName.split('|')[0];
-            return mainLine ? validLineNames.has(mainLine) : false;
-        })));
-    // Further refine connections: ensure their services *only* contain valid lines
-    // This is important if a line is excluded, connections solely on that line should be less viable or their service list pruned.
-    filteredConnections = filteredConnections.map(conn => {
-        const validServices = conn.services.filter(serviceName => {
-            const mainLine = serviceName.split('|')[0];
-            return mainLine ? validLineNames.has(mainLine) : false;
-        });
-        return { ...conn, services: validServices };
-    }).filter(conn => conn.services.length > 0); // Connection is only valid if it has at least one valid service after filtering
-    return { stations: filteredStations, connections: filteredConnections, lines: filteredLines };
-}
-export const checkLink = (fromName, toName) => {
-    if (!stations || stations.length === 0) {
-        console.warn("checkLink called before stations data loaded.");
-        return false;
-    }
-    const fromStation = stations.find(station => station.name === fromName);
-    const toStation = stations.find(station => station.name === toName);
-    if (!fromStation || !toStation) {
-        return false;
-    }
-    // Assuming fromStation.services is an array of arrays of connected station names
-    for (const service of fromStation.services) {
-        if (toStation.services.includes(service)) {
-            return true;
-        }
-    }
-    return false;
+import { LINES, STATIONS, CONNECTIONS, } from "./data.js";
+export const checkLink = (from, to) => {
+    return STATIONS[from].services.some((fromService) => STATIONS[to].services.some((toService) => toService.line === fromService.line && toService.variant === fromService.variant));
 };
 const cleanName = (name) => {
     if (typeof name !== 'string')
@@ -76,55 +12,30 @@ const cleanName = (name) => {
         .replace(/\./g, '')
         .toLowerCase();
 };
-export const getMatchingStationName = (input) => {
-    if (!stations || stations.length === 0) {
-        console.warn("getMatchingStation called before stations data loaded.");
-        return undefined;
-    }
+export const getMatchingStationNames = (input) => {
     const cleanInput = cleanName(input);
-    const matchingStation = stations.find(station => cleanName(station.name) === cleanInput);
-    if (matchingStation) {
-        return matchingStation.name;
+    const matchingStations = Object.keys(STATIONS)
+        .filter((station) => cleanName(station).includes(cleanInput));
+    const exactMatch = matchingStations.find((station) => cleanName(station) === cleanInput);
+    if (exactMatch) {
+        return [exactMatch];
     }
-    const supersetMatchingStation = stations.find(station => cleanName(station.name).includes(cleanInput));
-    return supersetMatchingStation?.name;
+    return matchingStations;
 };
-export const getConnectingLines = (fromName, toName) => {
-    if (!stations.length || !lines.length) {
-        console.warn("getConnectingLines called before data loaded.");
-        return [];
-    }
-    const fromStation = stations.find(station => station.name === fromName);
-    const toStation = stations.find(station => station.name === toName);
-    if (!fromStation || !toStation || !fromStation.services || !toStation.services) {
-        return [];
-    }
-    const commonLineNames = fromStation.services.filter(lineName => toStation.services.includes(lineName));
-    const connectingLines = commonLineNames.map(lineName => lineName.split("|")[0]);
-    return Array.from(new Set(connectingLines))
-        .map(lineName => lines.find(line => line.name === lineName))
-        .filter((line) => !!line);
+export const connectingLineColors = (from, to) => {
+    const commonServices = STATIONS[from].services.filter(fromService => STATIONS[to].services.some((toService) => toService.line === fromService.line && toService.variant === fromService.variant));
+    return Array.from(new Set(commonServices.map(service => LINES[service.line])));
 };
-export const getRandomStation = (avoidStations = []) => {
-    const availableStations = stations.filter(station => !avoidStations.includes(station.name));
+export const randomStation = (exclude = []) => {
+    const availableStations = Object.keys(STATIONS).filter(station => !exclude.includes(station));
     return availableStations[Math.floor(Math.random() * availableStations.length)];
 };
-export const getStationLines = (stationName) => {
-    if (!stations.length || !lines.length) {
-        console.warn("getStationLines called before data loaded.");
-        return [];
-    }
-    const station = stations.find(s => s.name === stationName);
-    if (!station || !station.services) {
-        return [];
-    }
-    const stationLineNames = Array.from(new Set(station.services.map(lineName => lineName.split("|")[0])));
-    const lineObjects = stationLineNames.map(lineName => lines.find(line => line.name === lineName)).filter(line => !!line);
-    return lineObjects;
+export const stationLineColors = (station) => {
+    const stationLineNames = Array.from(new Set(STATIONS[station].services.map(service => service.line)));
+    return stationLineNames.map(lineName => LINES[lineName]);
 };
-export const calculateOptimalPath = (fromName, toName) => {
-    const { stations, connections } = filterNetworkData();
-    const result = findShortestPathInternal(fromName, toName, stations, connections, true);
+export const calculateOptimalPath = (from, to) => {
+    const result = findShortestPathInternal(from, to, Object.keys(STATIONS), CONNECTIONS, true);
     if (!result) {
         return {
             time: Infinity,
@@ -177,7 +88,7 @@ export const calculateChosenPathTime = (path) => {
 };
 // CORE DIJKSTRA IMPLEMENTATION
 const CHANGE_PENALTY_MINUTES = 3;
-function findShortestPathInternal(startName, endName, stationsToUse, connectionsToUse, applyChangePenalty) {
+function findShortestPathInternal(start, end, stationsToUse, connectionsToUse, applyChangePenalty) {
     const times = {};
     const previousNodes = {};
     // Stores the lines of the connection that led to a node on its shortest path so far
@@ -186,12 +97,12 @@ function findShortestPathInternal(startName, endName, stationsToUse, connections
     const pq = [];
     const visited = new Set();
     stationsToUse.forEach(station => {
-        times[station.name] = Infinity;
-        previousNodes[station.name] = null;
-        linesToReachNode[station.name] = null;
+        times[station] = Infinity;
+        previousNodes[station] = null;
+        linesToReachNode[station] = null;
     });
-    times[startName] = 0;
-    pq.push([0, startName, null]); // No lines to reach start node from a prior segment
+    times[start] = 0;
+    pq.push([0, start, null]); // No lines to reach start node from a prior segment
     while (pq.length > 0) {
         pq.sort((a, b) => a[0] - b[0]); // Sort to simulate min-priority queue
         const currentEntry = pq.shift();
@@ -202,22 +113,19 @@ function findShortestPathInternal(startName, endName, stationsToUse, connections
             continue;
         }
         visited.add(currentNodeName);
-        if (currentNodeName === endName) {
+        if (currentNodeName === end) {
             break; // Target reached
         }
         const outgoingConnections = connectionsToUse.filter(conn => conn.from === currentNodeName || conn.to === currentNodeName);
         for (const connection of outgoingConnections) {
             const neighborName = connection.from === currentNodeName ? connection.to : connection.from;
-            if (visited.has(neighborName) || !times.hasOwnProperty(neighborName))
+            if (visited.has(neighborName) || !times[neighborName])
                 continue;
             const connectionTime = connection.time;
             if (typeof connectionTime !== 'number')
                 continue;
             let currentConnectionCost = connectionTime;
-            const linesOfThisConnection = Array.from(new Set((connection.services || []).map(s => {
-                const mainLine = s.split('|')[0];
-                return mainLine ? mainLine : ""; // handle undefined case, though should not happen
-            }).filter(Boolean)));
+            const linesOfThisConnection = Array.from(new Set((connection.services).map(s => s.line)));
             if (applyChangePenalty && incomingLinesToCurrentNode && incomingLinesToCurrentNode.length > 0) {
                 const hasCommonLine = linesOfThisConnection.some(line => incomingLinesToCurrentNode.includes(line));
                 if (!hasCommonLine && linesOfThisConnection.length > 0) { // Penalty if no common line and current connection has lines
@@ -233,12 +141,12 @@ function findShortestPathInternal(startName, endName, stationsToUse, connections
             }
         }
     }
-    if (times[endName] === Infinity || !times.hasOwnProperty(endName)) {
+    if (times[end] === Infinity || !times[end]) {
         return null; // No path found
     }
     // Reconstruct path
     const path = [];
-    let currentPathNode = endName;
+    let currentPathNode = end;
     while (currentPathNode) {
         path.push(currentPathNode);
         currentPathNode = previousNodes[currentPathNode];
@@ -249,16 +157,16 @@ function findShortestPathInternal(startName, endName, stationsToUse, connections
     if (path.length > 0)
         changeStations.add(path[0]);
     for (let i = 0; i < path.length - 1; i++) {
-        const s1Name = path[i];
-        const s2Name = path[i + 1];
-        const linesToS1 = linesToReachNode[s1Name] || [];
-        const linesToS2 = linesToReachNode[s2Name] || []; // These are the lines of the segment s1->s2
+        const s1 = path[i];
+        const s2 = path[i + 1];
+        const linesToS1 = linesToReachNode[s1] || [];
+        const linesToS2 = linesToReachNode[s2] || []; // These are the lines of the segment s1->s2
         if (i > 0) { // Check for change at s1 (path[i])
             // A change occurs at s1 if lines to s1 (from path[i-1]) differ from lines from s1 to s2 (which are linesToS2)
             if (linesToS1.length > 0 && linesToS2.length > 0) {
                 const hasCommonLine = linesToS2.some((l2) => linesToS1.includes(l2));
                 if (!hasCommonLine) {
-                    changeStations.add(s1Name);
+                    changeStations.add(s1);
                 }
             }
         }
@@ -266,10 +174,10 @@ function findShortestPathInternal(startName, endName, stationsToUse, connections
     if (path.length > 0) {
         changeStations.add(path[path.length - 1]);
     }
-    const firstLegLines = (path.length > 1 && linesToReachNode[path[1]]) ? linesToReachNode[path[1]] : [];
-    const lastLegLines = linesToReachNode[endName] || [];
+    const firstLegLines = linesToReachNode[path[1]];
+    const lastLegLines = linesToReachNode[end];
     return {
-        time: times[endName],
+        time: times[end],
         path: path,
         changeStations: Array.from(changeStations),
         firstLegLines: firstLegLines,
