@@ -1,19 +1,19 @@
 import {
-    checkLink,
-    getMatchingStationName,
-    getConnectingLines,
-    getRandomStation,
-    getStationLines,
+    calculateChosenPathTime,
     calculateOptimalPath,
-    calculateChosenPathTime
+    checkLink,
+    connectingLineColors,
+    getMatchingStationNames,
+    randomStation,
+    stationLineColors,
 } from "./network.js";
 
-import { stations } from "./data.js";
+import { StationName } from "./data.js";
 
 let lives = 3;
 const livesContainer: HTMLElement = document.querySelector('.lives-container') as HTMLElement;
-let visitedStations: string[] = [];
-let goalStation = "";
+let visitedStations: StationName[];
+let goalStation: StationName;
 
 let visitedStationsContainer: HTMLElement;
 let goalStationContainer: HTMLElement;
@@ -61,11 +61,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     helpPopupOverlay = document.getElementById('help-popup-overlay') as HTMLElement;
     helpPopupCloseButton = document.getElementById('help-popup-close-button') as HTMLInputElement;
     popupOptimalPath = document.getElementById('popup-optimal-path') as HTMLElement;
-    
-    if (stations.length === 0) {
-        goalStationContainer.textContent = "Error loading station data!";
-        return;
-    }
 
     initializeGame();
     setupEventListeners();
@@ -102,8 +97,8 @@ function setupEventListeners() {
 
 function initializeGame() {
     lives = INITIAL_LIVES;
-    visitedStations = [getRandomStation().name];
-    goalStation = getRandomStation(visitedStations).name;
+    visitedStations = [randomStation()];
+    goalStation = randomStation(visitedStations);
     
     // Reset UI elements
     (document.getElementById('user-input') as HTMLInputElement).disabled = false;
@@ -127,7 +122,7 @@ function resetGame() {
 }
 
 const getCurrentStation = () => {
-    return visitedStations[visitedStations.length - 1];
+    return visitedStations[visitedStations.length - 1] as StationName;
 }
 
 const updateVisitedStationsDisplay = () => {
@@ -135,32 +130,27 @@ const updateVisitedStationsDisplay = () => {
 
     visitedStationsContainer.innerHTML = '';
 
-    visitedStations.forEach((stationName, index) => {
+    visitedStations.forEach((station, index) => {
         if (index > 0) {
             const prevStationName = visitedStations[index - 1];
             if (!prevStationName) return;
-            const connectingLines = getConnectingLines(prevStationName, stationName);
+            const lineColors = connectingLineColors(prevStationName, station);
 
             const lineContainer = document.createElement('div');
             lineContainer.classList.add('line-connector-container');
 
-            const segmentWidth = 100 / Math.max(1, connectingLines.length);
+            const segmentWidth = 100 / Math.max(1, lineColors.length);
+            const borderWidth = 3 / Math.max(1, lineColors.length);
 
-            connectingLines.forEach((line, _) => {
+            lineColors.forEach((line, idx) => {
                 const lineSegment = document.createElement('div');
                 lineSegment.classList.add('line-segment');
                 lineSegment.style.width = `${segmentWidth}%`;
-                lineSegment.style.transitionDelay = `${index * 0.1}s`;
-
-                if (line.innerColor) {
-                    lineSegment.classList.add('has-inner');
-                    lineSegment.style.backgroundColor = line.innerColor;
-                    lineSegment.style.borderLeftColor = line.outerColor;
-                    lineSegment.style.borderRightColor = line.outerColor;
-                } else {
-                     lineSegment.style.backgroundColor = line.outerColor;
-                     lineSegment.style.border = 'none';
-                }
+                lineSegment.style.transitionDelay = `${idx * 0.2}s`;
+                lineSegment.classList.add('has-inner');
+                lineSegment.style.borderRight = `${borderWidth}px solid ${line.outerColor}`;
+                lineSegment.style.borderLeft = `${borderWidth}px solid ${line.outerColor}`;
+                lineSegment.style.backgroundColor = line.innerColor;
 
                 if (index === visitedStations.length - 1) {
                     setTimeout(() => {
@@ -186,7 +176,7 @@ const updateVisitedStationsDisplay = () => {
 
         const nameSpan = document.createElement('span');
         nameSpan.classList.add('station-marker-name');
-        nameSpan.textContent = stationName;
+        nameSpan.textContent = station;
 
         stationDiv.appendChild(dotSpan);
         stationDiv.appendChild(nameSpan);
@@ -246,7 +236,7 @@ const showToast = (message: string, duration = 3000) => {
 const handleHintClick = () => {
     if (!hintButton || !hintLinesContainer || !goalStation) return;
 
-    const linesForGoal = getStationLines(goalStation);
+    const linesForGoal = stationLineColors(goalStation);
 
     hintLinesContainer.innerHTML = '';
 
@@ -254,18 +244,12 @@ const handleHintClick = () => {
         linesForGoal.forEach(line => {
             const indicator = document.createElement('div');
             indicator.classList.add('hint-line-indicator');
-            indicator.title = line.name;
 
             // Apply final colors immediately
-            if (line.innerColor) {
-                indicator.style.backgroundColor = line.innerColor;
-                indicator.style.borderTopColor = line.outerColor;
-                indicator.style.borderBottomColor = line.outerColor;
-            } else {
-                indicator.style.backgroundColor = line.outerColor;
-                indicator.style.borderTopColor = 'transparent';
-                indicator.style.borderBottomColor = 'transparent';
-            }
+            indicator.style.backgroundColor = line.innerColor;
+            indicator.style.borderTopColor = line.outerColor;
+            indicator.style.borderBottomColor = line.outerColor;
+
 
             hintLinesContainer.appendChild(indicator);
 
@@ -288,19 +272,22 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
         showToast("Please enter a station name!");
         return;
     }
-    const guessStationName = getMatchingStationName(guess);
+    const guessStationNames = getMatchingStationNames(guess);
 
-    if (!guessStationName) {
+    if (guessStationNames.length === 0) {
         showToast("Invalid station name!");
         guessInput.value = '';
         return;
     }
 
-    const currentStation = getCurrentStation();
-    if (!currentStation) {
-        showToast("Error: Current station is not defined.");
+    if (guessStationNames.length > 1) {
+        showToast("Multiple matching stations found, please be more specific!");
         return;
     }
+
+    const guessStationName = guessStationNames[0] as StationName;
+
+    const currentStation = getCurrentStation();
     if (guessStationName === currentStation) {
         showToast("You're already at that station!");
         guessInput.value = '';
@@ -314,8 +301,8 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
         if (guessStationName === goalStation) {
             // WIN CONDITION
             const playerPath = [...visitedStations];
-            const startStation = playerPath[0] as string;
-            const endStation = playerPath[playerPath.length - 1] as string;
+            const startStation = playerPath[0] as StationName;
+            const endStation = playerPath[playerPath.length - 1] as StationName;
 
             // Delay the win popup and input disabling until animation finishes
             const animationDuration = 1000; // Match CSS transition duration (1.0s)
@@ -356,7 +343,7 @@ const handleGuess = (event: MouseEvent | KeyboardEvent) => {
             userInput.disabled = true;
             submitButton.disabled = true;
 
-            const optimalResult = calculateOptimalPath(visitedStations[0] as string, goalStation);
+            const optimalResult = calculateOptimalPath(visitedStations[0] as StationName, goalStation);
             const optimalPath = optimalResult ? optimalResult.changes.join(", ") : null;
 
             showPopup("Game Over! You ran out of lives.", null, optimalPath);

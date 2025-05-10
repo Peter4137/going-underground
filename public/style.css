@@ -67,6 +67,7 @@ h1 {
     width: 100%;
     padding: 1rem 1rem 0 1rem;
     justify-content: space-between;
+    align-items: center;
 }
 
 .visited-stations-container {
@@ -106,7 +107,7 @@ h1 {
     /* Define border style/width but use transparent color initially */
     border-left: 3px solid transparent;
     border-right: 3px solid transparent;
-    border-top: none; /* Explicitly remove top/bottom borders */
+    border-top: none;
     border-bottom: none;
     background-clip: padding-box; /* Background color applies to padding area */
 }
