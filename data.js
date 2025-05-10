@@ -1134,6 +1134,10 @@ export const STATIONS = {
             {
                 "line": "Central",
                 "variant": "woodford-west-ruislip"
+            },
+            {
+                "line": "Walking",
+                "variant": "white-city-wood-lane"
             }
         ]
     },
@@ -2313,7 +2317,7 @@ export const STATIONS = {
             }
         ]
     },
-    "Hammersmith (District)": {
+    "Hammersmith": {
         "services": [
             {
                 "line": "Piccadilly",
@@ -2342,6 +2346,18 @@ export const STATIONS = {
             {
                 "line": "District",
                 "variant": "richmond-upminster"
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
+            },
+            {
+                "line": "Hammersmith & City",
+                "variant": null
             }
         ]
     },
@@ -4006,14 +4022,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
-            }
-        ]
-    },
-    "Hammersmith (Met.)": {
-        "services": [
+            },
             {
-                "line": "Hammersmith & City",
-                "variant": null
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -4022,6 +4038,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -4030,6 +4054,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -4038,6 +4070,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -4046,6 +4086,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -4054,6 +4102,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -4062,6 +4118,14 @@ export const STATIONS = {
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ]
     },
@@ -6657,6 +6721,17 @@ export const CONNECTIONS = [
         "time": 2
     },
     {
+        "from": "White City",
+        "to": "Wood Lane",
+        "services": [
+            {
+                "line": "Walking",
+                "variant": "white-city-wood-lane"
+            }
+        ],
+        "time": 5
+    },
+    {
         "from": "Shepherds Bush",
         "to": "White City",
         "services": [
@@ -7946,7 +8021,7 @@ export const CONNECTIONS = [
         "time": 2
     },
     {
-        "from": "Hammersmith (District)",
+        "from": "Hammersmith",
         "to": "Ravenscourt Park",
         "services": [
             {
@@ -7970,7 +8045,7 @@ export const CONNECTIONS = [
     },
     {
         "from": "Barons Court",
-        "to": "Hammersmith (District)",
+        "to": "Hammersmith",
         "services": [
             {
                 "line": "District",
@@ -10732,6 +10807,14 @@ export const CONNECTIONS = [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -10749,11 +10832,19 @@ export const CONNECTIONS = [
     },
     {
         "from": "Goldhawk Road",
-        "to": "Hammersmith (Met.)",
+        "to": "Hammersmith",
         "services": [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -10776,6 +10867,14 @@ export const CONNECTIONS = [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -10787,6 +10886,14 @@ export const CONNECTIONS = [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -10853,6 +10960,14 @@ export const CONNECTIONS = [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -10864,6 +10979,14 @@ export const CONNECTIONS = [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -10930,6 +11053,14 @@ export const CONNECTIONS = [
             {
                 "line": "Hammersmith & City",
                 "variant": null
+            },
+            {
+                "line": "Circle",
+                "variant": "clockwise"
+            },
+            {
+                "line": "Circle",
+                "variant": "anticlockwise"
             }
         ],
         "time": 2
@@ -13480,7 +13611,7 @@ export const CONNECTIONS = [
     },
     {
         "from": "Barons Court",
-        "to": "Hammersmith (District)",
+        "to": "Hammersmith",
         "services": [
             {
                 "line": "Piccadilly",
@@ -13498,7 +13629,7 @@ export const CONNECTIONS = [
         "time": 2
     },
     {
-        "from": "Hammersmith (District)",
+        "from": "Hammersmith",
         "to": "Turnham Green",
         "services": [
             {
