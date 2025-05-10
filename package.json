@@ -1,12 +1,16 @@
 {
+  "name": "going-underground",
+  "version": "1.0.0",
+  "main": "src/index.js",
   "type": "module",
   "devDependencies": {
     "http-server": "^14.1.1",
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run build:cp-public",
+    "build:cp-public": "cp ./public/** ./dist",
     "watch": "tsc --watch",
-    "dev": "yarn http-server . -o /src/index.html"
+    "dev": "yarn http-server . -o /dist/index.html"
   }
 }
