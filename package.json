@@ -4,13 +4,17 @@
   "main": "src/index.js",
   "type": "module",
   "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
     "http-server": "^14.1.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
   },
   "scripts": {
     "build": "tsc && npm run build:cp-public",
-    "build:cp-public": "cp ./public/** ./dist",
+    "build:cp-public": "cp -r ./public/** ./dist",
     "watch": "tsc --watch",
-    "dev": "yarn http-server . -o /dist/index.html"
+    "dev": "yarn build && yarn http-server ./dist",
+    "lint": "eslint src/*"
   }
 }
