@@ -9831,7 +9831,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 5
     },
     {
         "from": "Maidenhead",
@@ -9846,7 +9846,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 5
     },
     {
         "from": "Maidenhead",
@@ -9861,7 +9861,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 5
     },
     {
         "from": "Burnham",
@@ -9876,7 +9876,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 5
     },
     {
         "from": "Burnham",
@@ -9891,7 +9891,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 4
     },
     {
         "from": "Langley",
@@ -9906,7 +9906,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 4
     },
     {
         "from": "Iver",
@@ -9921,7 +9921,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Iver",
@@ -9936,7 +9936,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Hayes & Harlington",
@@ -9951,7 +9951,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Hayes & Harlington",
@@ -9982,7 +9982,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Hanwell",
@@ -10013,7 +10013,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Hanwell",
@@ -10044,7 +10044,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Ealing Broadway",
@@ -10075,7 +10075,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Acton Main Line",
@@ -10106,7 +10106,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Acton Main Line",
@@ -10137,38 +10137,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
-    },
-    {
-        "from": "Paddington",
-        "to": "Paddington",
-        "services": [
-            {
-                "line": "Elizabeth",
-                "variant": "heathrow-terminal-4-abbey-wood"
-            },
-            {
-                "line": "Elizabeth",
-                "variant": "heathrow-terminal-4-shenfield"
-            },
-            {
-                "line": "Elizabeth",
-                "variant": "heathrow-terminal-5-abbey-wood"
-            },
-            {
-                "line": "Elizabeth",
-                "variant": "heathrow-terminal-5-shenfield"
-            },
-            {
-                "line": "Elizabeth",
-                "variant": "reading-abbey-wood"
-            },
-            {
-                "line": "Elizabeth",
-                "variant": "reading-shenfield"
-            }
-        ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Bond Street",
@@ -10199,7 +10168,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Bond Street",
@@ -10261,7 +10230,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Farringdon",
@@ -10292,7 +10261,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Liverpool Street",
@@ -10342,7 +10311,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Maryland",
@@ -10361,7 +10330,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Forest Gate",
@@ -10380,7 +10349,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Forest Gate",
@@ -10399,7 +10368,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Ilford",
@@ -10418,7 +10387,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Ilford",
@@ -10437,7 +10406,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Goodmayes",
@@ -10456,7 +10425,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Chadwell Heath",
@@ -10475,7 +10444,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Chadwell Heath",
@@ -10494,7 +10463,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Gidea Park",
@@ -10513,7 +10482,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Gidea Park",
@@ -10532,7 +10501,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Brentwood",
@@ -10551,7 +10520,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Brentwood",
@@ -10570,7 +10539,7 @@ export const CONNECTIONS = [
                 "variant": "reading-shenfield"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Canary Wharf",
@@ -10589,7 +10558,7 @@ export const CONNECTIONS = [
                 "variant": "reading-abbey-wood"
             }
         ],
-        "time": 2
+        "time": 3
     },
     {
         "from": "Canary Wharf",
