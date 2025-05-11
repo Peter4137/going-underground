@@ -181,6 +181,29 @@ const updateVisitedStationsDisplay = () => {
         stationDiv.appendChild(dotSpan);
         stationDiv.appendChild(nameSpan);
         visitedStationsContainer.appendChild(stationDiv);
+
+        if (index === visitedStations.length - 1 && index > 0) {
+            dotSpan.style.opacity = '0';
+            nameSpan.style.opacity = '0';
+            nameSpan.style.maxWidth = '0px';
+
+            setTimeout(() => {
+                dotSpan.style.width = '1em';
+                dotSpan.style.opacity = '1';
+                dotSpan.classList.add('spin-animate');
+            }, 500);
+
+            setTimeout(() => {
+                nameSpan.style.opacity = '1';
+                nameSpan.style.maxWidth = '100%';
+                nameSpan.classList.add('slide-animate');
+            }, 750);
+        } else {
+            dotSpan.style.width = '1em';
+            dotSpan.style.opacity = '1';
+            nameSpan.style.opacity = '1';
+            nameSpan.style.maxWidth = '100%';
+        }
     });
 
     visitedStationsContainer.scrollTop = visitedStationsContainer.scrollHeight;
